@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — BioPeptix Store</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ── LOGIN OVERLAY ────────────────────────────────────── -->
+<div class="admin-login-overlay" id="login-overlay">
+  <div class="login-card">
+    <div class="login-card__logo">
+      <div class="logo-text">Bio<em>Peptix</em></div>
+      <p>Admin Dashboard — Secure Access</p>
+    </div>
+    <div id="login-error" class="login-error">Invalid username or password. Please try again.</div>
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="login-user">Username</label>
+        <input type="text" id="login-user" class="form-control" placeholder="admin" autocomplete="username" required>
+      </div>
+      <div class="form-group">
+        <label for="login-pass">Password</label>
+        <input type="password" id="login-pass" class="form-control" placeholder="••••••••" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-full" id="login-submit-btn" style="justify-content:center;padding:0.85rem;">
+        Sign In to Dashboard
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </form>
+    <p style="text-align:center;margin-top:1.25rem;font-size:0.78rem;color:var(--text-sub);">
+      🔒 Protected area — unauthorized access prohibited
+    </p>
+  </div>
+</div>
+
+<!-- ── ADMIN BODY ───────────────────────────────────────── -->
+<div class="admin-body" id="admin-body">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-text">Bio<em>Peptix</em></div>
+      <p>Admin Dashboard</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="active" data-tab="dashboard" id="nav-dashboard">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        Dashboard
+      </a>
+      <a href="#" data-tab="products" id="nav-products">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        Products
+      </a>
+      <a href="#" data-tab="workflows" id="nav-workflows">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        Workflows
+      </a>
+      <a href="index.html" target="_blank" id="nav-storefront">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        View Storefront ↗
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" id="logout-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+
+    <!-- ── TAB: Dashboard ─────────────────────────────── -->
+    <div class="admin-tab-content active" id="tab-dashboard">
+      <div class="admin-topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Welcome back! Here's your store overview.</p>
+        </div>
+        <a href="shop.html" target="_blank" class="btn btn-primary btn-sm">View Live Store ↗</a>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-card__icon">📦</div>
+          <div class="stat-card__val" id="stat-total">—</div>
+          <div class="stat-card__label">Total Products</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">✅</div>
+          <div class="stat-card__val" id="stat-instock">—</div>
+          <div class="stat-card__label">In Stock</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">⚠️</div>
+          <div class="stat-card__val" id="stat-low">—</div>
+          <div class="stat-card__label">Low Stock</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">🏷️</div>
+          <div class="stat-card__val" id="stat-categories">—</div>
+          <div class="stat-card__label">Categories</div>
+        </div>
+      </div>
+
+      <div class="admin-panel">
+        <div class="admin-panel__header">
+          <h3>Quick Actions</h3>
+        </div>
+        <div style="padding:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="document.querySelector('[data-tab=products]').click();setTimeout(()=>openModal(),100)">
+            + Add New Product
+          </button>
+          <button class="btn btn-outline" onclick="document.querySelector('[data-tab=products]').click()">
+            Manage Products
+          </button>
+          <button class="btn btn-outline" onclick="document.querySelector('[data-tab=workflows]').click()">
+            Configure Workflows
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: Products ──────────────────────────────── -->
+    <div class="admin-tab-content" id="tab-products">
+      <div class="admin-topbar">
+        <div>
+          <h1>Products</h1>
+          <p>Add, edit, or remove products from your store.</p>
+        </div>
+        <button class="btn btn-primary" id="add-product-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Product
+        </button>
+      </div>
+
+      <div class="admin-panel">
+        <div class="admin-panel__header">
+          <h3>Product Inventory</h3>
+          <div class="admin-panel__search">
+            <input type="search" id="product-search" class="search-input" placeholder="Search products…">
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="products-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-tbody">
+              <tr><td colspan="7"><div class="table-empty"><p>Loading…</p></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: Workflows ────────────────────────────── -->
+    <div class="admin-tab-content" id="tab-workflows">
+      <div class="admin-topbar">
+        <div>
+          <h1>Automation Workflows</h1>
+          <p>Configure your automated email and CRM triggers.</p>
+        </div>
+        <button class="btn btn-primary" id="save-workflows-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Save Settings
+        </button>
+      </div>
+
+      <!-- Abandoned Cart -->
+      <div class="workflow-card">
+        <div class="workflow-card__header">
+          <h4>🛒 Abandoned Cart Recovery</h4>
+          <label class="toggle-switch">
+            <input type="checkbox" id="wf-abandoned-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <p><strong>Trigger:</strong> User adds items to cart but doesn't purchase within 2 hours.</p>
+        <p><strong>Action:</strong> Sends a POST request with cart data to your configured webhook (n8n / Zapier).</p>
+        <div class="form-group">
+          <label for="wf-abandoned-url">Webhook URL (n8n / Zapier)</label>
+          <input type="url" id="wf-abandoned-url" class="form-control" placeholder="https://your-n8n.com/webhook/abandoned-cart">
+        </div>
+      </div>
+
+      <!-- Purchase Confirmation -->
+      <div class="workflow-card">
+        <div class="workflow-card__header">
+          <h4>✅ Purchase Confirmation</h4>
+          <label class="toggle-switch">
+            <input type="checkbox" id="wf-purchase-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <p><strong>Trigger:</strong> Customer completes checkout successfully.</p>
+        <p><strong>Action:</strong> Sends order receipt to customer + internal notification to your admin email.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label for="wf-purchase-url">Webhook URL</label>
+            <input type="url" id="wf-purchase-url" class="form-control" placeholder="https://your-n8n.com/webhook/purchase">
+          </div>
+          <div class="form-group">
+            <label for="wf-admin-email">Your Admin Email</label>
+            <input type="email" id="wf-admin-email" class="form-control" placeholder="you@email.com">
+          </div>
+        </div>
+      </div>
+
+      <!-- Lead Registration -->
+      <div class="workflow-card">
+        <div class="workflow-card__header">
+          <h4>📋 Lead Registration (CRM)</h4>
+          <label class="toggle-switch">
+            <input type="checkbox" id="wf-lead-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <p><strong>Trigger:</strong> Someone submits the contact form on the How to Buy page.</p>
+        <p><strong>Action:</strong> Adds lead to CRM with tag <code style="background:var(--teal-light);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.85rem;">"Web Lead"</code> and sends a welcome email.</p>
+        <div class="form-group">
+          <label for="wf-lead-url">Webhook URL</label>
+          <input type="url" id="wf-lead-url" class="form-control" placeholder="https://your-n8n.com/webhook/lead-registration">
+        </div>
+      </div>
+
+      <div style="background:var(--teal-light);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--teal-mid);">
+        <p style="color:var(--accent);font-weight:600;font-size:0.9rem;">
+          💡 <strong>How to connect:</strong> Each workflow sends a structured JSON payload to your webhook URL. 
+          Create your automation flows in <strong>n8n</strong> or <strong>Zapier</strong>, copy your webhook URL above, 
+          toggle the switch ON, and click <strong>Save Settings</strong>.
+        </p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── PRODUCT MODAL ────────────────────────────────────── -->
+<div class="modal-overlay" id="product-modal">
+  <div class="modal">
+    <div class="modal__header">
+      <h3 id="modal-title">Add New Product</h3>
+      <button class="modal__close" id="modal-close-btn">✕</button>
+    </div>
+    <div class="modal__body">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="field-name">Product Name *</label>
+          <input type="text" id="field-name" class="form-control" placeholder="e.g. BPC-157 Ultra Pure">
+        </div>
+        <div class="form-group">
+          <label for="field-category">Category *</label>
+          <select id="field-category" class="form-control">
+            <option value="">Select category</option>
+            <option value="peptides">Peptides</option>
+            <option value="serums">Serums</option>
+            <option value="stacks">Stacks</option>
+            <option value="accessories">Accessories</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="field-price">Price ($) *</label>
+          <input type="number" id="field-price" class="form-control" placeholder="89.99" min="0" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="field-originalPrice">Original Price ($) <small style="font-weight:400;color:var(--text-sub)">(optional — shows strikethrough)</small></label>
+          <input type="number" id="field-originalPrice" class="form-control" placeholder="119.99" min="0" step="0.01">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="field-stock">Stock Quantity</label>
+        <input type="number" id="field-stock" class="form-control" placeholder="0" min="0">
+      </div>
+      <div class="form-group">
+        <label for="field-description">Description</label>
+        <textarea id="field-description" class="form-control" placeholder="Brief product description shown on the catalog card…"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="field-image">Image URL</label>
+        <input type="url" id="field-image" class="form-control" placeholder="https://example.com/product-image.jpg">
+        <div class="img-preview" id="img-preview-wrap">
+          <img id="preview-img" src="" alt="Preview">
+          <span id="preview-placeholder">Image preview will appear here</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-outline" id="modal-cancel-btn">Cancel</button>
+      <button class="btn btn-primary" id="modal-save-btn">Save Product</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/workflows.js"></script>
+<script src="js/admin.js"></script>
+<script>
+  // Hide preview placeholder when image loads
+  document.getElementById('preview-img')?.addEventListener('load', function() {
+    document.getElementById('preview-placeholder').style.display = 'none';
+    this.classList.add('loaded');
+  });
+  document.getElementById('preview-img')?.addEventListener('error', function() {
+    document.getElementById('preview-placeholder').style.display = 'block';
+    this.classList.remove('loaded');
+  });
+</script>
+</body>
+</html>

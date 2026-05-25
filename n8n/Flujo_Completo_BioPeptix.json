@@ -1,0 +1,261 @@
+{
+  "name": "BioPeptix - Ecosistema Completo",
+  "nodes": [
+    {
+      "parameters": { 
+        "httpMethod": "POST", 
+        "path": "checkout-mercadopago", 
+        "responseMode": "responseNode",
+        "options": {
+          "corsAllowAll": true
+        }
+      },
+      "id": "c1",
+      "name": "Webhook Checkout",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [ 200, 200 ],
+      "webhookId": "checkout-mercadopago"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mercadopago.com/checkout/preferences",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [ { "name": "Authorization", "value": "Bearer TU_ACCESS_TOKEN_DE_MERCADO_PAGO_AQUI" } ] },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "items", "value": "=[{\"title\": \"Pedido BioPeptix\", \"quantity\": 1, \"unit_price\": {{$json.body.total}}, \"currency_id\": \"COP\"}]" },
+            { "name": "payer", "value": "={\"name\": \"{{$json.body.fname}}\", \"surname\": \"{{$json.body.lname}}\", \"email\": \"{{$json.body.email}}\"}" },
+            { "name": "back_urls", "value": "={\"success\": \"https://tudominio.com/payment-success.html\", \"failure\": \"https://tudominio.com/payment-failure.html\", \"pending\": \"https://tudominio.com/payment-pending.html\"}" },
+            { "name": "auto_return", "value": "approved" }
+          ]
+        }
+      },
+      "id": "c2",
+      "name": "Generar Link Mercado Pago",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 450, 200 ]
+    },
+    {
+      "parameters": { "respondWith": "json", "responseBody": "={\n  \"payment_url\": \"{{ $json.init_point }}\"\n}" },
+      "id": "c3",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [ 700, 200 ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "TU_GOOGLE_SHEET_ID_AQUI", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Órdenes", "mode": "name" }
+      },
+      "id": "c4",
+      "name": "Guardar Orden CRM",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [ 700, 400 ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "admin@biopeptix.com",
+        "toEmail": "admin@biopeptix.com",
+        "subject": "=Nuevo Pedido Generado - {{ $('Webhook Checkout').item.json.body.fname }}",
+        "text": "=Se ha generado un nuevo pedido:\n\nNombre: {{ $('Webhook Checkout').item.json.body.fname }} {{ $('Webhook Checkout').item.json.body.lname }}\nEmail: {{ $('Webhook Checkout').item.json.body.email }}\nTotal: {{ $('Webhook Checkout').item.json.body.total }}\n\nLink de Pago: {{ $json.init_point }}\n\nPor favor gestionar el envío."
+      },
+      "id": "c5",
+      "name": "Enviar Email Admin",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [ 950, 300 ]
+    },
+    {
+      "parameters": {
+        "chatId": "TU_CHAT_ID_TELEGRAM",
+        "text": "=📦 *Nuevo Pedido Generado*\n\n*Nombre:* {{ $('Webhook Checkout').item.json.body.fname }} {{ $('Webhook Checkout').item.json.body.lname }}\n*Email:* {{ $('Webhook Checkout').item.json.body.email }}\n*Total:* {{ $('Webhook Checkout').item.json.body.total }}\n\n*Link de Pago:* {{ $json.init_point }}\n\nPor favor gestionar el envío.",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "c6",
+      "name": "Enviar Telegram Admin",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [ 950, 500 ]
+    },
+
+    {
+      "parameters": { "httpMethod": "POST", "path": "social-incoming" },
+      "id": "m1",
+      "name": "Webhook (Entrada Mensajes)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [ 200, 800 ]
+    },
+    {
+      "parameters": { "conditions": { "boolean": [ { "value1": "={{ $json.body.auto_reply_enabled || true }}", "value2": true } ] } },
+      "id": "m2",
+      "name": "IF (Respuestas Auto?)",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [ 450, 800 ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "TU_GOOGLE_SHEET_ID_AQUI", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Mensajes", "mode": "name" }
+      },
+      "id": "m3",
+      "name": "Guardar Mensaje (Manual)",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [ 700, 650 ]
+    },
+    {
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "rules": [
+            { "conditions": { "string": [ { "value1": "={{ $json.body.message.toLowerCase() }}", "operation": "contains", "value2": "precio" } ] }, "renameOutput": true, "outputKey": "Precio" },
+            { "conditions": { "string": [ { "value1": "={{ $json.body.message.toLowerCase() }}", "operation": "contains", "value2": "envio" } ] }, "renameOutput": true, "outputKey": "Envios" },
+            { "conditions": { "string": [ { "value1": "={{ $json.body.message.toLowerCase() }}", "operation": "contains", "value2": "ubicacion" } ] }, "renameOutput": true, "outputKey": "Ubicacion" }
+          ]
+        },
+        "fallbackOutput": 3
+      },
+      "id": "m4",
+      "name": "Clasificador",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [ 700, 900 ]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "response", "value": "Nuestros precios están en biopeptix.com." }, { "name": "platform", "value": "={{ $json.body.platform }}" } ] } },
+      "id": "m5a",
+      "name": "Respuesta Precio",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [ 950, 750 ]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "response", "value": "Hacemos envíos a toda Colombia." }, { "name": "platform", "value": "={{ $json.body.platform }}" } ] } },
+      "id": "m5b",
+      "name": "Respuesta Envíos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [ 950, 900 ]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "response", "value": "Somos 100% virtuales." }, { "name": "platform", "value": "={{ $json.body.platform }}" } ] } },
+      "id": "m5c",
+      "name": "Respuesta Ubicación",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [ 950, 1050 ]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "response", "value": "Un asesor te responderá pronto." }, { "name": "platform", "value": "={{ $json.body.platform }}" } ] } },
+      "id": "m5d",
+      "name": "Respuesta Defecto",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [ 950, 1200 ]
+    },
+    {
+      "parameters": { "httpMethod": "POST", "path": "social-reply" },
+      "id": "m1b",
+      "name": "Webhook (Salida Admin)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [ 700, 1400 ]
+    },
+    {
+      "parameters": { "values": { "string": [ { "name": "response", "value": "={{ $json.body.message }}" }, { "name": "platform", "value": "={{ $json.body.platform }}" } ] } },
+      "id": "m5e",
+      "name": "Mensaje desde Admin",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [ 950, 1400 ]
+    },
+    {
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "rules": [
+            { "conditions": { "string": [ { "value1": "={{ $json.platform }}", "value2": "facebook" } ] }, "renameOutput": true, "outputKey": "FB" },
+            { "conditions": { "string": [ { "value1": "={{ $json.platform }}", "value2": "instagram" } ] }, "renameOutput": true, "outputKey": "IG" },
+            { "conditions": { "string": [ { "value1": "={{ $json.platform }}", "value2": "tiktok" } ] }, "renameOutput": true, "outputKey": "TikTok" }
+          ]
+        }
+      },
+      "id": "m6",
+      "name": "Enrutar API",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [ 1200, 1050 ]
+    },
+    {
+      "parameters": { "method": "POST", "url": "https://graph.facebook.com/v18.0/me/messages" },
+      "id": "m7a",
+      "name": "API FB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1450, 850 ]
+    },
+    {
+      "parameters": { "method": "POST", "url": "https://graph.instagram.com/v18.0/me/messages" },
+      "id": "m7b",
+      "name": "API IG",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1450, 1050 ]
+    },
+    {
+      "parameters": { "method": "POST", "url": "https://open.tiktokapis.com/v2/message/send/" },
+      "id": "m7c",
+      "name": "API TikTok",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [ 1450, 1250 ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "TU_GOOGLE_SHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Mensajes", "mode": "name" }
+      },
+      "id": "m8",
+      "name": "Registro Salida",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [ 1700, 1050 ]
+    }
+  ],
+  "connections": {
+    "Webhook Checkout": { "main": [ [ { "node": "Generar Link Mercado Pago", "type": "main", "index": 0 } ] ] },
+    "Generar Link Mercado Pago": { "main": [ [ { "node": "Webhook Response", "type": "main", "index": 0 }, { "node": "Guardar Orden CRM", "type": "main", "index": 0 }, { "node": "Enviar Email Admin", "type": "main", "index": 0 }, { "node": "Enviar Telegram Admin", "type": "main", "index": 0 } ] ] },
+
+    "Webhook (Entrada Mensajes)": { "main": [ [ { "node": "IF (Respuestas Auto?)", "type": "main", "index": 0 } ] ] },
+    "IF (Respuestas Auto?)": { "main": [ [ { "node": "Clasificador", "type": "main", "index": 0 } ], [ { "node": "Guardar Mensaje (Manual)", "type": "main", "index": 0 } ] ] },
+    "Clasificador": { "main": [ [ { "node": "Respuesta Precio", "type": "main", "index": 0 } ], [ { "node": "Respuesta Envíos", "type": "main", "index": 0 } ], [ { "node": "Respuesta Ubicación", "type": "main", "index": 0 } ], [ { "node": "Respuesta Defecto", "type": "main", "index": 0 } ] ] },
+    "Respuesta Precio": { "main": [ [ { "node": "Enrutar API", "type": "main", "index": 0 } ] ] },
+    "Respuesta Envíos": { "main": [ [ { "node": "Enrutar API", "type": "main", "index": 0 } ] ] },
+    "Respuesta Ubicación": { "main": [ [ { "node": "Enrutar API", "type": "main", "index": 0 } ] ] },
+    "Respuesta Defecto": { "main": [ [ { "node": "Enrutar API", "type": "main", "index": 0 } ] ] },
+    
+    "Webhook (Salida Admin)": { "main": [ [ { "node": "Mensaje desde Admin", "type": "main", "index": 0 } ] ] },
+    "Mensaje desde Admin": { "main": [ [ { "node": "Enrutar API", "type": "main", "index": 0 } ] ] },
+    
+    "Enrutar API": { "main": [ [ { "node": "API FB", "type": "main", "index": 0 } ], [ { "node": "API IG", "type": "main", "index": 0 } ], [ { "node": "API TikTok", "type": "main", "index": 0 } ] ] },
+    "API FB": { "main": [ [ { "node": "Registro Salida", "type": "main", "index": 0 } ] ] },
+    "API IG": { "main": [ [ { "node": "Registro Salida", "type": "main", "index": 0 } ] ] },
+    "API TikTok": { "main": [ [ { "node": "Registro Salida", "type": "main", "index": 0 } ] ] }
+  },
+  "settings": {}
+}

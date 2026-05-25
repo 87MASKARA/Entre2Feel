@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Compra — Entre2Feel</title>
+  <meta name="description" content="Pago Seguro de tu Protocolo Integral BALANCE FEEL.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=1.1">
+  <link rel="stylesheet" href="css/checkout.css?v=1.1">
+  
+  <!-- Mercado Pago Checkout Bricks SDK -->
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+<body>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="header-logo">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800;">E</div>
+        <span>Entre<em>2Feel</em></span>
+      </a>
+      
+      <nav class="header-nav" id="main-nav">
+        <a href="index.html#home">Inicio</a>
+        <a href="index.html#que-incluye">¿Qué incluye?</a>
+        <a href="index.html#beneficios">Beneficios</a>
+        <a href="index.html#testimonios">Testimonios</a>
+        <a href="index.html#faq">Preguntas</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── SECURE CHECKOUT SECTION ── -->
+  <section class="checkout-section">
+    <div class="container">
+      <div class="checkout-header">
+        <span class="section-label" style="background:#FAF8FF; border: 1px solid var(--gray-200);"><i class="fa-solid fa-lock" style="color:var(--success);"></i> Pago 100% Encriptado y Seguro</span>
+        <h1 style="font-size: 2.2rem; color: var(--primary); margin-top: 0.5rem;">Finalizar tu compra</h1>
+        <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0.25rem;">Completa tus datos de envío y selecciona tu método de pago preferido.</p>
+      </div>
+
+      <form id="checkoutForm" class="checkout-grid" onsubmit="event.preventDefault();">
+        
+        <!-- Left: Shipping/Billing Details -->
+        <div class="billing-section">
+          <h3><i class="fa-solid fa-truck-ramp-box" style="margin-right: 0.5rem; color: var(--secondary);"></i> Datos de Envío</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="chk_fname">Nombres <span class="required">*</span></label>
+              <input type="text" id="chk_fname" name="fname" placeholder="Tus nombres" required>
+            </div>
+            <div class="form-group">
+              <label for="chk_lname">Apellidos <span class="required">*</span></label>
+              <input type="text" id="chk_lname" name="lname" placeholder="Tus apellidos" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="chk_address">Dirección de entrega <span class="required">*</span></label>
+            <input type="text" id="chk_address" name="address" placeholder="Calle, número de casa, apartamento, conjunto" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="chk_city">Ciudad / Municipio <span class="required">*</span></label>
+              <input type="text" id="chk_city" name="city" placeholder="Ej: Bogotá" required>
+            </div>
+            <div class="form-group">
+              <label for="chk_state">Departamento <span class="required">*</span></label>
+              <input type="text" id="chk_state" name="state" placeholder="Ej: Cundinamarca" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="chk_zip">Código Postal / Zona (Opcional o 00000) <span class="required">*</span></label>
+              <input type="text" id="chk_zip" name="zip" value="00000" required>
+            </div>
+            <div class="form-group">
+              <label for="chk_phone">Celular / Teléfono <span class="required">*</span></label>
+              <input type="tel" id="chk_phone" name="phone" placeholder="Ej: 300 123 4567" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="chk_email">Correo Electrónico <span class="required">*</span></label>
+            <input type="email" id="chk_email" name="email" placeholder="ejemplo@correo.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="chk_notes">Notas del pedido (Indicaciones opcionales)</label>
+            <textarea id="chk_notes" name="notes" placeholder="Ej: Dejar en portería, indicaciones adicionales de llegada."></textarea>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary & Payment -->
+        <div class="order-section">
+          <h3><i class="fa-solid fa-receipt" style="margin-right: 0.5rem; color: var(--secondary);"></i> Resumen del pedido</h3>
+          
+          <table class="checkout-order-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th style="text-align:right;">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="checkout-items-list">
+              <!-- Injected dynamically via js/checkout.js -->
+            </tbody>
+            <tfoot>
+              <tr class="order-subtotal">
+                <td>Subtotal</td>
+                <td style="text-align:right;" id="checkout-subtotal">$180.000 COP</td>
+              </tr>
+              <tr class="order-shipping">
+                <td>Envío</td>
+                <td style="text-align:right;">
+                  <span id="checkout-shipping" style="color: #22A06B; font-weight:700;">¡Gratis hoy!</span>
+                </td>
+              </tr>
+              <tr class="order-total">
+                <td>Total</td>
+                <td id="checkout-total" style="font-weight: 800; color: var(--primary);">$180.000 COP</td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <div class="payment-methods" style="margin-bottom: 1.5rem;">
+            <div class="payment-method">
+              <label style="display: flex; align-items: center; gap: 0.5rem;">
+                <input type="radio" name="payment_method" value="mercadopago" checked style="accent-color: var(--secondary);">
+                <span>Pasarela de Pago Segura (Mercado Pago)</span>
+              </label>
+              <div class="payment-box" style="display: block; font-size: 0.85rem; padding: 0.75rem 1rem; margin-top: 0.5rem; background: var(--gray-soft); border-radius: var(--radius); border: 1px solid var(--gray-200); color: var(--text-sub);">
+                Acepta tarjetas de crédito, débito, transferencias por PSE o pagos en efectivo a través de Efecty de forma 100% segura.
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-sub); margin-bottom: 1.5rem; line-height: 1.5;">
+            <i class="fa-solid fa-shield-halved" style="color: var(--success); margin-right: 0.25rem;"></i> Tus datos están protegidos y encriptados. Al dar clic en pagar aceptas nuestras políticas de tratamiento de datos personales.
+          </div>
+
+          <!-- Mercado Pago Bricks Target Container -->
+          <div id="paymentBrick_container" style="background: var(--gray-soft); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px dashed var(--gray-200);">
+            <div style="text-align:center; padding:1.5rem; color:var(--text-sub);" id="brick-loading">
+              <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; color: var(--secondary); margin-bottom: 0.5rem;"></i><br/>
+              <small>Cargando pasarela segura de Mercado Pago...</small>
+            </div>
+          </div>
+
+          <p style="font-size:0.75rem; color:var(--text-sub); margin-top:1.25rem; text-align:center;">
+            🛡️ Transacción segura procesada por <strong>Mercado Pago</strong>
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── SITE FOOTER ── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text" style="display: flex; align-items: center; gap: 0.5rem;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.9rem;">E</div>
+            <span style="color: white; font-weight: 800;">Entre<em style="color: var(--secondary); font-style: normal;">2Feel</em></span>
+          </div>
+          <p>Especialistas en bienestar y nutrición antiinflamatoria en Colombia.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="index.html#home">Inicio</a></li>
+            <li><a href="index.html#que-incluye">¿Qué incluye?</a></li>
+            <li><a href="index.html#beneficios">Beneficios</a></li>
+            <li><a href="index.html#testimonios">Testimonios</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="terms.html">Términos y Condiciones</a></li>
+            <li><a href="privacy.html">Políticas de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6;">
+            ¿Tienes dudas?<br>
+            soporte@entre2feel.com
+          </p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Entre2Feel. Todos los derechos reservados<a href="admin.html" style="color: inherit; text-decoration: none; cursor: default;" tabindex="-1">.</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/checkout.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

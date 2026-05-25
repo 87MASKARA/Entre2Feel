@@ -1,0 +1,208 @@
+/* ── CHECKOUT PAGE STYLES ── */
+.checkout-section {
+  padding: 4rem 0;
+  background: transparent;
+  min-height: 70vh;
+}
+.checkout-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.checkout-header h1 {
+  font-size: 2.5rem;
+  color: var(--white);
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+}
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Left: Billing Details */
+.billing-section {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: var(--border-glass);
+  box-shadow: var(--shadow-glass);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+}
+.billing-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; gap: 1rem; }
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+.form-group label span.required {
+  color: #FF4D4D;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+  transition: var(--transition);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(123,91,255,0.25);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Right: Order Summary */
+.order-section {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: var(--border-glass);
+  box-shadow: var(--shadow-glass);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  position: sticky;
+  top: 2rem;
+}
+.order-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.checkout-order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.checkout-order-table th,
+.checkout-order-table td {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.checkout-order-table th {
+  text-align: left;
+  color: var(--text-sub);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.checkout-order-table td.product-name {
+  color: var(--text-main);
+  font-weight: 500;
+}
+.checkout-order-table td.product-total {
+  text-align: right;
+  font-weight: 600;
+  color: var(--secondary);
+}
+.checkout-order-table tr.order-subtotal td,
+.checkout-order-table tr.order-shipping td {
+  font-weight: 600;
+  color: var(--text-main);
+}
+.checkout-order-table tr.order-shipping td small {
+  display: block;
+  font-weight: 400;
+  color: var(--text-sub);
+  margin-top: 0.25rem;
+}
+.checkout-order-table tr.order-total td {
+  padding-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--white);
+  border-bottom: none;
+}
+.checkout-order-table tr.order-total td:last-child {
+  text-align: right;
+}
+
+/* Payment Methods */
+.payment-methods {
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.payment-method {
+  margin-bottom: 1rem;
+}
+.payment-method:last-child {
+  margin-bottom: 0;
+}
+.payment-method label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-main);
+}
+.payment-method input[type="radio"] {
+  margin-right: 0.75rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--secondary);
+}
+.payment-box {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: none;
+  line-height: 1.5;
+}
+.payment-method input[type="radio"]:checked ~ .payment-box {
+  display: block;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

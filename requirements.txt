@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+mercadopago
+gspread
+google-auth
+google-genai
+httpx
+pydantic
+jinja2
+websockets

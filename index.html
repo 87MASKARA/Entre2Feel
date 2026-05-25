@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre2Feel — Protocolo Integral BALANCE FEEL</title>
+  <meta name="description" content="Transforma tu cuerpo desde adentro: Controla la ansiedad, elimina líquidos y repara tu metabolismo con el Protocolo Integral Balance Feel.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=1.1">
+  
+  <style>
+    /* ── CUSTOM LANDING DESIGN ── */
+    
+    /* Hero Gradient & Mesh */
+    .hero {
+      padding: 6rem 0;
+      min-height: calc(100vh - var(--header-h));
+      background: transparent;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(123, 91, 255, 0.25) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255, 98, 64, 0.15) 0%, transparent 70%);
+      bottom: -50px;
+      left: -50px;
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--teal-light);
+      color: var(--secondary);
+      border: 1px solid var(--gray-200);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-title {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+    
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-sub);
+      margin-bottom: 2.5rem;
+    }
+    
+    .hero-benefits-list {
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    
+    .hero-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    
+    .hero-benefit-item i {
+      color: var(--success);
+      font-size: 1.1rem;
+    }
+    
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .hero-cta-btn {
+      background: var(--accent);
+      color: var(--white);
+      padding: 1.1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 8px 32px rgba(255, 98, 64, 0.35);
+      transition: var(--transition);
+      animation: pulse-accent 2.5s infinite;
+    }
+    
+    .hero-cta-btn:hover {
+      background: #e65230;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(255, 98, 64, 0.45);
+    }
+    
+    @keyframes pulse-accent {
+      0%, 100% { box-shadow: 0 8px 24px rgba(255, 98, 64, 0.35); }
+      50% { box-shadow: 0 8px 36px rgba(255, 98, 64, 0.55); }
+    }
+    
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .hero-img-wrapper {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+    
+    .hero-img-wrapper img {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .hero-img-wrapper:hover img {
+      transform: scale(1.03);
+    }
+    
+    .hero-floating-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-glass);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 2;
+    }
+    
+    .card-left {
+      bottom: 2rem;
+      left: -2rem;
+      animation: float-left 6s ease-in-out infinite;
+    }
+    
+    .card-right {
+      top: 2rem;
+      right: -2.5rem;
+      animation: float-right 6s ease-in-out infinite;
+    }
+    
+    @keyframes float-left {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(5px, -10px); }
+    }
+    
+    @keyframes float-right {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-5px, 10px); }
+    }
+    
+    .floating-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    
+    .floating-card-text h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.1rem;
+    }
+    
+    .floating-card-text p {
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+    
+    /* ── Kit Includes Grid ── */
+    .kit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    
+    .kit-item-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(8px);
+      border: var(--border-glass);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-glass);
+      padding: 2.25rem;
+      display: flex;
+      gap: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .kit-item-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .kit-item-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius);
+      background: var(--teal-light);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    
+    .kit-item-content h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+    
+    .kit-item-content p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-sub);
+    }
+    
+    /* ── High-Converting Offer Box ── */
+    .offer-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .offer-card {
+      background: linear-gradient(145deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(123, 91, 255, 0.2) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+    
+    .offer-details h3 {
+      font-size: 2.2rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .offer-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+      padding-bottom: 0.5rem;
+    }
+    
+    .breakdown-row span:last-child {
+      font-weight: 600;
+    }
+    
+    .offer-price-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+    }
+    
+    .price-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .price-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .price-original {
+      font-size: 1.1rem;
+      text-decoration: line-through;
+      color: rgba(255, 255, 255, 0.45);
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+    
+    .price-buy-btn {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: var(--white);
+      text-align: center;
+      padding: 1.1rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 16px rgba(255, 98, 64, 0.4);
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .price-buy-btn:hover {
+      background: #e65230;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 98, 64, 0.5);
+    }
+    
+    .price-shipping {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #7EE8E0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    
+    /* ── FAQ Accordion ── */
+    .faq-container {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    
+    .faq-item {
+      background: var(--bg-card);
+      backdrop-filter: blur(8px);
+      border: var(--border-glass);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-glass);
+      transition: var(--transition);
+    }
+    
+    .faq-header {
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.05rem;
+      user-select: none;
+      transition: var(--transition);
+    }
+    
+    .faq-header:hover {
+      background: var(--gray-soft);
+    }
+    
+    .faq-icon {
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+      color: var(--secondary);
+    }
+    
+    .faq-body {
+      padding: 0 1.75rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .faq-item.active {
+      border-color: var(--secondary);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .faq-item.active .faq-header {
+      color: var(--secondary);
+    }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    
+    .faq-item.active .faq-body {
+      max-height: 1000px;
+      padding-bottom: 1.5rem;
+    }
+    
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .hero { padding: 4rem 0; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-benefits-list { align-items: center; }
+      .hero-ctas { justify-content: center; }
+      .hero-visual { order: -1; }
+      .card-left { left: 1rem; }
+      .card-right { right: 1rem; }
+      .kit-grid { grid-template-columns: 1fr; }
+      .offer-card { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2.5rem; }
+      .offer-details h3 { text-align: center; }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-cta-btn { width: 100%; text-align: center; }
+      .hero-ctas { flex-direction: column; width: 100%; gap: 1rem; }
+      .card-left, .card-right { display: none; }
+      .kit-item-card { flex-direction: column; text-align: center; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── SITE HEADER ── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="header-logo">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800;">E</div>
+        <span>Entre<em>2Feel</em></span>
+      </a>
+      
+      <nav class="header-nav" id="headerNav">
+        <a href="#home" class="active">Inicio</a>
+        <a href="#que-incluye">¿Qué incluye?</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="checkout.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO SECTION ── -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-content-block">
+        <div class="hero-badge">
+          <i class="fa-solid fa-fire-flame-simple"></i> Protocolo 100% Antiinflamatorio
+        </div>
+        <h1 class="hero-title">
+          Transforma tu cuerpo <em>desde adentro</em>
+        </h1>
+        <p class="hero-subtitle">
+          El protocolo completo que te ayuda a desinflamar tu cuerpo, eliminar la retención de líquidos y encender nuevamente tu metabolismo sin dietas extremas ni rebotes.
+        </p>
+        
+        <div class="hero-benefits-list">
+          <div class="hero-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Controla la ansiedad por comer dulce durante el día</span>
+          </div>
+          <div class="hero-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Elimina la retención de líquidos y la hinchazón</span>
+          </div>
+          <div class="hero-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Aporta energía real y repara tu metabolismo</span>
+          </div>
+        </div>
+        
+        <div class="hero-ctas">
+          <a href="#comprar" class="hero-cta-btn">QUIERO MI KIT AHORA</a>
+          <a href="#que-incluye" class="btn btn-outline btn-lg">Saber Más <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-img-wrapper">
+          <!-- Main Product image extracted from entre2feel.com -->
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/axN0gPIgxQr8rG0tyPSN/media/69ab5b56b3fc00ce6534f016.jpeg" alt="Kit Protocolo Integral Balance Feel">
+        </div>
+        
+        <!-- Floating badge left -->
+        <div class="hero-floating-card card-left">
+          <div class="floating-card-icon">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
+          <div class="floating-card-text">
+            <h4>Gotas Lipo Drean</h4>
+            <p>100% Naturales</p>
+          </div>
+        </div>
+        
+        <!-- Floating badge right -->
+        <div class="hero-floating-card card-right">
+          <div class="floating-card-icon">
+            <i class="fa-solid fa-sparkles"></i>
+          </div>
+          <div class="floating-card-text">
+            <h4>Resultados</h4>
+            <p>Desde la semana 1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT IS INCLUDED SECTION ── -->
+  <section class="section" id="que-incluye">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">El Protocolo Completo</span>
+        <h2 class="section-title">¿Qué incluye tu compra hoy?</h2>
+        <p class="section-sub">Un sistema paso a paso diseñado para ayudarte a tomar el control de tu cuerpo de manera sostenible.</p>
+      </div>
+      
+      <div class="kit-grid">
+        <!-- Item 1 -->
+        <div class="kit-item-card">
+          <div class="kit-item-icon">
+            <i class="fa-solid fa-droplet"></i>
+          </div>
+          <div class="kit-item-content">
+            <h3>Gotas Lipo Drean Complex</h3>
+            <p>Nuestra fórmula estrella concentrada para ayudarte a regular la ansiedad de picar dulces, desinflamar el organismo y reparar progresivamente tu metabolismo.</p>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="kit-item-card">
+          <div class="kit-item-icon">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <div class="kit-item-content">
+            <h3>Protocolo Detox + Sal Rosada</h3>
+            <p>Limpia tu organismo desde las primeras 24 horas y aporta los minerales y electrolitos esenciales necesarios para una correcta hidratación celular sin inflamarte.</p>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="kit-item-card">
+          <div class="kit-item-icon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="kit-item-content">
+            <h3>Guía de Alimentación Antiinflamatoria</h3>
+            <p>Recetario exclusivo con platos deliciosos y reales que no te harán pasar hambre. Aprende a nutrir tu cuerpo sin la tortura de las dietas extremas.</p>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="kit-item-card">
+          <div class="kit-item-icon">
+            <i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <div class="kit-item-content">
+            <h3>Plan de Ejercicios en PDF</h3>
+            <p>Rutinas simples y efectivas en casa o gimnasio estructuradas específicamente para potenciar la quema de grasa y tonificar de forma eficiente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BENEFITS & METABOLISM ── -->
+  <section class="section section--alt" id="beneficios">
+    <div class="container" style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: center;">
+      <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 4px solid rgba(255, 255, 255, 0.1);">
+        <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/axN0gPIgxQr8rG0tyPSN/media/69ab5a2cb2a2741dd0d43850.jpeg" alt="Lipo Drean Drops" style="width:100%; display:block;">
+      </div>
+      <div>
+        <span class="section-label">Beneficios Reales</span>
+        <h2 class="hero-title" style="font-size: 2.2rem; margin-bottom: 1.5rem; text-align: left;">Lo que puedes esperar con el protocolo</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-sub); line-height: 1.7;">
+          Desde la primera semana sentirás un cambio notable en tu nivel de energía y digestión. Siendo constante, entre los días 15 y 20 empezarás a ver cambios reales en la báscula y a notar cómo tu ropa te queda más ligera.
+        </p>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="background: rgba(34, 160, 107, 0.1); color: var(--success); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem;"><i class="fa-solid fa-check"></i></div>
+            <div>
+              <strong style="color: var(--primary); display:block; margin-bottom: 0.25rem;">Adiós Ansiedad</strong>
+              <p style="font-size: 0.9rem; color: var(--text-sub);">Olvídate de estar picando dulce o golosinas constantemente por la tarde.</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="background: rgba(34, 160, 107, 0.1); color: var(--success); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem;"><i class="fa-solid fa-check"></i></div>
+            <div>
+              <strong style="color: var(--primary); display:block; margin-bottom: 0.25rem;">Desinflamación Visible</strong>
+              <p style="font-size: 0.9rem; color: var(--text-sub);">Elimina la retención de líquidos que te hace sentir pesada y con celulitis.</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <div style="background: rgba(34, 160, 107, 0.1); color: var(--success); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem;"><i class="fa-solid fa-check"></i></div>
+            <div>
+              <strong style="color: var(--primary); display:block; margin-bottom: 0.25rem;">Reparación de Metabolismo</strong>
+              <p style="font-size: 0.9rem; color: var(--text-sub);">Tu metabolismo quemará grasa de forma constante gracias a los hábitos antiinflamatorios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS SECTION ── -->
+  <section class="section" id="testimonios">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Historias de Éxito</span>
+        <h2 class="section-title">Resultados de clientes reales</h2>
+        <p class="section-sub">Mujeres que decidieron recuperar el control de su cuerpo e iniciar su proceso con BALANCE FEEL.</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Llevaba meses sintiéndome súper hinchada por más que intentaba comer sano. Con las gotas Lipo Drean y la guía antiinflamatoria, mi digestión cambió del cielo a la tierra en solo una semana. He bajado 4 kilos y me siento súper ligera."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">CM</div>
+            <div>
+              <div class="author-name">Carolina Mendoza</div>
+              <div class="author-title">Cliente Verificada</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"¡Lo mejor son las gotas para la ansiedad! Por las tardes siempre me moría por galletas o chocolates y me arruinaba la dieta. Desde que uso el kit, esa ansiedad desapareció por completo. Estoy feliz con las guías de ejercicios."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AG</div>
+            <div>
+              <div class="author-name">Andrea Gómez</div>
+              <div class="author-title">Cliente Verificada</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Un protocolo muy completo y fácil de seguir. No te matas de hambre y la hidratación con la sal rosada me dio mucha energía para entrenar. El envío llegó súper rápido a Medellín. Excelente atención al cliente."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MV</div>
+            <div>
+              <div class="author-name">Maria Camila Vargas</div>
+              <div class="author-title">Cliente Verificada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONVERSION OFFER BANNER ── -->
+  <section class="section section--alt" id="comprar">
+    <div class="container offer-container">
+      <div class="offer-card">
+        <div class="offer-details">
+          <h3>¡Inicia hoy tu transformación!</h3>
+          <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.85); line-height: 1.6;">Llévate todo el Protocolo Integral BALANCE FEEL por una fracción de su valor real.</p>
+          
+          <div class="offer-breakdown">
+            <div class="breakdown-row">
+              <span>Gotas Lipo Drean Complex</span>
+              <span>$130.000 COP</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Protocolo Detox + Sal Rosada</span>
+              <span>$65.000 COP</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Guía de Alimentación Antiinflamatoria</span>
+              <span>$100.000 COP</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Plan de Ejercicios en PDF</span>
+              <span>$100.000 COP</span>
+            </div>
+            <div class="breakdown-row" style="border: none;">
+              <span>Envío Nacional Asegurado</span>
+              <span>$20.000 COP</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="offer-price-box">
+          <span class="price-label">Precio Especial Hoy</span>
+          <span class="price-value">$180.000 COP</span>
+          <span class="price-original">Valor regular: $415.000 COP</span>
+          
+          <!-- Direct Checkout link -->
+          <a href="checkout.html" class="price-buy-btn">QUIERO EL PROTOCOLO</a>
+          
+          <div class="price-shipping">
+            <i class="fa-solid fa-truck-fast"></i> Envío Gratis a toda Colombia
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQS SECTION ── -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <p class="section-sub">Resolvemos tus dudas sobre el kit y los tiempos de resultados.</p>
+      </div>
+      
+      <div class="faq-container">
+        <!-- Q1 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿En cuánto tiempo veo resultados?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            Muchas de nuestras clientas sienten un cambio notable en sus niveles de energía y una digestión más ligera desde la primera semana de uso. Los cambios reales en medidas corporales y báscula empiezan a ser visibles entre los primeros 15 a 20 días aplicando con juicio el protocolo.
+          </div>
+        </div>
+        
+        <!-- Q2 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Realmente ayuda con la ansiedad por el dulce?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            ¡Sí, totalmente! La fórmula concentrada de las gotas Lipo Drean está diseñada para ayudar a regular los picos de insulina y cortisol en tu organismo, lo cual apaga esa necesidad de estar buscando dulces, harinas y golosinas constantemente durante las tardes.
+          </div>
+        </div>
+        
+        <!-- Q3 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Qué es exactamente lo que recibiré?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            Tu compra incluye el kit completo físico y digital: un frasco de gotas concentradas Lipo Drean Complex, el extracto de sales naturales detox y sal rosada para tu hidratación diaria, la Guía de Alimentación Antiinflamatoria digital descargable en PDF (con recetas del día a día) y el Plan de Ejercicios digital en PDF.
+          </div>
+        </div>
+        
+        <!-- Q4 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Es seguro para mí?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-body">
+            Sí. El protocolo está elaborado con componentes 100% naturales enfocados en nutrir tus células y desinflamar tu organismo. Ha ayudado a decenas de mujeres a desinflamarse sin generar efectos secundarios ni rebotes. Ante cualquier condición médica preexistente, te aconsejamos consultar a tu médico.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SITE FOOTER ── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-text" style="display: flex; align-items: center; gap: 0.5rem;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.9rem;">E</div>
+            <span style="color: white; font-weight: 800;">Entre<em style="color: var(--secondary); font-style: normal;">2Feel</em></span>
+          </div>
+          <p>Especialistas en bienestar y nutrición antiinflamatoria en Colombia.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#que-incluye">¿Qué incluye?</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="terms.html">Términos y Condiciones</a></li>
+            <li><a href="privacy.html">Políticas de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contacto</h5>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6;">
+            ¿Tienes dudas?<br>
+            Escríbenos a nuestro WhatsApp o envíanos un correo.<br>
+            soporte@entre2feel.com
+          </p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Entre2Feel. Todos los derechos reservados<a href="admin.html" style="color: inherit; text-decoration: none; cursor: default;" tabindex="-1">.</a></p>
+        <div class="footer-social">
+          <a href="https://instagram.com/entre2feel" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/573000000000" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/573000000000" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Chatbot Widget Integration -->
+  <script src="js/chatbot.js"></script>
+
+  <!-- Navigation Scroll & Mobile Menu scripts -->
+  <script>
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close other items
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Mobile Hamburger Navigation
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const headerNav = document.getElementById('headerNav');
+    
+    if (hamburgerBtn && headerNav) {
+      hamburgerBtn.addEventListener('click', () => {
+        headerNav.classList.toggle('open');
+        hamburgerBtn.classList.toggle('active');
+      });
+      
+      // Close nav when clicking a link
+      headerNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          headerNav.classList.remove('open');
+          hamburgerBtn.classList.remove('active');
+        });
+      });
+    }
+
+    // Active Navigation Highlight
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.header-nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 120)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

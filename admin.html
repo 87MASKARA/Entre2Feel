@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Entre2Feel</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=1.1">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="admin-body">
+
+<!-- SIDEBAR -->
+<aside class="admin-sidebar">
+  <div class="admin-brand" style="display:flex;align-items:center;gap:0.5rem;">
+    <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
+      <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #7B5BFF, #FF6240); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.9rem;">E</div>
+      <span style="font-weight:800; font-size:1.1rem; color:var(--admin-white);">Entre<em style="color:#FF6240; font-style:normal;">2Feel</em></span>
+    </a>
+    <span class="admin-brand-badge">Panel</span>
+  </div>
+  <nav class="admin-nav" id="admin-nav">
+    <div class="admin-nav-section">Principal</div>
+    <a href="#dashboard" class="active" data-target="dashboard">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Panel de Control
+    </a>
+    <a href="#messages" data-target="messages">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Mensajes Meta
+      <span class="nav-badge" id="msg-badge" style="display:none; margin-left:auto;">0</span>
+    </a>
+    <a href="#crm" data-target="crm">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      CRM y Órdenes
+    </a>
+
+    <!-- Removed system settings link -->
+  </nav>
+  <div class="admin-sidebar-footer">
+    <button class="btn-admin btn-admin-ghost" style="width:100%;" onclick="logout()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Cerrar Sesión
+    </button>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="admin-main">
+  <header class="admin-header">
+    <h2 class="admin-header-title" id="page-title">Panel de Control</h2>
+    <div class="admin-header-actions">
+      <span class="status-dot" id="server-status">Servidor activo</span>
+      <div class="admin-avatar">A</div>
+    </div>
+  </header>
+
+  <div class="admin-content">
+
+    <!-- DASHBOARD -->
+    <section id="panel-dashboard" class="admin-panel active">
+
+      <!-- KPI CARDS -->
+      <div class="kpi-grid">
+        <div class="kpi-card kpi-blue" onclick="goTo('crm')">
+          <div class="kpi-glow"></div>
+          <div class="kpi-card-inner">
+            <div class="kpi-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <div class="kpi-label">Ventas del Mes</div>
+              <div class="kpi-value" id="kpi-revenue">$0</div>
+              <div class="kpi-trend up">↑ vs. mes anterior</div>
+            </div>
+          </div>
+          <div class="kpi-footer">Ver órdenes →</div>
+        </div>
+
+        <div class="kpi-card kpi-teal" onclick="goTo('crm')">
+          <div class="kpi-glow"></div>
+          <div class="kpi-card-inner">
+            <div class="kpi-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="kpi-label">Órdenes Totales</div>
+              <div class="kpi-value" id="kpi-orders">—</div>
+              <div class="kpi-trend" id="kpi-pending-sub">— pendientes</div>
+            </div>
+          </div>
+          <div class="kpi-footer">Gestionar CRM →</div>
+        </div>
+
+        <div class="kpi-card kpi-purple" onclick="goTo('messages')">
+          <div class="kpi-glow"></div>
+          <div class="kpi-card-inner">
+            <div class="kpi-icon-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="kpi-label">Mensajes Meta</div>
+              <div class="kpi-value" id="kpi-messages">0</div>
+              <div class="kpi-trend">sin responder</div>
+            </div>
+          </div>
+          <div class="kpi-footer">Ver bandeja de entrada →</div>
+        </div>
+
+
+      </div>
+
+      <!-- CHARTS ROW -->
+      <div class="charts-row">
+        <div class="chart-card chart-card-lg">
+          <div class="chart-card-header">
+            <div>
+              <div class="chart-card-title">Ingresos Mensuales</div>
+              <div class="chart-card-sub">Últimos 6 meses (COP)</div>
+            </div>
+            <div class="chart-period-btns">
+              <button class="period-btn active" onclick="setPeriod('6m',this)">6M</button>
+              <button class="period-btn" onclick="setPeriod('3m',this)">3M</button>
+            </div>
+          </div>
+          <canvas id="chart-revenue" height="90"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div>
+              <div class="chart-card-title">Estado de Órdenes</div>
+              <div class="chart-card-sub">Distribución actual</div>
+            </div>
+          </div>
+          <canvas id="chart-status" height="120"></canvas>
+        </div>
+      </div>
+
+      <!-- BOTTOM ROW -->
+      <div class="charts-row" style="margin-top:1.25rem;">
+        <div class="chart-card chart-card-lg">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Top Productos Vendidos</div>
+          </div>
+          <canvas id="chart-products" height="90"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <div class="chart-card-title">Actividad Reciente</div>
+          </div>
+          <div class="activity-feed" id="activity-feed">
+            <div style="padding:1rem;color:var(--admin-text-light);font-size:0.85rem;text-align:center;">No hay actividad reciente.</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- MENSAJES META -->
+    <section id="panel-messages" class="admin-panel">
+      <div class="msg-layout">
+        
+        <!-- Left: Contacts List -->
+        <div class="msg-list">
+          <div class="msg-list-header">
+            <span>Inbox Meta</span>
+            <span class="badge-status badge-stock-low" id="msg-badge" style="display:none;">0</span>
+          </div>
+          <div id="msg-list-container">
+            <div style="padding:1.5rem;color:var(--admin-text-light);font-size:0.85rem;text-align:center;">Cargando mensajes…</div>
+          </div>
+        </div>
+        
+        <!-- Right: Chat View -->
+        <div class="msg-view">
+          <div class="msg-view-header">
+            <h4 id="msg-contact-name" style="margin:0;font-weight:700;">Selecciona un chat</h4>
+          </div>
+          <div class="msg-view-body" id="msg-view-body">
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--admin-text-light);font-size:0.9rem;gap:0.5rem;">
+              <span style="font-size:2rem;">💬</span>
+              <span>Selecciona una conversación a la izquierda para ver el historial y responder.</span>
+            </div>
+          </div>
+          <div class="msg-view-footer">
+            <input type="text" id="msg-input" placeholder="Escribe un mensaje..." onkeypress="if(event.key === 'Enter') sendMsg()">
+            <button class="btn-admin btn-admin-primary" onclick="sendMsg()">Enviar</button>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- CRM -->
+    <section id="panel-crm" class="admin-panel" style="padding-top:0;">
+      <div class="admin-table-container">
+        <div class="admin-table-header">
+          <h3>📋 Órdenes y Clientes</h3>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <select id="crm-filter" onchange="filterCRM(this.value)" style="background:var(--admin-bg);border:1px solid var(--admin-border);border-radius:8px;padding:0.45rem 0.75rem;color:var(--admin-text);font-size:0.85rem;">
+              <option value="">Todos los estados</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="Pagado">Pagado</option>
+              <option value="Enviado">Enviado</option>
+              <option value="Cancelado">Cancelado</option>
+              <option value="Reembolsado">Reembolsado</option>
+            </select>
+            <button class="btn-admin btn-admin-ghost btn-admin-sm" onclick="exportCSV()">⬇ Exportar CSV</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Fecha / ID</th>
+                <th>Cliente</th>
+                <th>Celular</th>
+                <th>Email</th>
+                <th>Total</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="crm-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- SETTINGS (Removed for Security) -->
+
+  </div>
+</main>
+
+
+
+<!-- MODAL: Orden -->
+<div class="admin-modal-overlay" id="order-modal">
+  <div class="admin-modal" style="max-width:640px;">
+    <div class="modal-header">
+      <h3 id="order-modal-title">Detalles de la Orden</h3>
+      <button class="modal-close" onclick="closeOrderModal()">×</button>
+    </div>
+    <div id="order-details-content"></div>
+    <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--admin-border);display:flex;gap:0.75rem;flex-wrap:wrap;">
+      <button class="btn-admin btn-admin-ghost" onclick="downloadOrderPDF()">📄 Descargar PDF</button>
+      <button class="btn-admin btn-admin-ghost" onclick="downloadOrderImage()">🖼 Descargar Imagen</button>
+      <button class="btn-admin btn-admin-success" onclick="markAsShipped()">✓ Marcar Enviada</button>
+    </div>
+  </div>
+</div>
+
+<!-- Etiqueta oculta para exportar -->
+<div id="order-label-print" style="position:fixed;left:-9999px;top:0;background:white;padding:2rem;width:400px;font-family:sans-serif;color:#000;"></div>
+
+<script src="js/admin.js?v=20260501d"></script>
+</body>
+</html>
