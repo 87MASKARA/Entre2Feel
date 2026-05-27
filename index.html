@@ -576,9 +576,14 @@
         </div>
       </div>
       
-      <div class="hero-visual" style="min-height: 250px;">
+      <div class="hero-visual" style="min-height: 320px; display: flex; justify-content: center; align-items: center; position: relative;">
+        <!-- Centered Translucent Black Logo Card -->
+        <div style="background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2.5rem 3rem; text-align: center; box-shadow: var(--shadow-glass); max-width: 380px; width: 100%; display: flex; justify-content: center; align-items: center; z-index: 5;">
+          <img src="images/logo.png" alt="Entre2Feel Logo" style="max-height: 80px; width: auto; display: block; filter: drop-shadow(0 0 12px rgba(123, 91, 255, 0.35));">
+        </div>
+
         <!-- Floating badge left -->
-        <div class="hero-floating-card card-left" style="position: absolute; top: 20%; left: 10%;">
+        <div class="hero-floating-card card-left" style="position: absolute; bottom: 2rem; left: -2rem;">
           <div class="floating-card-icon">
             <i class="fa-solid fa-heart-pulse"></i>
           </div>
@@ -589,7 +594,7 @@
         </div>
         
         <!-- Floating badge right -->
-        <div class="hero-floating-card card-right" style="position: absolute; top: 60%; right: 10%;">
+        <div class="hero-floating-card card-right" style="position: absolute; top: 2rem; right: -2.5rem;">
           <div class="floating-card-icon">
             <i class="fa-solid fa-sparkles"></i>
           </div>
