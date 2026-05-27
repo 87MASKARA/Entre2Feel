@@ -92,7 +92,7 @@
     
     .hero-title em {
       font-style: normal;
-      background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+      background: linear-gradient(135deg, #d8b4fe 0%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -531,7 +531,7 @@
       </nav>
       
       <div class="header-actions">
-        <a href="checkout.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
+        <a href="shop.html" id="header-buy-btn" class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-shopping"></i> Comprar</a>
         <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -860,10 +860,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo-text" style="display: flex; align-items: center; gap: 0.5rem;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.9rem;">E</div>
-            <span style="color: white; font-weight: 800;">Entre<em style="color: var(--secondary); font-style: normal;">2Feel</em></span>
-          </div>
+          <a href="index.html" style="display: inline-block; margin-bottom: 1.25rem;">
+            <img src="images/logo.png" alt="Entre2Feel Logo" style="height: 38px; display: block;">
+          </a>
           <p>Especialistas en bienestar y nutrición antiinflamatoria en Colombia.</p>
         </div>
         <div class="footer-col">
@@ -967,6 +966,20 @@
         }
       });
     });
+    // Dynamically update the header Buy button destination based on the cart state
+    const updateHeaderBuyBtn = () => {
+      const buyBtn = document.getElementById('header-buy-btn');
+      if (buyBtn) {
+        const cart = JSON.parse(localStorage.getItem('entre2feel_cart') || '[]');
+        if (cart.length > 0) {
+          buyBtn.href = 'checkout.html';
+        } else {
+          buyBtn.href = 'shop.html';
+        }
+      }
+    };
+    updateHeaderBuyBtn();
+    window.addEventListener('storage', updateHeaderBuyBtn);
   </script>
 </body>
 </html>
