@@ -906,11 +906,43 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
+  <!-- Vanta Birds Background Animation Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
   <!-- Chatbot Widget Integration -->
   <script src="js/chatbot.js"></script>
 
   <!-- Navigation Scroll & Mobile Menu scripts -->
   <script>
+    // Initialize Vanta Birds background animation on DOMContentLoaded
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof VANTA !== 'undefined' && VANTA.BIRDS) {
+        VANTA.BIRDS({
+          el: "#home",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          backgroundColor: 0x07192f,
+          color1: 0xb400ff,
+          color2: 0x00d1ff,
+          colorMode: "varianceGradient",
+          quantity: 5.00,
+          birdSize: 1.00,
+          wingSpan: 30.00,
+          speedLimit: 5.00,
+          separation: 20.00,
+          alignment: 20.00,
+          cohesion: 20.00,
+          backgroundAlpha: 1.00
+        });
+      }
+    });
+
     // FAQ Accordion Toggle
     document.querySelectorAll('.faq-header').forEach(header => {
       header.addEventListener('click', () => {
