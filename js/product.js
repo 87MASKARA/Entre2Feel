@@ -1,11 +1,11 @@
 /* ============================================================
-   BIOPEPTIX — Product Details Logic (product.js)
+   ENTRE2FEEL — Product Details Logic (product.js)
    ============================================================ */
 
 /* ── i18n helper ── */
 const pdpT = (key, fallback) => {
   try {
-    const lang = localStorage.getItem('biopeptix_lang') || 'en';
+    const lang = localStorage.getItem('entre2feel_lang') || 'en';
     return (window.translations && window.translations[lang] && window.translations[lang][key])
       ? window.translations[lang][key]
       : fallback;
@@ -33,7 +33,7 @@ async function initProductPage() {
   }
 
   // 3. Populate UI
-  document.title = `${product.name} — BioPeptix`;
+  document.title = `${product.name} — Entre2Feel`;
   document.getElementById('pdp-crumb-name').textContent = product.name;
   document.getElementById('pdp-title').textContent = product.name;
   
@@ -47,7 +47,7 @@ async function initProductPage() {
   if (longDesc) longDesc.innerHTML = `<strong>${product.name}</strong> ${product.description || fallbackDesc}`;
   
   const imgEl = document.getElementById('pdp-image');
-  imgEl.src = product.image || 'https://placehold.co/600x600/E8F7FA/1A8FA0?text=BioPeptix';
+  imgEl.src = product.image || 'https://placehold.co/600x600/E8F7FA/1A8FA0?text=Entre2Feel';
   imgEl.alt = product.name;
   imgEl.referrerPolicy = "no-referrer";
   
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // Re-render when language changes
-document.addEventListener('biopeptix:langchange', async () => {
+document.addEventListener('entre2feel:langchange', async () => {
   await initProductPage();
 });
 

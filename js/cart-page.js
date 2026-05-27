@@ -1,5 +1,5 @@
 /* ============================================================
-   BIOPEPTIX — Dedicated Cart Page Logic (cart-page.js)
+   ENTRE2FEEL — Dedicated Cart Page Logic (cart-page.js)
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Listen for storage changes in case cart is updated in another tab
   window.addEventListener('storage', (e) => {
-    if (e.key === 'biopeptix_cart') {
+    if (e.key === 'entre2feel_cart') {
       if (typeof Cart !== 'undefined') Cart.init();
       renderCartPage();
     }
@@ -23,7 +23,7 @@ function renderCartPage() {
 
   const items = (typeof Cart !== 'undefined' && Cart.getItems) ? Cart.getItems() : [];
   
-  const lang = localStorage.getItem('biopeptix_lang') || 'en';
+  const lang = localStorage.getItem('entre2feel_lang') || 'en';
   const t_empty = lang === 'es' ? 'Tu carrito está vacío.' : 'Your cart is empty.';
   const t_shop = lang === 'es' ? 'Ir a la tienda' : 'Browse Shop';
   const t_prod = lang === 'es' ? 'Producto' : 'Product';

@@ -1,8 +1,8 @@
 /* ============================================================
-   BIOPEPTIX — Bilingual System (EN / ES)
+   ENTRE2FEEL — Bilingual System (EN / ES)
    ============================================================ */
 
-const LANG_KEY = 'biopeptix_lang';
+const LANG_KEY = 'entre2feel_lang';
 
 const translations = {
 
@@ -17,7 +17,7 @@ const translations = {
     /* ── Hero (index) ── */
     hero_label:   'Clinical-Grade Peptide Science',
     hero_title:   'Elevate Your Biology.<br><span>Unlock Peak Performance.</span>',
-    hero_sub:     'BioPeptix delivers rigorously tested, ultra-pure peptide compounds — formulated for athletes, biohackers, and longevity seekers who demand more.',
+    hero_sub:     'Entre2Feel delivers rigorously tested, ultra-pure peptide compounds — formulated for athletes, biohackers, and longevity seekers who demand more.',
     hero_cta1:    'Shop Now',
     hero_cta2:    'How to Buy',
     hero_stat1_val:'500+',
@@ -32,11 +32,11 @@ const translations = {
     /* ── Featured (index) ── */
     feat_label: 'Top Sellers',
     feat_title: 'Featured Products',
-    feat_sub:   'Our most trusted compounds, loved by the BioPeptix community.',
+    feat_sub:   'Our most trusted compounds, loved by the Entre2Feel community.',
     feat_cta:   'View Full Catalog',
 
     /* ── Trust (index) ── */
-    trust_label:  'Why BioPeptix',
+    trust_label:  'Why Entre2Feel',
     trust_title:  'Built on Trust & Science',
     trust_sub:    'Every product, every shipment — held to the highest standard.',
     trust1_title: 'Secure Shipping',
@@ -49,12 +49,12 @@ const translations = {
     /* ── Testimonials Preview (index) ── */
     testi_label: 'Customer Stories',
     testi_title: 'What Our Community Says',
-    testi_sub:   'Real results from real people who trust BioPeptix.',
+    testi_sub:   'Real results from real people who trust Entre2Feel.',
     testi_cta:   'Read All Reviews',
 
     /* ── CTA Banner (index) ── */
     cta_title: 'Ready to Elevate Your Performance?',
-    cta_sub:   'Join thousands of athletes and health-optimizers who trust BioPeptix.',
+    cta_sub:   'Join thousands of athletes and health-optimizers who trust Entre2Feel.',
     cta_btn:   'Start Shopping',
 
     /* ── Shop Page ── */
@@ -85,7 +85,7 @@ const translations = {
 
     /* ── How to Buy ── */
     htb_hero_title: 'How to Buy',
-    htb_hero_sub:   'Simple, secure, and discreet — your complete guide to ordering from BioPeptix.',
+    htb_hero_sub:   'Simple, secure, and discreet — your complete guide to ordering from Entre2Feel.',
     steps_label:    'The Process',
     steps_title:    'Order in 4 Easy Steps',
     steps_sub:      'From browsing to delivery — we\'ve made it effortless.',
@@ -109,12 +109,12 @@ const translations = {
     faq_label:  'FAQs',
     faq_title:  'Frequently Asked Questions',
     faq_sub:    'Everything you need to know before ordering.',
-    faq1_q:'Are BioPeptix products safe?',
+    faq1_q:'Are Entre2Feel products safe?',
     faq1_a:'All our products are independently tested by third-party laboratories for purity (≥99.8%) and safety. They are research-grade compounds intended for qualified individuals.',
     faq2_q:'How long does shipping take?',
     faq2_a:'Orders are processed and shipped within 48 hours. Delivery typically takes 3–7 business days domestically, depending on your location.',
     faq3_q:'Is my order packaged discreetly?',
-    faq3_a:'Absolutely. All orders ship in plain, unmarked boxes or envelopes. There is no BioPeptix branding on the outside, and the sender name is generic.',
+    faq3_a:'Absolutely. All orders ship in plain, unmarked boxes or envelopes. There is no Entre2Feel branding on the outside, and the sender name is generic.',
     faq4_q:'What is your return policy?',
     faq4_a:'Due to the nature of our products, we do not accept returns on opened items. If your order arrives damaged or incorrect, contact us within 24 hours and we\'ll resolve it immediately.',
 
@@ -131,25 +131,25 @@ const translations = {
 
     /* ── Testimonials Page ── */
     t_hero_title: "Success Stories",
-    t_hero_desc: "Hear from athletes, biohackers, and longevity enthusiasts who trust BioPeptix for their optimization.",
-    t1_text: "\"Tesamorelin has been a game-changer for my body composition. I noticed a significant reduction in visceral fat in just 2 months. The product arrived discreetly, was easy to reconstitute, and the results have been absolutely transformative.\"",
-    t1_title: "Fitness Coach",
-    t2_text: "\"I've been using Retatrutide for fat loss alongside training. The difference is remarkable — visceral fat reduction in 6 weeks. BioPeptix delivered fast, quality is top notch, and the packaging was completely discreet.\"",
-    t2_title: "Competitive Bodybuilder",
-    t3_text: "\"BPC-157 is incredible for recovery. Had chronic knee inflammation for over a year — after 4 weeks of protocol, the improvement was dramatic. BioPeptix is now my only trusted source for peptides.\"",
-    t3_title: "Elite Crossfit Athlete",
-    t4_text: "\"TB-500 + BPC-157 stack helped me recover from a shoulder surgery in half the time my physio projected. The packaging was 100% discreet and arrived in perfect condition. Will order again without hesitation.\"",
-    t4_title: "Marathon Runner",
-    t5_text: "\"GHK-Cu has done wonders for my skin elasticity and joint health. After 8 weeks, fine lines visibly reduced and my knees feel 10 years younger. BioPeptix quality is exactly as advertised — ≥99% purity.\"",
-    t5_title: "Anti-Aging Specialist",
-    t6_text: "\"The MOTS-c protocol has transformed my energy levels and metabolism. I'm 52 years old and feel like I have the endurance of a 30-year-old. Shipping was fast, packaging discreet, and the customer support answered all my dosing questions within hours.\"",
-    t6_title: "Executive & Biohacker",
-    t7_text: "\"5-Amino-1MQ gave me the metabolic boost I needed to break through my plateau. Recovery improved, and body composition shifted noticeably without changing my diet. Third order from BioPeptix — consistent quality every time.\"",
-    t7_title: "Strength & Conditioning Coach",
-    t8_text: "\"Epithalon has been part of my longevity stack for 6 months. My lab markers have improved across the board. I appreciate that BioPeptix provides lab test reports — purity is everything with peptides.\"",
-    t8_title: "Longevity Researcher",
-    t9_text: "\"PT-141 works exactly as described. Discreet packaging, fast 24-hour delivery, and the product quality is unmatched. BioPeptix stands out for transparency and consistency. I've tried other sources — there's no comparison.\"",
-    t9_title: "Men's Health Advocate",
+    t_hero_desc: "Hear from athletes, biohackers, and longevity enthusiasts who trust Entre2Feel for their optimization.",
+    t1_text: "\"I had been feeling super bloated for months no matter how healthy I ate. With the Lipo Drean drops and the anti-inflammatory guide, my digestion changed completely in just one week. I lost 4 kg and feel incredibly light.\"",
+    t1_title: "Carolina Mendoza — Verified Customer",
+    t2_text: "\"The best part is definitely the drops for anxiety! In the afternoons, I was always dying for cookies or chocolates and it ruined my diet. Since using the kit, that anxiety is completely gone. I am so happy with the workout guides.\"",
+    t2_title: "Andrea Gómez — Verified Customer",
+    t3_text: "\"A very complete and easy-to-follow protocol. You don't starve and the hydration with Himalayan salt gave me so much energy to train. Shipping arrived super fast. Excellent customer service.\"",
+    t3_title: "Maria Camila Vargas — Verified Customer",
+    t4_text: "\"The detox protocol of the first 24 hours is incredible. I felt an immediate change in the swelling of my abdomen. It is the perfect start to recover your metabolism and feel light again.\"",
+    t4_title: "Liliana Castro — Verified Customer",
+    t5_text: "\"I loved the anti-inflammatory food guide. The recipes are delicious, easy to prepare, and you really don't starve. The Lipo Drean drops helped me control my sugar cravings entirely.\"",
+    t5_title: "Natalia Ramírez — Verified Customer",
+    t6_text: "\"I have been on the BALANCE FEEL protocol for three weeks and the results are incredible. I have noticeably lost inches and my energy during the day is totally different. 100% recommended.\"",
+    t6_title: "Diana Cardona — Verified Customer",
+    t7_text: "\"Absolutely changed my life! The combination of drops and proper hydration got rid of my fluid retention in less than 10 days. I feel lighter and look much more toned.\"",
+    t7_title: "Carlos P. — Verified Customer",
+    t8_text: "\"Highly recommended! If you are struggling with a slow metabolism and constant bloating, this is the solution. The PDF guides are clear and highly practical.\"",
+    t8_title: "Laura W. — Verified Customer",
+    t9_text: "\"The customer support answered all my questions about drops dosage within minutes. Delivery to Bogotá took only 24 hours. The kit is worth every single peso!\"",
+    t9_title: "Nicolas K. — Verified Customer",
 
     /* ── Checkout ── */
     checkout_title: "Checkout",
@@ -190,32 +190,32 @@ const translations = {
     footer_faqs:  'FAQs',
     footer_privacy:'Privacy Policy',
     footer_terms: 'Terms of Service',
-    footer_copy:  '© 2024 BioPeptix. All rights reserved.',
+    footer_copy:  '© 2024 Entre2Feel. All rights reserved.',
     no_products:  'No products found in this category.',
 
     /* ── Product Detail Page (PDP) ── */
-    pdp_water_alert_title: 'Do you need bacteriostatic water?',
-    pdp_water_alert_text:  'To reconstitute this peptide, we recommend adding',
-    pdp_water_alert_link:  'Bacteriostatic Water 3 ml ($30,000)',
-    pdp_water_alert_end:   'to your order.',
+    pdp_water_alert_title: '',
+    pdp_water_alert_text:  '',
+    pdp_water_alert_link:  '',
+    pdp_water_alert_end:   '',
     pdp_faq_title:         'Frequently Asked Questions',
     pdp_faq1_q:            'How is shipping done?',
     pdp_faq1_a:            'We ship within Colombia in 24 business hours, depending on the city and logistics availability.',
     pdp_faq2_q:            'Is packaging discreet?',
     pdp_faq2_a:            'Yes, we guarantee completely discreet packaging with no external markings that reveal the contents.',
-    pdp_faq3_q:            'What are the products for?',
-    pdp_faq3_a:            'These products are strictly intended for research and laboratory development purposes. Not for human consumption.',
+    pdp_faq3_q:            'Who is the protocol designed for?',
+    pdp_faq3_a:            'It is designed for anyone looking to reduce body inflammation, eliminate water retention, control anxiety, and reactivate their metabolism naturally.',
     pdp_faq4_q:            'What are the payment methods?',
-    pdp_faq4_a:            'PAYMENT METHODS: ELECTRONIC TRANSFER, PSE AND CREDIT CARD.',
+    pdp_faq4_a:            'PAYMENT METHODS: BANK TRANSFER, PSE AND CREDIT CARD.',
     pdp_desc_section:      'Product Description',
     pdp_desc_title_suffix: 'in Colombia',
     pdp_features_title:    'Product Features',
     pdp_feat_presentation: 'Presentation:',
-    pdp_feat_pres_val:     'Sealed vial',
+    pdp_feat_pres_val:     'Dropper / Complete Kit',
     pdp_feat_use:          'Use:',
-    pdp_feat_use_val:      'Research use only',
-    pdp_feat_purity:       'Purity:',
-    pdp_feat_purity_val:   'High purity guaranteed',
+    pdp_feat_use_val:      'Daily wellness & anti-inflammation',
+    pdp_feat_purity:       'Quality:',
+    pdp_feat_purity_val:   '100% natural & safe',
     pdp_feat_shipping:     'Shipping:',
     pdp_feat_shipping_val: 'Fast within Colombia',
     pdp_avail_title:       'Availability & Shipping',
@@ -241,7 +241,7 @@ const translations = {
     /* ── Hero (index) ── */
     hero_label:   'Ciencia de Péptidos de Grado Clínico',
     hero_title:   'Eleva Tu Biología.<br><span>Desbloquea el Máximo Rendimiento.</span>',
-    hero_sub:     'BioPeptix ofrece compuestos de péptidos ultrapuros y rigurosamente probados — formulados para atletas, biohackers y buscadores de longevidad que exigen más.',
+    hero_sub:     'Entre2Feel ofrece compuestos de péptidos ultrapuros y rigurosamente probados — formulados para atletas, biohackers y buscadores de longevidad que exigen más.',
     hero_cta1:    'Comprar Ahora',
     hero_cta2:    'Cómo Comprar',
     hero_stat1_val:'500+',
@@ -256,11 +256,11 @@ const translations = {
     /* ── Featured (index) ── */
     feat_label: 'Más Vendidos',
     feat_title: 'Productos Destacados',
-    feat_sub:   'Nuestros compuestos más confiables, favoritos de la comunidad BioPeptix.',
+    feat_sub:   'Nuestros compuestos más confiables, favoritos de la comunidad Entre2Feel.',
     feat_cta:   'Ver Catálogo Completo',
 
     /* ── Trust (index) ── */
-    trust_label:  'Por Qué BioPeptix',
+    trust_label:  'Por Qué Entre2Feel',
     trust_title:  'Construido sobre Confianza y Ciencia',
     trust_sub:    'Cada producto, cada envío — mantenido al más alto estándar.',
     trust1_title: 'Envío Seguro',
@@ -273,12 +273,12 @@ const translations = {
     /* ── Testimonials Preview (index) ── */
     testi_label: 'Historias de Clientes',
     testi_title: 'Lo Que Dice Nuestra Comunidad',
-    testi_sub:   'Resultados reales de personas reales que confían en BioPeptix.',
+    testi_sub:   'Resultados reales de personas reales que confían en Entre2Feel.',
     testi_cta:   'Leer Todas las Reseñas',
 
     /* ── CTA Banner (index) ── */
     cta_title: '¿Listo para Elevar tu Rendimiento?',
-    cta_sub:   'Únete a miles de atletas y optimizadores de salud que confían en BioPeptix.',
+    cta_sub:   'Únete a miles de atletas y optimizadores de salud que confían en Entre2Feel.',
     cta_btn:   'Comenzar a Comprar',
 
     /* ── Shop Page ── */
@@ -309,7 +309,7 @@ const translations = {
 
     /* ── How to Buy ── */
     htb_hero_title: 'Cómo Comprar',
-    htb_hero_sub:   'Simple, seguro y discreto — tu guía completa para ordenar en BioPeptix.',
+    htb_hero_sub:   'Simple, seguro y discreto — tu guía completa para ordenar en Entre2Feel.',
     steps_label:    'El Proceso',
     steps_title:    'Ordena en 4 Sencillos Pasos',
     steps_sub:      'Desde la navegación hasta la entrega — lo hemos hecho sin esfuerzo.',
@@ -333,12 +333,12 @@ const translations = {
     faq_label:  'Preguntas Frecuentes',
     faq_title:  'Preguntas Frecuentes',
     faq_sub:    'Todo lo que necesitas saber antes de ordenar.',
-    faq1_q:'¿Son seguros los productos de BioPeptix?',
+    faq1_q:'¿Son seguros los productos de Entre2Feel?',
     faq1_a:'Todos nuestros productos son probados de forma independiente por laboratorios de terceros para pureza (≥99.8%) y seguridad. Son compuestos de grado investigación destinados a personas calificadas.',
     faq2_q:'¿Cuánto tiempo tarda el envío?',
     faq2_a:'Los pedidos se procesan y envían dentro de las 48 horas. La entrega tarda 3–7 días hábiles a nivel nacional, dependiendo de tu ubicación.',
     faq3_q:'¿Mi pedido se empaca discretamente?',
-    faq3_a:'Absolutamente. Todos los pedidos se envían en cajas o sobres lisos y sin marcas. No hay marca de BioPeptix en el exterior y el nombre del remitente es genérico.',
+    faq3_a:'Absolutamente. Todos los pedidos se envían en cajas o sobres lisos y sin marcas. No hay marca de Entre2Feel en el exterior y el nombre del remitente es genérico.',
     faq4_q:'¿Cuál es su política de devoluciones?',
     faq4_a:'Debido a la naturaleza de nuestros productos, no aceptamos devoluciones de artículos abiertos. Si tu pedido llega dañado o incorrecto, contáctanos dentro de las 24 horas y lo resolveremos de inmediato.',
 
@@ -355,25 +355,25 @@ const translations = {
 
     /* ── Testimonials Page ── */
     t_hero_title: "Historias de Éxito",
-    t_hero_desc: "Escucha a atletas, biohackers y entusiastas de la longevidad que confían en BioPeptix para su optimización.",
-    t1_text: "\"Tesamorelin ha sido un cambio total en mi composición corporal. Noté una reducción significativa de grasa visceral en solo 2 meses. El producto llegó de forma discreta, fue fácil de reconstituir y los resultados han sido absolutamente transformadores.\"",
-    t1_title: "Entrenador de fitness",
-    t2_text: "\"Llevo usando Retatrutide para pérdida de grasa junto a mi entrenamiento. La diferencia es notable: reducción de grasa visceral en 6 semanas. BioPeptix entregó rápido, la calidad es excelente y el empaque fue completamente discreto.\"",
-    t2_title: "Culturista competitivo",
-    t3_text: "\"BPC-157 es increíble para la recuperación. Tenía inflamación crónica de rodilla por más de un año. Después de 4 semanas de protocolo, la mejora fue dramática. BioPeptix es mi única fuente de confianza para péptidos.\"",
-    t3_title: "Atleta de elite de Crossfit",
-    t4_text: "\"El stack de TB-500 + BPC-157 me ayudó a recuperarme de una cirugía de hombro en la mitad del tiempo que proyectó mi fisioterapeuta. El empaque fue 100% discreto y llegó en perfectas condiciones.\"",
-    t4_title: "Corredor de maratón",
-    t5_text: "\"GHK-Cu ha hecho maravillas en la elasticidad de mi piel y la salud de mis articulaciones. Después de 8 semanas, las líneas de expresión se redujeron visiblemente y mis rodillas se sienten 10 años más jóvenes. La calidad de BioPeptix es exactamente como anuncian: ≥99% pureza.\"",
-    t5_title: "Especialista en antienvejecimiento",
-    t6_text: "\"El protocolo de MOTS-c transformó mis niveles de energía y metabolismo. Tengo 52 años y siento que tengo la resistencia de alguien de 30. El envío fue rápido, el empaque discreto y el soporte resolvió todas mis preguntas sobre dosificación en horas.\"",
-    t6_title: "Ejecutivo y biohacker",
-    t7_text: "\"5-Amino-1MQ me dio el impulso metabólico que necesitaba para superar mi estancamiento. La recuperación mejoró y la composición corporal cambió notablemente sin modificar mi dieta. Tercer pedido de BioPeptix: calidad constante siempre.\"",
-    t7_title: "Entrenador de fuerza y acondicionamiento",
-    t8_text: "\"Epithalon ha sido parte de mi stack de longevidad por 6 meses. Mis marcadores de laboratorio mejoraron en general. Agradezco que BioPeptix provea reportes de pruebas de laboratorio: la pureza es todo con los péptidos.\"",
-    t8_title: "Investigador de longevidad",
-    t9_text: "\"PT-141 funciona exactamente como se describe. Empaque discreto, entrega rápida en 24 horas y la calidad del producto es inigualable. BioPeptix destaca por su transparencia y consistencia. He probado otras fuentes: no hay comparación.\"",
-    t9_title: "Defensor de la salud masculina",
+    t_hero_desc: "Escucha a atletas, biohackers y entusiastas de la longevidad que confían en Entre2Feel para su optimización.",
+    t1_text: "\"Llevaba meses sintiéndome súper hinchada por más que intentaba comer sano. Con las gotas Lipo Drean y la guía antiinflamatoria, mi digestión cambió del cielo a la tierra en solo una semana. He bajado 4 kilos y me siento súper ligera.\"",
+    t1_title: "Carolina Mendoza — Cliente Verificada",
+    t2_text: "\"¡Lo mejor son las gotas para la ansiedad! Por las tardes siempre me moría por galletas o chocolates y me arruinaba la dieta. Desde que uso el kit, esa ansiedad desapareció por completo. Estoy feliz con las guías de ejercicios.\"",
+    t2_title: "Andrea Gómez — Cliente Verificada",
+    t3_text: "\"Un protocolo muy completo y fácil de seguir. No te matas de hambre y la hidratación con la sal rosada me dio mucha energía para entrenar. El envío llegó súper rápido a Medellín. Excelente atención al cliente.\"",
+    t3_title: "Maria Camila Vargas — Cliente Verificada",
+    t4_text: "\"El protocolo detox de las primeras 24 horas es increíble. Sentí un cambio inmediato en la inflamación de mi abdomen. Es el inicio perfecto para recuperar tu metabolismo y sentirte ligera.\"",
+    t4_title: "Liliana Castro — Cliente Verificada",
+    t5_text: "\"Me encantó la guía de alimentación antiinflamatoria. Las recetas son deliciosas, fáciles de preparar y realmente no pasas hambre. Las gotas Lipo Drean me ayudaron a controlar los antojos por completo.\"",
+    t5_title: "Natalia Ramírez — Cliente Verificada",
+    t6_text: "\"Llevo tres semanas con el protocolo BALANCE FEEL y los resultados son increíbles. He bajado medidas notablemente y mi energía durante el día es otra. Lo recomiendo al 100%.\"",
+    t6_title: "Diana Cardona — Cliente Verificada",
+    t7_text: "\"¡Cambió mi vida por completo! La combinación de las gotas y la hidratación correcta eliminó mi retención de líquidos en menos de 10 días. Me siento ligera y me veo mucho más tonificada.\"",
+    t7_title: "Carlos P. — Cliente Verificado",
+    t8_text: "\"¡Súper recomendado! Si estás luchando con un metabolismo lento y constante hinchazón, esta es la solución. Las guías en PDF son muy claras y prácticas.\"",
+    t8_title: "Laura W. — Cliente Verificada",
+    t9_text: "\"La atención al cliente resolvió todas mis dudas sobre la dosis de las gotas en minutos. El envío a Bogotá tardó solo 24 horas. ¡El kit vale cada centavo!\"",
+    t9_title: "Nicolas K. — Cliente Verificado",
 
     /* ── Checkout ── */
     checkout_title: "Finalizar Compra",
@@ -414,7 +414,7 @@ const translations = {
     footer_faqs:  'Preguntas Frecuentes',
     footer_privacy:'Política de Privacidad',
     footer_terms: 'Términos de Servicio',
-    footer_copy:  '© 2024 BioPeptix. Todos los derechos reservados.',
+    footer_copy:  '© 2024 Entre2Feel. Todos los derechos reservados.',
 
 
     /* ── Product Page (PDP) ── */
@@ -430,28 +430,28 @@ const translations = {
     no_products:     'No se encontraron productos en esta categoría.',
 
     /* ── Product Detail Page (PDP) ── */
-    pdp_water_alert_title: '¿Necesitas agua bacteriostática?',
-    pdp_water_alert_text:  'Para reconstituir este péptido, te recomendamos agregar',
-    pdp_water_alert_link:  'Agua Bacteriostática 3 ml ($30.000)',
-    pdp_water_alert_end:   'a tu pedido.',
+    pdp_water_alert_title: '',
+    pdp_water_alert_text:  '',
+    pdp_water_alert_link:  '',
+    pdp_water_alert_end:   '',
     pdp_faq_title:         'Preguntas Frecuentes',
     pdp_faq1_q:            '¿Cómo se realiza el envío?',
     pdp_faq1_a:            'Realizamos envíos dentro de Colombia en 24 horas hábiles, dependiendo de la ciudad y la disponibilidad logística.',
     pdp_faq2_q:            '¿El embalaje es discreto?',
     pdp_faq2_a:            'Sí, garantizamos un empaque completamente discreto sin marcas externas que revelen el contenido de su interior.',
-    pdp_faq3_q:            '¿Para qué uso son los productos?',
-    pdp_faq3_a:            'Estos productos están estrictamente destinados a fines de investigación y desarrollo de laboratorio. No son para consumo humano.',
+    pdp_faq3_q:            '¿Para quién está diseñado el protocolo?',
+    pdp_faq3_a:            'Está diseñado para personas que buscan desinflamar su cuerpo, eliminar la retención de líquidos, controlar la ansiedad y reactivar su metabolismo de manera 100% natural.',
     pdp_faq4_q:            '¿Cuáles son los métodos de pago?',
     pdp_faq4_a:            'MÉTODOS DE PAGO: TRANSFERENCIA ELECTRÓNICA, PSE Y TARJETA DE CRÉDITO.',
     pdp_desc_section:      'Descripción del producto',
     pdp_desc_title_suffix: 'en Colombia',
     pdp_features_title:    'Características del producto',
     pdp_feat_presentation: 'Presentación:',
-    pdp_feat_pres_val:     'Vial sellado',
+    pdp_feat_pres_val:     'Gotero / Kit Completo',
     pdp_feat_use:          'Uso:',
-    pdp_feat_use_val:      'Solo para investigación',
-    pdp_feat_purity:       'Pureza:',
-    pdp_feat_purity_val:   'Alta pureza garantizada',
+    pdp_feat_use_val:      'Bienestar diario y desinflamación',
+    pdp_feat_purity:       'Calidad:',
+    pdp_feat_purity_val:   '100% natural y seguro',
     pdp_feat_shipping:     'Envío:',
     pdp_feat_shipping_val: 'Rápido dentro de Colombia',
     pdp_avail_title:       'Disponibilidad y envíos',
@@ -490,18 +490,18 @@ const applyLang = (lang) => {
   // Store preference
   localStorage.setItem(LANG_KEY, lang);
   // Notificar a otros scripts (shop.js, etc.) que el idioma cambió
-  document.dispatchEvent(new CustomEvent('biopeptix:langchange', { detail: { lang } }));
+  document.dispatchEvent(new CustomEvent('entre2feel:langchange', { detail: { lang } }));
 };
 
 /* ── Toggle ───────────────────────────────────────────── */
 const toggleLang = () => {
-  const current = localStorage.getItem(LANG_KEY) || 'en';
-  applyLang(current === 'en' ? 'es' : 'en');
+  const current = localStorage.getItem(LANG_KEY) || 'es';
+  applyLang(current === 'es' ? 'en' : 'es');
 };
 
 /* ── Init on Load ─────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem(LANG_KEY) || 'en';
+  const saved = localStorage.getItem(LANG_KEY) || 'es';
   applyLang(saved);
   document.getElementById('lang-toggle-btn')?.addEventListener('click', toggleLang);
 });

@@ -1,10 +1,10 @@
 /* ============================================================
-   BIOPEPTIX — Automation Workflows (workflows.js)
+   ENTRE2FEEL — Automation Workflows (workflows.js)
    ============================================================ */
 
 const Workflows = (() => {
   // ── Config (set from admin settings panel) ─────────────
-  const CFG_KEY   = 'biopeptix_workflow_config';
+  const CFG_KEY   = 'entre2feel_workflow_config';
   const DEFAULTS  = {
     abandonedCartEnabled: true,
     abandonedCartUrl:     '/api/abandoned-cart',
@@ -14,14 +14,14 @@ const Workflows = (() => {
   const getConfig = () => ({ ...DEFAULTS, ...JSON.parse(localStorage.getItem(CFG_KEY) || '{}') });
 
   const post = async (url, payload) => {
-    if (!url) { console.info('[BioPeptix Workflows] No webhook URL configured.', payload); return; }
+    if (!url) { console.info('[Entre2Feel Workflows] No webhook URL configured.', payload); return; }
     try {
       await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-    } catch (e) { console.error('[BioPeptix Workflows] Webhook error:', e); }
+    } catch (e) { console.error('[Entre2Feel Workflows] Webhook error:', e); }
   };
 
   // ── 1. Abandoned Cart ──────────────────────────────────
@@ -34,7 +34,7 @@ const Workflows = (() => {
     if (!cfg.abandonedCartEnabled) return;
 
     abandonedCartTimer = setTimeout(() => {
-      const cart = JSON.parse(localStorage.getItem('biopeptix_cart') || '[]');
+      const cart = JSON.parse(localStorage.getItem('entre2feel_cart') || '[]');
       if (cart.length === 0) return;
 
       const payload = {

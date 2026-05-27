@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product — BioPeptix</title>
+  <title>Product — Entre2Feel</title>
   <meta name="description" content="Product details.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,13 +20,13 @@
         <img src="images/logo.png" alt="Entre2Feel Logo">
       </a>
     <nav class="header-nav" id="main-nav">
-      <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="shop.html" class="active" data-i18n="nav_shop">Shop</a>
-      <a href="how-to-buy.html" data-i18n="nav_how">How to Buy</a>
-      <a href="testimonials.html" data-i18n="nav_testimonials">Testimonials</a>
+      <a href="index.html" data-i18n="nav_home">Inicio</a>
+      <a href="shop.html" class="active" data-i18n="nav_shop">Tienda</a>
+      <a href="how-to-buy.html" data-i18n="nav_how">Cómo comprar</a>
+      <a href="testimonials.html" data-i18n="nav_testimonials">Testimonios</a>
     </nav>
     <div class="header-actions">
-      <button class="lang-btn" id="lang-toggle-btn" aria-label="Toggle language">🇺🇸 EN</button>
+      <button class="lang-btn" id="lang-toggle-btn" aria-label="Toggle language">🇪🇸 ES</button>
       <button class="cart-btn" aria-label="Open cart" data-open-cart>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
@@ -45,13 +45,13 @@
 <div class="cart-overlay" id="cart-overlay"></div>
 <aside class="cart-drawer" id="cart-drawer">
   <div class="cart-drawer__header">
-    <div class="cart-drawer__title" data-i18n="cart_title">Your Cart</div>
+    <div class="cart-drawer__title" data-i18n="cart_title">Tu Carrito</div>
     <button class="cart-drawer__close" id="cart-close-btn">✕</button>
   </div>
   <div class="cart-drawer__body" id="cart-body"></div>
   <div class="cart-drawer__footer">
     <div class="cart-subtotal"><span data-i18n="cart_subtotal">Subtotal</span><span class="amount" id="cart-subtotal-val">$0.00</span></div>
-    <button class="cart-checkout-btn" id="cart-checkout-btn" data-i18n="cart_checkout">Proceed to Checkout</button>
+    <button class="cart-checkout-btn" id="cart-checkout-btn" data-i18n="cart_checkout">Proceder al Pago</button>
   </div>
 </aside>
 
@@ -83,14 +83,6 @@
             <button class="btn pdp-btn-add-pill" id="pdp-add-btn">Añadir al carrito</button>
           </div>
 
-          <div class="pdp-alert">
-            <div class="pdp-alert-icon">💉</div>
-            <div class="pdp-alert-text">
-              <strong data-i18n="pdp_water_alert_title">¿Necesitas agua bacteriostática?</strong>
-              <p><span data-i18n="pdp_water_alert_text">Para reconstituir este péptido, te recomendamos agregar</span> <a href="product.html?id=BA03" style="color:var(--primary);text-decoration:underline;" data-i18n="pdp_water_alert_link">Agua Bacteriostática 3 ml ($30.000)</a> <span data-i18n="pdp_water_alert_end">a tu pedido.</span></p>
-            </div>
-          </div>
-
           <h3 class="pdp-faq-title" data-i18n="pdp_faq_title">Preguntas Frecuentes</h3>
           <!-- Accordions -->
           <div class="pdp-accordion">
@@ -114,11 +106,11 @@
             </div>
             <div class="pdp-acc-item">
               <button class="pdp-acc-btn">
-                <span data-i18n="pdp_faq3_q">¿Para qué uso son los productos?</span>
+                <span data-i18n="pdp_faq3_q">¿Para quién está diseñado el protocolo?</span>
                 <span class="plus-icon">+</span>
               </button>
               <div class="pdp-acc-content">
-                <div class="pdp-acc-content-inner" data-i18n="pdp_faq3_a">Estos productos están estrictamente destinados a fines de investigación y desarrollo de laboratorio. No son para consumo humano.</div>
+                <div class="pdp-acc-content-inner" data-i18n="pdp_faq3_a">Está diseñado para personas que buscan desinflamar su cuerpo, eliminar la retención de líquidos, controlar la ansiedad y reactivar su metabolismo de manera 100% natural.</div>
               </div>
             </div>
             <div class="pdp-acc-item">
@@ -177,7 +169,7 @@
 <section class="section" style="background:var(--white);">
   <div class="container">
     <div class="section-title">
-      <h2 data-i18n="pdp_related">Related Products</h2>
+      <h2 data-i18n="pdp_related">Productos Relacionados</h2>
     </div>
     <div class="product-grid" id="related-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
       <!-- Injected via JS -->
@@ -190,26 +182,26 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo-text">Bio<em>Peptix</em></div>
-        <p data-i18n="footer_desc">Clinical-grade peptide compounds for peak human performance.</p>
+        <div class="logo-text">Entre<em>2Feel</em></div>
+        <p data-i18n="footer_desc">Protocolo BALANCE FEEL — desinflama tu cuerpo, elimina la retención de líquidos y enciende tu metabolismo.</p>
       </div>
-      <div class="footer-col"><h5 data-i18n="footer_nav">Navigate</h5><ul>
-        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-        <li><a href="shop.html" data-i18n="nav_shop">Shop</a></li>
-        <li><a href="how-to-buy.html" data-i18n="nav_how">How to Buy</a></li>
-        <li><a href="testimonials.html" data-i18n="nav_testimonials">Testimonials</a></li>
+      <div class="footer-col"><h5 data-i18n="footer_nav">Navegación</h5><ul>
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="shop.html" data-i18n="nav_shop">Tienda</a></li>
+        <li><a href="how-to-buy.html" data-i18n="nav_how">Cómo comprar</a></li>
+        <li><a href="testimonials.html" data-i18n="nav_testimonials">Testimonios</a></li>
       </ul></div>
-      <div class="footer-col"><h5 data-i18n="footer_support">Support</h5><ul>
-        <li><a href="how-to-buy.html#faq" data-i18n="footer_faqs">FAQs</a></li>
-        <li><a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a></li>
-        <li><a href="terms.html" data-i18n="footer_terms">Terms</a></li>
+      <div class="footer-col"><h5 data-i18n="footer_support">Soporte</h5><ul>
+        <li><a href="how-to-buy.html#faq" data-i18n="footer_faqs">Preguntas Frecuentes</a></li>
+        <li><a href="privacy.html" data-i18n="footer_privacy">Política de Privacidad</a></li>
+        <li><a href="terms.html" data-i18n="footer_terms">Términos de Servicio</a></li>
       </ul></div>
-      <div class="footer-col"><h5 data-i18n="footer_contact">Contact</h5><ul>
-        <li><a href="mailto:biopeptix1@gmail.com">biopeptix1@gmail.com</a></li>
+      <div class="footer-col"><h5 data-i18n="footer_contact">Contacto</h5><ul>
+        <li><a href="mailto:entre2feel1@gmail.com">entre2feel1@gmail.com</a></li>
         <li><a href="https://wa.me/573107037501" target="_blank">WhatsApp</a></li>
       </ul></div>
     </div>
-    <div class="footer-bottom"><span data-i18n="footer_copy">© 2024 BioPeptix. All rights reserved.</span></div>
+    <div class="footer-bottom"><span data-i18n="footer_copy">© 2026 Entre2Feel. Todos los derechos reservados.</span></div>
   </div>
 </footer>
 

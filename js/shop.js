@@ -1,13 +1,13 @@
 /* ============================================================
-   BIOPEPTIX — Product Data + Shop Rendering (shop.js)
+   ENTRE2FEEL — Product Data + Shop Rendering (shop.js)
    ============================================================ */
 
-const PRODUCTS_KEY = 'biopeptix_products_v7';
+const PRODUCTS_KEY = 'entre2feel_products_v7';
 
 /* ── i18n helper — lee la traducción actual de lang.js ─── */
 const t = (key, fallback) => {
   try {
-    const lang = localStorage.getItem('biopeptix_lang') || 'en';
+    const lang = localStorage.getItem('entre2feel_lang') || 'en';
     return (window.translations && window.translations[lang] && window.translations[lang][key])
       ? window.translations[lang][key]
       : fallback;
@@ -79,7 +79,7 @@ const renderCard = (product, isFeatured = false) => {
   return `
     <div class="product-card" data-category="${product.category}" data-id="${product.id}">
       <a href="product.html?id=${product.id}" class="product-card__img-wrap" style="display:block; position:relative;">
-        <img src="${product.image || 'https://placehold.co/400x300/E8F7FA/1A8FA0?text=BioPeptix'}"
+        <img src="${product.image || 'https://placehold.co/400x300/E8F7FA/1A8FA0?text=Entre2Feel'}"
              alt="${product.name}" loading="lazy" referrerpolicy="no-referrer" ${product.stock <= 0 ? 'style="opacity:0.6; filter:grayscale(100%);"' : ''}>
         <span class="product-card__badge badge badge-teal" style="text-transform:capitalize;">${product.category}</span>
         ${product.stock <= 0 ? `<div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:2;background:rgba(255,255,255,0.2);"><span style="background:#dc3545;color:white;padding:0.4rem 1rem;border-radius:4px;font-weight:700;font-size:1rem;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 12px rgba(0,0,0,0.15);">${t('out_of_stock', 'Sin Stock')}</span></div>` : ''}
@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ── Re-render when language changes ───────────────────── */
 // Escucha cambios de idioma: cuando lang.js actualiza localStorage, volvemos
 // a renderizar la grilla para que los botones se traduzcan al instante.
-const _origApplyLang = window._biopeptix_applyLang;
-document.addEventListener('biopeptix:langchange', () => {
+const _origApplyLang = window._entre2feel_applyLang;
+document.addEventListener('entre2feel:langchange', () => {
   renderGrid();
   renderFeatured();
 });

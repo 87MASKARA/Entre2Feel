@@ -1,8 +1,8 @@
 /* ============================================================
-   BIOPEPTIX — Cart Logic (cart.js)
+   ENTRE2FEEL — Cart Logic (cart.js)
    ============================================================ */
 
-const CART_KEY = 'biopeptix_cart';
+const CART_KEY = 'entre2feel_cart';
 
 /* ── Formateador de precios COP (self-contained) ────────── */
 const formatPriceCart = (amount) =>
