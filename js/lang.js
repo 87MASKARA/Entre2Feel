@@ -59,13 +59,13 @@ const translations = {
 
     /* ── Shop Page ── */
     shop_hero_title: 'Our Product Catalog',
-    shop_hero_sub:   'Clinical-grade peptides — all independently tested.',
+    shop_hero_sub:   'Protocol BALANCE FEEL — everything you need to optimize your body.',
     filter_label:    'Filter:',
     filter_all:      'All Products',
-    filter_peptides: 'Peptides',
+    filter_peptides: 'Kits & Protocols',
     filter_serums:   'Serums',
     filter_stacks:   'Stacks',
-    filter_accessories:'Accessories',
+    filter_accessories:'Supplements',
     trust_strip_1:   'Secure Checkout',
     trust_strip_2:   'Discreet Packaging',
     trust_strip_3:   '48-Hour Shipping',
@@ -283,13 +283,13 @@ const translations = {
 
     /* ── Shop Page ── */
     shop_hero_title: 'Nuestro Catálogo de Productos',
-    shop_hero_sub:   'Péptidos de grado clínico — todos probados de forma independiente.',
+    shop_hero_sub:   'Protocolo BALANCE FEEL — todo lo que necesitas para optimizar tu cuerpo.',
     filter_label:    'Filtrar:',
     filter_all:      'Todos los Productos',
-    filter_peptides: 'Péptidos',
+    filter_peptides: 'Kits y Protocolos',
     filter_serums:   'Sueros',
     filter_stacks:   'Stacks',
-    filter_accessories:'Accesorios',
+    filter_accessories:'Suplementos',
     trust_strip_1:   'Pago Seguro',
     trust_strip_2:   'Empaque Discreto',
     trust_strip_3:   'Envío en 48 Horas',

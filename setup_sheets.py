@@ -151,11 +151,23 @@ def main():
     # Insertar productos iniciales de Entre2Feel
     initial_products = [
         [
-            "gotas_lipo", 
-            "Gotas Lipo Drean Complex", 
-            "kits", 
-            130000, 
+            "E2F-KIT", 
+            "Kit Protocolo Integral BALANCE FEEL", 
+            "peptides", 
+            180000, 
             415000, 
+            100, 
+            "El protocolo completo que te ayuda a desinflamar tu cuerpo, eliminar la retención de líquidos y encender nuevamente tu metabolismo sin dietas extremas ni rebotes. Incluye: Gotas Lipo Drean Complex, Protocolo Detox, Sal Rosada del Himalaya, Guía de Alimentación Antiinflamatoria y Plan de Ejercicios en PDF.", 
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/axN0gPIgxQr8rG0tyPSN/media/69ab5b56b3fc00ce6534f016.jpeg", 
+            "", 
+            "TRUE"
+        ],
+        [
+            "E2F-GOTAS", 
+            "Gotas Lipo Drean Complex", 
+            "peptides", 
+            130000, 
+            200000, 
             100, 
             "Nuestra fórmula estrella concentrada para ayudarte a regular la ansiedad de picar dulces, desinflamar el organismo y reparar progresivamente tu metabolismo.", 
             "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/axN0gPIgxQr8rG0tyPSN/media/69ab5a2cb2a2741dd0d43850.jpeg", 
@@ -163,14 +175,26 @@ def main():
             "TRUE"
         ],
         [
-            "detox_rosada", 
-            "Protocolo Detox + Sal Rosada", 
-            "kits", 
-            65000, 
-            100000, 
+            "E2F-SAL", 
+            "Sal Rosada del Himalaya", 
+            "accessories", 
+            25000, 
+            35000, 
             100, 
-            "Limpia tu organismo desde las primeras 24 horas y aporta los minerales y electrolitos esenciales necesarios para una correcta hidratación celular sin inflamarte.", 
+            "Sal pura rosada del Himalaya para aportar los minerales y electrolitos esenciales necesarios para una correcta hidratación celular sin inflamarte.", 
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/axN0gPIgxQr8rG0tyPSN/media/69ab5b56b3fc00ce6534f016.jpeg", 
             "", 
+            "FALSE"
+        ],
+        [
+            "E2F-DETOX", 
+            "Protocolo Detox", 
+            "peptides", 
+            45000, 
+            65000, 
+            100, 
+            "Limpia tu organismo desde las primeras 24 horas y prepara tu cuerpo para absorber correctamente los nutrientes y comenzar la desinflamación.", 
+            "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/axN0gPIgxQr8rG0tyPSN/media/69ab5b56b3fc00ce6534f016.jpeg", 
             "", 
             "FALSE"
         ]
