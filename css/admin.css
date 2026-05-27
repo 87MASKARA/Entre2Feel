@@ -48,6 +48,11 @@ body.admin-body {
   letter-spacing: -0.02em;
 }
 .admin-brand em { color: var(--admin-primary); font-style: normal; }
+.admin-brand img {
+  max-height: 36px;
+  width: auto;
+  display: block;
+}
 .admin-brand-badge {
   font-size: 0.6rem;
   background: var(--admin-primary);
