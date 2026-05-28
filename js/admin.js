@@ -201,7 +201,19 @@ async function loadInventoryFromAPI() {
   try {
     const r = await fetch('/api/products');
     if (!r.ok) throw new Error();
-    products = await r.json();
+    const apiProducts = await r.json();
+    
+    // Combinar productos por defecto de shop.js con productos dinámicos de Sheets
+    if (typeof DEFAULT_PRODUCTS !== 'undefined' && Array.isArray(DEFAULT_PRODUCTS)) {
+      const defaultIds = new Set(DEFAULT_PRODUCTS.map(p => p.id));
+      products = [
+        ...DEFAULT_PRODUCTS,
+        ...apiProducts.filter(p => !defaultIds.has(p.id))
+      ];
+    } else {
+      products = apiProducts;
+    }
+    
     localStorage.setItem('entre2fit_products_v7', JSON.stringify(products));
   } catch {
     const stored = localStorage.getItem('entre2fit_products_v7');
