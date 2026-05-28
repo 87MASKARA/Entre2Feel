@@ -512,6 +512,25 @@
       .card-left, .card-right { display: none; }
       .kit-item-card { flex-direction: column; text-align: center; align-items: center; }
     }
+    
+    /* ── POPULAR PRODUCTS STYLES ── */
+    .producto-popular-card {
+      transition: all 0.3s ease;
+    }
+    .producto-popular-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(126, 232, 224, 0.3) !important;
+      box-shadow: 0 12px 30px rgba(126, 232, 224, 0.08) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+    .producto-popular-card:hover img {
+      transform: scale(1.05);
+    }
+    .producto-popular-card .btn-outline:hover {
+      background: var(--teal-light) !important;
+      color: var(--secondary) !important;
+      border-color: var(--secondary) !important;
+    }
   </style>
 </head>
 <body>
@@ -577,9 +596,9 @@
       </div>
       
       <div class="hero-visual" style="min-height: 320px; display: flex; justify-content: center; align-items: center; position: relative;">
-        <!-- Centered Translucent Black Logo Card -->
-        <div style="background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2.5rem 3rem; text-align: center; box-shadow: var(--shadow-glass); max-width: 380px; width: 100%; display: flex; justify-content: center; align-items: center; z-index: 5;">
-          <img src="images/logo.png" alt="Entre2Fit Logo" style="max-height: 80px; width: auto; display: block; filter: drop-shadow(0 0 12px rgba(123, 91, 255, 0.35));">
+        <!-- Centered Translucent Black Kit Card -->
+        <div style="background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 1.5rem; text-align: center; box-shadow: var(--shadow-glass); max-width: 380px; width: 100%; display: flex; justify-content: center; align-items: center; z-index: 5;">
+          <img src="images/kit.png" alt="Kit Balance Feel" style="max-width: 100%; max-height: 280px; width: auto; display: block; filter: drop-shadow(0 4px 20px rgba(123, 91, 255, 0.15)); border-radius: 12px;">
         </div>
       </div>
     </div>
@@ -729,6 +748,63 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── POPULAR PRODUCTS SECTION ── -->
+  <section class="section" id="productos-populares" style="background: var(--bg-card); backdrop-filter: blur(8px); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3.5rem;">
+        <span class="section-label" style="background: rgba(126, 232, 224, 0.1); color: #7EE8E0; border: 1px solid rgba(126, 232, 224, 0.2); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1rem;">Favoritos de la Comunidad</span>
+        <h2 class="section-title" style="font-size: 2.2rem; color: var(--white); font-weight: 800; margin-bottom: 0.75rem;">Productos Más Comprados</h2>
+        <p class="section-sub" style="color: var(--text-sub); font-size: 1.05rem; max-width: 600px; margin: 0 auto;">Nuestras fórmulas individuales de alta demanda para potenciar tu proceso de bienestar.</p>
+      </div>
+
+      <div class="grid-productos-comprados" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+        
+        <!-- Producto 1: Gotas Lipo Drean Complex -->
+        <div class="producto-popular-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: var(--shadow-glass);">
+          <div>
+            <div style="position: relative; border-radius: 12px; overflow: hidden; background: rgba(0, 0, 0, 0.2); margin-bottom: 1.5rem; aspect-ratio: 1/1; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(255, 255, 255, 0.04);">
+              <img src="images/products/lipo drean complex.png" alt="Gotas Lipo Drean Complex" style="max-height: 80%; max-width: 80%; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25)); transition: transform 0.4s ease;">
+              <span style="position: absolute; top: 1rem; left: 1rem; background: var(--accent); color: var(--white); font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;">Fórmula Estrella</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--white); font-weight: 700; margin-bottom: 0.5rem;">Gotas Lipo Drean Complex</h3>
+            <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Nuestra fórmula estrella concentrada para ayudarte a regular la ansiedad de picar dulces, desinflamar el organismo y reparar progresivamente tu metabolismo.</p>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <span style="font-size: 1.5rem; font-weight: 800; color: #7EE8E0;">$150.000 COP</span>
+              <span style="font-size: 0.85rem; color: var(--success); font-weight: 600;"><i class="fa-solid fa-truck-fast"></i> Envío Gratis</span>
+            </div>
+            <a href="product.html?id=E2F-GOTAS" class="btn btn-outline" style="display: block; text-align: center; font-weight: 700; width: 100%; border-radius: 30px; padding: 0.85rem 1rem; border-color: rgba(255, 255, 255, 0.15); color: var(--white); background: rgba(255, 255, 255, 0.02); transition: all 0.3s ease;">
+              Ver Detalles <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Producto 2: Metabolism Repairer -->
+        <div class="producto-popular-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: var(--shadow-glass);">
+          <div>
+            <div style="position: relative; border-radius: 12px; overflow: hidden; background: rgba(0, 0, 0, 0.2); margin-bottom: 1.5rem; aspect-ratio: 1/1; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(255, 255, 255, 0.04);">
+              <img src="images/products/metabolis.png" alt="Metabolism Repairer" style="max-height: 80%; max-width: 80%; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25)); transition: transform 0.4s ease;">
+              <span style="position: absolute; top: 1rem; left: 1rem; background: #7b5bff; color: var(--white); font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;">Suplemento 5 en 1</span>
+            </div>
+            <h3 style="font-size: 1.25rem; color: var(--white); font-weight: 700; margin-bottom: 0.5rem;">Metabolism Repairer</h3>
+            <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Potente mezcla de Magnesio, Potasio, Zinc, Glutamina y Vitamina C. Repara tu metabolismo, mejora tu sueño, reduce el estrés y fortalece tu sistema inmune.</p>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <span style="font-size: 1.5rem; font-weight: 800; color: #7EE8E0;">$85.000 COP</span>
+              <span style="font-size: 0.85rem; color: var(--success); font-weight: 600;"><i class="fa-solid fa-truck-fast"></i> Envío Gratis</span>
+            </div>
+            <a href="product.html?id=E2F-METABOLIS-1" class="btn btn-outline" style="display: block; text-align: center; font-weight: 700; width: 100%; border-radius: 30px; padding: 0.85rem 1rem; border-color: rgba(255, 255, 255, 0.15); color: var(--white); background: rgba(255, 255, 255, 0.02); transition: all 0.3s ease;">
+              Ver Detalles <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -889,42 +965,14 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- Vanta Birds Background Animation Dependencies -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+
 
   <!-- Chatbot Widget Integration -->
   <script src="js/chatbot.js"></script>
 
   <!-- Navigation Scroll & Mobile Menu scripts -->
   <script>
-    // Initialize Vanta Birds background animation on DOMContentLoaded
-    window.addEventListener('DOMContentLoaded', () => {
-      if (typeof VANTA !== 'undefined' && VANTA.BIRDS) {
-        VANTA.BIRDS({
-          el: "#home",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          backgroundColor: 0x07192f,
-          color1: 0x581c87,
-          color2: 0xd8b4fe,
-          colorMode: "varianceGradient",
-          quantity: 5.00,
-          birdSize: 1.00,
-          wingSpan: 30.00,
-          speedLimit: 5.00,
-          separation: 20.00,
-          alignment: 20.00,
-          cohesion: 20.00,
-          backgroundAlpha: 1.00
-        });
-      }
-    });
+
 
     // FAQ Accordion Toggle
     document.querySelectorAll('.faq-header').forEach(header => {
