@@ -314,7 +314,7 @@ async function initProductPage() {
     const certTitle = document.getElementById('pdp-cert-title-h3');
     if (certTitle) certTitle.style.display = 'none';
 
-    if (product.id === 'E2F-KIT' || product.id === 'E2F-GOTAS') {
+    if (product.id === 'E2F-KIT' || product.id === 'E2F-GOTAS' || product.id === 'E2F-METABOLIS-1' || product.id === 'E2F-METABOLIS-2') {
       const imagesList = product.id === 'E2F-KIT' 
         ? [
             "WhatsApp Image 2026-05-27 at 22.21.39 (1).jpeg",
