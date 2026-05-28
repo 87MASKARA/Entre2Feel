@@ -96,7 +96,7 @@ const DEFAULT_PRODUCTS = [
     freeShipping: true,
     stock: 100,
     featured: false,
-    image: 'images/products/sal rosada del himalaya.png',
+    image: 'images/products/sal 500.png',
     video: 'videos/products/sal rosada del himalaya.mp4',
     badge: '100% Natural',
     description: 'Sal orgánica rosada del Himalaya, 100% pura y sin conservantes ni aditivos. Aporta más de 80 minerales y electrolitos esenciales para una hidratación celular profunda sin inflamarte. Presentación: 1 Libra (500g).',
@@ -127,7 +127,7 @@ const DEFAULT_PRODUCTS = [
     freeShipping: true,
     stock: 100,
     featured: false,
-    image: 'images/products/sal rosada del himalaya.png',
+    image: 'images/products/sal 1000.png',
     video: 'videos/products/sal rosada del himalaya.mp4',
     badge: 'Mejor Valor',
     description: 'Sal orgánica rosada del Himalaya, 100% pura y sin conservantes ni aditivos. Aporta más de 80 minerales y electrolitos esenciales para una hidratación celular profunda sin inflamarte. Presentación: 1 Kilo (1000g).',
@@ -189,7 +189,7 @@ const DEFAULT_PRODUCTS = [
     freeShipping: true,
     stock: 100,
     featured: false,
-    image: 'images/products/colageno.png',
+    image: 'images/products/colageno2.png',
     video: 'videos/products/como identificar un buen colágeno.mp4',
     badge: 'Mejor Valor',
     description: 'Péptidos de colágeno bioactivo, 4 veces más potentes que el colágeno hidrolizado normal. Pack de 2 unidades al mejor precio. Presentación: 2 unidades.',
@@ -251,7 +251,7 @@ const DEFAULT_PRODUCTS = [
     freeShipping: true,
     stock: 100,
     featured: false,
-    image: 'images/products/metabolis.png',
+    image: 'images/products/metabolis2.png',
     video: null,
     badge: 'Mejor Valor',
     description: 'Suplemento nutricional 5 en 1: Magnesio, Potasio, Zinc, Glutamina y Vitamina C. Pack de 2 unidades al mejor precio. Repara tu metabolismo, mejora tu sueño y fortalece tu sistema inmunológico.',
@@ -342,10 +342,23 @@ const renderCard = (product, isFeatured = false) => {
           <div class="product-card__name" style="cursor:pointer;">${product.name}</div>
         </a>
 
-        <div class="product-card__footer">
-          <div class="product-card__price">
-            ${formatPrice(product.price)}
-            ${product.originalPrice ? `<span>${formatPrice(product.originalPrice)}</span>` : ''}
+        <div class="product-card__footer" style="display:flex; flex-direction:column; gap:0.75rem; align-items:stretch; margin-top: 0.75rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <div class="product-card__price" style="font-size:1.25rem;">
+              ${formatPrice(product.price)}
+              ${product.originalPrice ? `<span>${formatPrice(product.originalPrice)}</span>` : ''}
+            </div>
+            ${product.freeShipping ? `
+              <span style="font-size: 0.8rem; color: #22c55e; font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;">
+                  <rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+                Envío Gratis
+              </span>
+            ` : ''}
           </div>
           <button class="add-to-cart-btn"
             ${product.stock <= 0 ? 'disabled' : ''}
