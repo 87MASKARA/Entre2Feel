@@ -531,6 +531,60 @@
       color: var(--secondary) !important;
       border-color: var(--secondary) !important;
     }
+    
+    /* ── TESTIMONIAL CAROUSEL STYLES ── */
+    .testimonial-tabs .tab-btn {
+      transition: all 0.3s ease;
+    }
+    .testimonial-tabs .tab-btn:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: var(--white) !important;
+    }
+    .slider-arrow {
+      transition: all 0.3s ease;
+    }
+    .slider-arrow:hover {
+      background: var(--secondary) !important;
+      border-color: var(--secondary) !important;
+      transform: translateY(-50%) scale(1.1) !important;
+    }
+    .slider-slide {
+      flex: 0 0 calc(33.333% - 1rem);
+      min-width: calc(33.333% - 1rem);
+      box-sizing: border-box;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-glass);
+      transition: all 0.3s ease;
+    }
+    .slider-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .slider-slide:hover {
+      transform: translateY(-5px);
+      border-color: rgba(126, 232, 224, 0.25) !important;
+      box-shadow: 0 12px 30px rgba(126, 232, 224, 0.05) !important;
+    }
+    .slider-slide:hover img {
+      transform: scale(1.03);
+    }
+    @media (max-width: 900px) {
+      .slider-slide {
+        flex: 0 0 calc(50% - 0.75rem);
+        min-width: calc(50% - 0.75rem);
+      }
+    }
+    @media (max-width: 500px) {
+      .slider-slide {
+        flex: 0 0 100%;
+        min-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -701,52 +755,71 @@
   </section>
 
   <!-- ── TESTIMONIALS SECTION ── -->
-  <section class="section" id="testimonios">
+  <section class="section" id="testimonios" style="position: relative; overflow: hidden;">
     <div class="container">
-      <div class="text-center">
+      <div class="text-center" style="margin-bottom: 3.5rem;">
         <span class="section-label">Historias de Éxito</span>
         <h2 class="section-title">Resultados de clientes reales</h2>
         <p class="section-sub">Mujeres que decidieron recuperar el control de su cuerpo e iniciar su proceso con BALANCE FEEL.</p>
       </div>
-      
-      <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Llevaba meses sintiéndome súper hinchada por más que intentaba comer sano. Con las gotas Lipo Drean y la guía antiinflamatoria, mi digestión cambió del cielo a la tierra en solo una semana. He bajado 4 kilos y me siento súper ligera."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">CM</div>
-            <div>
-              <div class="author-name">Carolina Mendoza</div>
-              <div class="author-title">Cliente Verificada</div>
+
+      <!-- Tab Buttons -->
+      <div class="testimonial-tabs" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+        <button class="tab-btn active" onclick="switchTestimonialTab('kit-gotas-tab')" style="background: rgba(126, 232, 224, 0.15); color: #7EE8E0; border: 1px solid rgba(126, 232, 224, 0.3); padding: 0.75rem 1.75rem; border-radius: 30px; font-weight: 700; cursor: pointer; font-size: 0.95rem; outline: none; box-shadow: var(--shadow-glass); transition: all 0.3s ease;">Kit y Gotas</button>
+        <button class="tab-btn" onclick="switchTestimonialTab('lipo-drean-tab')" style="background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.75rem 1.75rem; border-radius: 30px; font-weight: 700; cursor: pointer; font-size: 0.95rem; outline: none; box-shadow: var(--shadow-glass); transition: all 0.3s ease;">Gotas Lipo Drean</button>
+      </div>
+
+      <!-- Tab Content 1: Kit y Gotas -->
+      <div class="testimonial-tab-content active" id="kit-gotas-tab">
+        <div class="slider-wrapper" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 50px;">
+          <button class="slider-arrow prev" onclick="moveSlider('kit-gotas-slider', -1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-size: 0.9rem; outline: none;"><i class="fa-solid fa-chevron-left"></i></button>
+          
+          <div class="slider-track-container" style="overflow: hidden; width: 100%;">
+            <div class="slider-track" id="kit-gotas-slider" data-index="0" style="display: flex; gap: 1.5rem; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform: translateX(0);">
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.39 (1).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.39 (2).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.39.jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (1).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (2).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (3).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (4).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (5).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (6).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40 (7).jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.40.jpeg" alt="Testimonio Kit y Gotas"></div>
+              <div class="slider-slide"><img src="images/testimonios/kit y gotas/WhatsApp Image 2026-05-27 at 22.21.41.jpeg" alt="Testimonio Kit y Gotas"></div>
             </div>
           </div>
+
+          <button class="slider-arrow next" onclick="moveSlider('kit-gotas-slider', 1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-size: 0.9rem; outline: none;"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
-        
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"¡Lo mejor son las gotas para la ansiedad! Por las tardes siempre me moría por galletas o chocolates y me arruinaba la dieta. Desde que uso el kit, esa ansiedad desapareció por completo. Estoy feliz con las guías de ejercicios."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AG</div>
-            <div>
-              <div class="author-name">Andrea Gómez</div>
-              <div class="author-title">Cliente Verificada</div>
+      </div>
+
+      <!-- Tab Content 2: Lipo Drean -->
+      <div class="testimonial-tab-content" id="lipo-drean-tab" style="display: none;">
+        <div class="slider-wrapper" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 50px;">
+          <button class="slider-arrow prev" onclick="moveSlider('lipo-drean-slider', -1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-size: 0.9rem; outline: none;"><i class="fa-solid fa-chevron-left"></i></button>
+          
+          <div class="slider-track-container" style="overflow: hidden; width: 100%;">
+            <div class="slider-track" id="lipo-drean-slider" data-index="0" style="display: flex; gap: 1.5rem; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform: translateX(0);">
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(1).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(2).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(3).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(4).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(5).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(6).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37%20(7).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.37.jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.38%20(1).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.38%20(2).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.38%20(3).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.38%20(4).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.38%20(5).jpeg" alt="Testimonio Lipo Drean"></div>
+              <div class="slider-slide"><img src="images/testimonios/lipo%20drean/WhatsApp%20Image%202026-05-27%20at%2022.25.38.jpeg" alt="Testimonio Lipo Drean"></div>
             </div>
           </div>
-        </div>
-        
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Un protocolo muy completo y fácil de seguir. No te matas de hambre y la hidratación con la sal rosada me dio mucha energía para entrenar. El envío llegó súper rápido a Medellín. Excelente atención al cliente."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MV</div>
-            <div>
-              <div class="author-name">Maria Camila Vargas</div>
-              <div class="author-title">Cliente Verificada</div>
-            </div>
-          </div>
+
+          <button class="slider-arrow next" onclick="moveSlider('lipo-drean-slider', 1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-size: 0.9rem; outline: none;"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </div>
     </div>
@@ -973,6 +1046,59 @@
   <!-- Navigation Scroll & Mobile Menu scripts -->
   <script>
 
+
+    // Testimonial Carousel Control
+    window.switchTestimonialTab = function(tabId) {
+      document.querySelectorAll('.testimonial-tab-content').forEach(content => {
+        content.style.display = 'none';
+        content.classList.remove('active');
+      });
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.style.display = 'block';
+        targetContent.classList.add('active');
+      }
+
+      document.querySelectorAll('.testimonial-tabs .tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.background = 'rgba(255, 255, 255, 0.05)';
+        btn.style.color = 'rgba(255, 255, 255, 0.7)';
+        btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+      });
+
+      const clickedBtn = Array.from(document.querySelectorAll('.testimonial-tabs .tab-btn')).find(btn => 
+        btn.getAttribute('onclick').includes(tabId)
+      );
+      if (clickedBtn) {
+        clickedBtn.classList.add('active');
+        clickedBtn.style.background = 'rgba(126, 232, 224, 0.15)';
+        clickedBtn.style.color = '#7EE8E0';
+        clickedBtn.style.borderColor = 'rgba(126, 232, 224, 0.3)';
+      }
+    };
+
+    window.moveSlider = function(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
+      const slideCount = slider.children.length;
+      const slideWidth = slider.children[0].offsetWidth;
+      const gap = 24; // 1.5rem gap is 24px
+
+      let visibleSlides = 3;
+      if (window.innerWidth <= 500) visibleSlides = 1;
+      else if (window.innerWidth <= 900) visibleSlides = 2;
+
+      const maxIndex = slideCount - visibleSlides;
+      let currentIndex = parseInt(slider.getAttribute('data-index') || '0');
+      currentIndex += direction;
+
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+      slider.setAttribute('data-index', currentIndex);
+      const translation = currentIndex * (slideWidth + gap);
+      slider.style.transform = `translateX(-${translation}px)`;
+    };
 
     // FAQ Accordion Toggle
     document.querySelectorAll('.faq-header').forEach(header => {
