@@ -386,3 +386,57 @@
   gap: 0.5rem;
   line-height: 1.5;
 }
+
+/* ── FREE SHIPPING BADGE ── */
+.pdp-free-shipping {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(34,197,94,0.15) 0%, rgba(16,185,129,0.1) 100%);
+  border: 1px solid rgba(34,197,94,0.35);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #22c55e;
+}
+.pdp-free-shipping strong { color: #16a34a; }
+.pdp-ship-icon { font-size: 1.1rem; }
+
+/* ── VARIANT SELECTOR ── */
+.pdp-variant-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.6rem;
+}
+.pdp-variant-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.pdp-variant-btn {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border-radius: 2rem;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: var(--bg-card);
+  color: var(--text-sub);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.pdp-variant-btn:hover {
+  border-color: var(--pepti-indigo);
+  color: var(--pepti-indigo);
+}
+.pdp-variant-btn.active {
+  border-color: var(--pepti-indigo);
+  background: var(--pepti-indigo);
+  color: #1a1035;
+}

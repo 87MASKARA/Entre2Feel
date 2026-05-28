@@ -20,12 +20,15 @@ const formatPrice = (amount) => {
 };
 
 const DEFAULT_PRODUCTS = [
+
+  /* ── KIT BALANCE FEEL ─────────────────────────────────── */
   {
     id: 'E2F-KIT',
     name: 'Kit Protocolo Integral BALANCE FEEL',
     category: 'kits',
     price: 180000,
-    originalPrice: 415000,
+    originalPrice: null,
+    freeShipping: true,
     stock: 100,
     featured: true,
     image: 'images/products/kit balance.png',
@@ -44,17 +47,20 @@ const DEFAULT_PRODUCTS = [
       { q: '¿Qué incluye el Kit BALANCE FEEL?', a: 'El kit incluye las Gotas Lipo Drean Complex, el Protocolo Detox, la Sal Rosada del Himalaya, la Guía de Alimentación Antiinflamatoria y el Plan de Ejercicios de Drenaje Linfático en PDF.' },
       { q: '¿En cuánto tiempo veo resultados?', a: 'Hemos visto que la mayoría de personas comienzan a ver resultados visibles (reducción de inflamación, menos retención de líquidos) entre los primeros 15 a 20 días de uso constante.' },
       { q: '¿Para quién está diseñado el protocolo?', a: 'Está diseñado para personas que buscan desinflamar su cuerpo, eliminar la retención de líquidos, controlar la ansiedad y reactivar su metabolismo de manera 100% natural.' },
-      { q: '¿Cómo se realiza el envío?', a: 'Realizamos envíos a toda Colombia. Tu pedido llega en 2 a 4 días hábiles dependiendo de tu ciudad.' },
+      { q: '¿Cómo se realiza el envío?', a: 'Realizamos envíos a toda Colombia. Tu pedido llega en 2 a 4 días hábiles dependiendo de tu ciudad. ¡Envío gratis!' },
       { q: '¿El embalaje es discreto?', a: 'Sí, garantizamos un empaque completamente discreto sin marcas externas que revelen el contenido de tu pedido.' },
       { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
     ]
   },
+
+  /* ── GOTAS LIPO DREAN COMPLEX ──────────────────────────── */
   {
     id: 'E2F-GOTAS',
     name: 'Gotas Lipo Drean Complex',
     category: 'suplementos',
-    price: 130000,
-    originalPrice: 200000,
+    price: 150000,
+    originalPrice: null,
+    freeShipping: true,
     stock: 100,
     featured: true,
     image: 'images/products/lipo drean complex.png',
@@ -68,43 +74,94 @@ const DEFAULT_PRODUCTS = [
       { q: '¿Cuánto dura un frasco?', a: 'Un frasco está diseñado para completar el ciclo de 21 días del protocolo BALANCE FEEL.' },
       { q: '¿Tienen algún efecto secundario?', a: 'La fórmula es 100% natural. Sin embargo, si tienes alguna condición médica o estás embarazada, consulta con tu médico antes de iniciar.' },
       { q: '¿En cuánto tiempo veo resultados?', a: 'Muchas personas reportan sentirse más livianas y con menos retención de líquidos desde la primera semana. Los resultados visibles en báscula suelen aparecer entre los días 15 y 20.' },
-      { q: '¿Cómo se realiza el envío?', a: 'Realizamos envíos a toda Colombia. Tu pedido llega en 2 a 4 días hábiles.' },
+      { q: '¿Cómo se realiza el envío?', a: 'Realizamos envíos a toda Colombia. Tu pedido llega en 2 a 4 días hábiles. ¡Envío gratis!' },
       { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
     ]
   },
+
+  /* ── SAL ROSADA — 1 LIBRA (500g) ──────────────────────── */
   {
-    id: 'E2F-SAL',
-    name: 'Sal Rosada del Himalaya',
+    id: 'E2F-SAL-500',
+    variantGroup: 'E2F-SAL',
+    variantLabel: '1 Libra (500g)',
+    variants: [
+      { id: 'E2F-SAL-500', label: '1 Libra (500g)', price: 32000 },
+      { id: 'E2F-SAL-1000', label: '1 Kilo (1000g)', price: 48000 }
+    ],
+    name: 'Sal Rosada del Himalaya — 1 Libra (500g)',
+    nameShort: 'Sal Rosada del Himalaya',
     category: 'suplementos',
-    price: 25000,
-    originalPrice: 35000,
+    price: 32000,
+    originalPrice: null,
+    freeShipping: true,
     stock: 100,
     featured: false,
     image: 'images/products/sal rosada del himalaya.png',
     video: 'videos/products/sal rosada del himalaya.mp4',
     badge: '100% Natural',
-    description: 'Sal orgánica rosada del Himalaya, 100% pura y sin conservantes ni aditivos. Aporta más de 80 minerales y electrolitos esenciales para una hidratación celular profunda sin inflamarte.',
+    description: 'Sal orgánica rosada del Himalaya, 100% pura y sin conservantes ni aditivos. Aporta más de 80 minerales y electrolitos esenciales para una hidratación celular profunda sin inflamarte. Presentación: 1 Libra (500g).',
     longDescription: 'A diferencia de la sal de mesa común (procesada y con aditivos), la Sal Rosada del Himalaya es extraída de depósitos naturales de más de 250 millones de años. Su color rosa característico se debe a su riqueza en hierro y otros minerales traza. Es el complemento perfecto para el protocolo antiinflamatorio BALANCE FEEL.',
     includes: [],
     faqs: [
-      { q: '¿Cuál es el contenido del empaque?', a: 'Disponible en presentación de 500g y 1000g. Sin conservantes ni aditivos, 100% natural.' },
+      { q: '¿Cuál es el contenido del empaque?', a: 'Esta presentación contiene 500g (1 libra) de sal rosada del Himalaya. Sin conservantes ni aditivos, 100% natural.' },
       { q: '¿Por qué es mejor que la sal normal?', a: 'La sal rosada del Himalaya contiene más de 80 minerales y oligoelementos en su forma natural, sin procesar ni blanquear. Ayuda a regular el pH del cuerpo, la presión arterial y mejora la salud cardiovascular.' },
       { q: '¿Cómo se usa en el protocolo BALANCE FEEL?', a: 'Se usa como reemplazo de la sal de mesa en todas tus preparaciones. Sazona tus comidas, prepara agua mineralizada o úsala en el protocolo de hidratación indicado en la guía.' },
       { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
     ]
   },
+
+  /* ── SAL ROSADA — 1 KILO (1000g) ──────────────────────── */
   {
-    id: 'E2F-COLAGENO',
-    name: 'Péptidos de Colágeno Bioactivo',
+    id: 'E2F-SAL-1000',
+    variantGroup: 'E2F-SAL',
+    variantLabel: '1 Kilo (1000g)',
+    variants: [
+      { id: 'E2F-SAL-500', label: '1 Libra (500g)', price: 32000 },
+      { id: 'E2F-SAL-1000', label: '1 Kilo (1000g)', price: 48000 }
+    ],
+    name: 'Sal Rosada del Himalaya — 1 Kilo (1000g)',
+    nameShort: 'Sal Rosada del Himalaya',
     category: 'suplementos',
-    price: 80000,
-    originalPrice: 120000,
+    price: 48000,
+    originalPrice: null,
+    freeShipping: true,
+    stock: 100,
+    featured: false,
+    image: 'images/products/sal rosada del himalaya.png',
+    video: 'videos/products/sal rosada del himalaya.mp4',
+    badge: 'Mejor Valor',
+    description: 'Sal orgánica rosada del Himalaya, 100% pura y sin conservantes ni aditivos. Aporta más de 80 minerales y electrolitos esenciales para una hidratación celular profunda sin inflamarte. Presentación: 1 Kilo (1000g).',
+    longDescription: 'A diferencia de la sal de mesa común (procesada y con aditivos), la Sal Rosada del Himalaya es extraída de depósitos naturales de más de 250 millones de años. Su color rosa característico se debe a su riqueza en hierro y otros minerales traza. Es el complemento perfecto para el protocolo antiinflamatorio BALANCE FEEL.',
+    includes: [],
+    faqs: [
+      { q: '¿Cuál es el contenido del empaque?', a: 'Esta presentación contiene 1 kilo (1000g) de sal rosada del Himalaya — el mejor valor. Sin conservantes ni aditivos, 100% natural.' },
+      { q: '¿Por qué es mejor que la sal normal?', a: 'La sal rosada del Himalaya contiene más de 80 minerales y oligoelementos en su forma natural, sin procesar ni blanquear. Ayuda a regular el pH del cuerpo, la presión arterial y mejora la salud cardiovascular.' },
+      { q: '¿Cómo se usa en el protocolo BALANCE FEEL?', a: 'Se usa como reemplazo de la sal de mesa en todas tus preparaciones. Sazona tus comidas, prepara agua mineralizada o úsala en el protocolo de hidratación indicado en la guía.' },
+      { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
+    ]
+  },
+
+  /* ── COLÁGENO — 1 UNIDAD ───────────────────────────────── */
+  {
+    id: 'E2F-COLAGENO-1',
+    variantGroup: 'E2F-COLAGENO',
+    variantLabel: '1 Unidad',
+    variants: [
+      { id: 'E2F-COLAGENO-1', label: '1 Unidad', price: 85000 },
+      { id: 'E2F-COLAGENO-2', label: '2 Unidades', price: 150000 }
+    ],
+    name: 'Péptidos de Colágeno Bioactivo — 1 Unidad',
+    nameShort: 'Péptidos de Colágeno Bioactivo',
+    category: 'suplementos',
+    price: 85000,
+    originalPrice: null,
+    freeShipping: true,
     stock: 100,
     featured: false,
     image: 'images/products/colageno.png',
     video: 'videos/products/como identificar un buen colágeno.mp4',
     badge: '4x más potente',
-    description: 'Péptidos de colágeno bioactivo, 4 veces más potentes que el colágeno hidrolizado normal. Mejora tu piel, articulaciones, cabello y salud digestiva desde adentro.',
+    description: 'Péptidos de colágeno bioactivo, 4 veces más potentes que el colágeno hidrolizado normal. Mejora tu piel, articulaciones, cabello y salud digestiva desde adentro. Presentación: 1 unidad.',
     longDescription: 'Después de los 25 años nuestro cuerpo deja de producir colágeno de manera eficiente. A diferencia del colágeno hidrolizado común, nuestros péptidos bioactivos son cortados mediante tecnología de enzimas en fragmentos ultra-pequeños que el cuerpo absorbe hasta 4 veces más rápido y de manera más eficiente.',
     includes: [],
     faqs: [
@@ -114,18 +171,90 @@ const DEFAULT_PRODUCTS = [
       { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
     ]
   },
+
+  /* ── COLÁGENO — 2 UNIDADES ─────────────────────────────── */
   {
-    id: 'E2F-METABOLIS',
-    name: 'Metabolism Repairer',
+    id: 'E2F-COLAGENO-2',
+    variantGroup: 'E2F-COLAGENO',
+    variantLabel: '2 Unidades',
+    variants: [
+      { id: 'E2F-COLAGENO-1', label: '1 Unidad', price: 85000 },
+      { id: 'E2F-COLAGENO-2', label: '2 Unidades', price: 150000 }
+    ],
+    name: 'Péptidos de Colágeno Bioactivo — 2 Unidades',
+    nameShort: 'Péptidos de Colágeno Bioactivo',
     category: 'suplementos',
-    price: 90000,
-    originalPrice: 140000,
+    price: 150000,
+    originalPrice: null,
+    freeShipping: true,
+    stock: 100,
+    featured: false,
+    image: 'images/products/colageno.png',
+    video: 'videos/products/como identificar un buen colágeno.mp4',
+    badge: 'Mejor Valor',
+    description: 'Péptidos de colágeno bioactivo, 4 veces más potentes que el colágeno hidrolizado normal. Pack de 2 unidades al mejor precio. Presentación: 2 unidades.',
+    longDescription: 'Después de los 25 años nuestro cuerpo deja de producir colágeno de manera eficiente. A diferencia del colágeno hidrolizado común, nuestros péptidos bioactivos son cortados mediante tecnología de enzimas en fragmentos ultra-pequeños que el cuerpo absorbe hasta 4 veces más rápido y de manera más eficiente.',
+    includes: [],
+    faqs: [
+      { q: '¿En qué horario se puede tomar el colágeno?', a: 'Lo puedes tomar en cualquier horario, sin embargo, hemos visto mejores resultados cuando se toma en ayunas.' },
+      { q: '¿Se puede mezclar con cualquier bebida?', a: 'Lo puedes mezclar con la bebida de tu preferencia. Nuestros péptidos no tienen sabor, así que va bien con todo, inclusive se lo puedes agregar a una sopa.' },
+      { q: '¿Al cuánto tiempo de consumir el producto veo resultados?', a: 'Todos los organismos son diferentes. Sin embargo, hemos tenido casos de personas que a las dos semanas de consumir los péptidos de colágeno en ayunas comienzan a ver resultados en piel, cabello y articulaciones.' },
+      { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
+    ]
+  },
+
+  /* ── METABOLISM REPAIRER — 1 UNIDAD ────────────────────── */
+  {
+    id: 'E2F-METABOLIS-1',
+    variantGroup: 'E2F-METABOLIS',
+    variantLabel: '1 Unidad',
+    variants: [
+      { id: 'E2F-METABOLIS-1', label: '1 Unidad', price: 85000 },
+      { id: 'E2F-METABOLIS-2', label: '2 Unidades', price: 150000 }
+    ],
+    name: 'Metabolism Repairer — 1 Unidad',
+    nameShort: 'Metabolism Repairer',
+    category: 'suplementos',
+    price: 85000,
+    originalPrice: null,
+    freeShipping: true,
     stock: 100,
     featured: false,
     image: 'images/products/metabolis.png',
     video: null,
     badge: '5 en 1',
-    description: 'Suplemento nutricional 5 en 1 que combina Magnesio, Potasio, Zinc, Glutamina y Vitamina C para reparar tu metabolismo, mejorar tu sueño, reducir el estrés y fortalecer tu sistema inmunológico.',
+    description: 'Suplemento nutricional 5 en 1: Magnesio, Potasio, Zinc, Glutamina y Vitamina C. Repara tu metabolismo, mejora tu sueño, reduce el estrés y fortalece tu sistema inmunológico. Presentación: 1 unidad.',
+    longDescription: 'Metabolism Repairer es la fórmula completa que tu cuerpo necesita para funcionar de manera óptima. Cada ingrediente fue seleccionado estratégicamente: el Magnesio apoya más de 300 procesos bioquímicos y promueve un sueño profundo; el Potasio regula la presión arterial y la salud cardiovascular; el Zinc fortalece el sistema inmune y la salud de piel, cabello y uñas; la Glutamina apoya la recuperación muscular y la salud intestinal; y la Vitamina C actúa como poderoso antioxidante y favorece la producción de colágeno.',
+    includes: [],
+    faqs: [
+      { q: '¿En qué horario se puede tomar el Metabolism Repairer?', a: 'Debes tomar dos cápsulas media hora antes de dormir para maximizar su efecto reparador durante el descanso nocturno.' },
+      { q: '¿Se puede tomar con cualquier bebida?', a: 'Puedes tomar las cápsulas con la bebida de tu preferencia, pero como se toman en la noche, procura que no sea una bebida estimulante para no afectar tu sueño reparador.' },
+      { q: '¿Al cuánto tiempo veo resultados?', a: 'Hemos tenido casos de personas que en la primera semana comienzan a ver resultados: reducción del estrés y la ansiedad, sueño más profundo y mayor energía durante el día.' },
+      { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
+    ]
+  },
+
+  /* ── METABOLISM REPAIRER — 2 UNIDADES ──────────────────── */
+  {
+    id: 'E2F-METABOLIS-2',
+    variantGroup: 'E2F-METABOLIS',
+    variantLabel: '2 Unidades',
+    variants: [
+      { id: 'E2F-METABOLIS-1', label: '1 Unidad', price: 85000 },
+      { id: 'E2F-METABOLIS-2', label: '2 Unidades', price: 150000 }
+    ],
+    name: 'Metabolism Repairer — 2 Unidades',
+    nameShort: 'Metabolism Repairer',
+    category: 'suplementos',
+    price: 150000,
+    originalPrice: null,
+    freeShipping: true,
+    stock: 100,
+    featured: false,
+    image: 'images/products/metabolis.png',
+    video: null,
+    badge: 'Mejor Valor',
+    description: 'Suplemento nutricional 5 en 1: Magnesio, Potasio, Zinc, Glutamina y Vitamina C. Pack de 2 unidades al mejor precio. Repara tu metabolismo, mejora tu sueño y fortalece tu sistema inmunológico.',
     longDescription: 'Metabolism Repairer es la fórmula completa que tu cuerpo necesita para funcionar de manera óptima. Cada ingrediente fue seleccionado estratégicamente: el Magnesio apoya más de 300 procesos bioquímicos y promueve un sueño profundo; el Potasio regula la presión arterial y la salud cardiovascular; el Zinc fortalece el sistema inmune y la salud de piel, cabello y uñas; la Glutamina apoya la recuperación muscular y la salud intestinal; y la Vitamina C actúa como poderoso antioxidante y favorece la producción de colágeno.',
     includes: [],
     faqs: [
@@ -135,7 +264,9 @@ const DEFAULT_PRODUCTS = [
       { q: '¿Cuáles son los métodos de pago?', a: 'Aceptamos Mercado Pago: tarjeta de crédito, débito, PSE y Efecty.' }
     ]
   }
+
 ];
+
 
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1-vsPu_yUAU0xPJMqwPupB3KP5daTx73PbpzfNyvRhl0/gviz/tq?tqx=out:csv&gid=1581422793';
 

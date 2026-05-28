@@ -34,8 +34,47 @@ async function initProductPage() {
 
   // 3. Populate UI
   document.title = `${product.name} — Entre2Fit`;
-  document.getElementById('pdp-crumb-name').textContent = product.name;
-  document.getElementById('pdp-title').textContent = product.name;
+  document.getElementById('pdp-crumb-name').textContent = product.nameShort || product.name;
+  document.getElementById('pdp-title').textContent = product.nameShort || product.name;
+
+  // ── FREE SHIPPING BADGE ──────────────────────────────────────────────────
+  let freeShipEl = document.getElementById('pdp-free-shipping');
+  if (!freeShipEl) {
+    freeShipEl = document.createElement('div');
+    freeShipEl.id = 'pdp-free-shipping';
+    freeShipEl.className = 'pdp-free-shipping';
+    const priceWrap = document.getElementById('pdp-price-wrap');
+    if (priceWrap) priceWrap.insertAdjacentElement('afterend', freeShipEl);
+  }
+  freeShipEl.style.display = product.freeShipping ? 'flex' : 'none';
+  freeShipEl.innerHTML = product.freeShipping
+    ? `<span class="pdp-ship-icon">🚚</span> <strong>Envío GRATIS</strong> a toda Colombia`
+    : '';
+
+  // ── VARIANT SELECTOR ─────────────────────────────────────────────────────
+  let variantWrap = document.getElementById('pdp-variant-wrap');
+  if (!variantWrap) {
+    variantWrap = document.createElement('div');
+    variantWrap.id = 'pdp-variant-wrap';
+    const actionArea = document.querySelector('.pdp-action-area');
+    if (actionArea) actionArea.insertAdjacentElement('beforebegin', variantWrap);
+  }
+  if (product.variants && product.variants.length > 1) {
+    variantWrap.innerHTML = `
+      <div class="pdp-variant-label">Presentación:</div>
+      <div class="pdp-variant-btns">
+        ${product.variants.map(v => `
+          <a href="product.html?id=${v.id}"
+             class="pdp-variant-btn${v.id === product.id ? ' active' : ''}">
+            ${v.label}
+          </a>
+        `).join('')}
+      </div>
+    `;
+    variantWrap.style.display = 'block';
+  } else {
+    variantWrap.style.display = 'none';
+  }
   
   // Dynamic title: "PRODUCT NAME in Colombia" / "PRODUCT NAME en Colombia"
   const titleSuffix = pdpT('pdp_desc_title_suffix', 'en Colombia');
