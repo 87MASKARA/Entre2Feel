@@ -503,6 +503,7 @@
       .kit-grid { grid-template-columns: 1fr; }
       .offer-card { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2.5rem; }
       .offer-details h3 { text-align: center; }
+      .benefits-inner { grid-template-columns: 1fr; gap: 3rem; }
     }
     
     @media (max-width: 480px) {
@@ -585,6 +586,57 @@
         min-width: 100%;
       }
     }
+
+    /* Estructura de beneficios en dos columnas */
+    .benefits-inner {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .benefits-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .benefits-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .benefits-image-wrapper {
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-glass);
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      transition: var(--transition);
+    }
+    
+    .benefits-image-wrapper:hover {
+      transform: translateY(-4px);
+      border-color: rgba(123, 91, 255, 0.25);
+      box-shadow: 0 12px 32px rgba(123, 91, 255, 0.15);
+    }
+    
+    .benefits-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      filter: drop-shadow(0 4px 20px rgba(123, 91, 255, 0.15));
+    }
   </style>
 </head>
 <body>
@@ -658,67 +710,10 @@
     </div>
   </section>
 
-  <!-- ── WHAT IS INCLUDED SECTION ── -->
-  <section class="section" id="que-incluye">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label">El Protocolo Completo</span>
-        <h2 class="section-title">¿Qué incluye tu compra hoy?</h2>
-        <p class="section-sub">Un sistema paso a paso diseñado para ayudarte a tomar el control de tu cuerpo de manera sostenible.</p>
-      </div>
-      
-      <div class="kit-grid">
-        <!-- Item 1 -->
-        <div class="kit-item-card">
-          <div class="kit-item-icon">
-            <i class="fa-solid fa-droplet"></i>
-          </div>
-          <div class="kit-item-content">
-            <h3>Gotas Lipo Drean Complex</h3>
-            <p>Nuestra fórmula estrella concentrada para ayudarte a regular la ansiedad de picar dulces, desinflamar el organismo y reparar progresivamente tu metabolismo.</p>
-          </div>
-        </div>
-        
-        <!-- Item 2 -->
-        <div class="kit-item-card">
-          <div class="kit-item-icon">
-            <i class="fa-solid fa-leaf"></i>
-          </div>
-          <div class="kit-item-content">
-            <h3>Protocolo Detox + Sal Rosada</h3>
-            <p>Limpia tu organismo desde las primeras 24 horas y aporta los minerales y electrolitos esenciales necesarios para una correcta hidratación celular sin inflamarte.</p>
-          </div>
-        </div>
-        
-        <!-- Item 3 -->
-        <div class="kit-item-card">
-          <div class="kit-item-icon">
-            <i class="fa-solid fa-book-open"></i>
-          </div>
-          <div class="kit-item-content">
-            <h3>Guía de Alimentación Antiinflamatoria</h3>
-            <p>Recetario exclusivo con platos deliciosos y reales que no te harán pasar hambre. Aprende a nutrir tu cuerpo sin la tortura de las dietas extremas.</p>
-          </div>
-        </div>
-        
-        <!-- Item 4 -->
-        <div class="kit-item-card">
-          <div class="kit-item-icon">
-            <i class="fa-solid fa-dumbbell"></i>
-          </div>
-          <div class="kit-item-content">
-            <h3>Plan de Ejercicios en PDF</h3>
-            <p>Rutinas simples y efectivas en casa o gimnasio estructuradas específicamente para potenciar la quema de grasa y tonificar de forma eficiente.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── BENEFITS & METABOLISM ── -->
   <section class="section section--alt" id="beneficios">
-    <div class="container" style="max-width: 800px; margin: 0 auto;">
-      <div>
+    <div class="container benefits-inner">
+      <div class="benefits-content">
         <span class="section-label" style="display: inline-block; margin-bottom: 1rem;">Beneficios Reales</span>
         <h2 class="hero-title" style="font-size: 2.2rem; margin-bottom: 1.5rem; text-align: left;">Lo que puedes esperar con el protocolo</h2>
         <p style="margin-bottom: 2rem; color: var(--text-sub); line-height: 1.7;">
@@ -749,6 +744,13 @@
               <p style="font-size: 0.9rem; color: var(--text-sub);">Tu metabolismo quemará grasa de forma constante gracias a los hábitos antiinflamatorios.</p>
             </div>
           </div>
+        </div>
+      </div>
+      
+      <!-- Right Side Visual for KIT image (kit2.jpeg) -->
+      <div class="benefits-visual">
+        <div class="benefits-image-wrapper">
+          <img src="images/kit2.jpeg" alt="Kit Balance Feel 2" class="benefits-img">
         </div>
       </div>
     </div>

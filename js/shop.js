@@ -150,8 +150,8 @@ const DEFAULT_PRODUCTS = [
       { id: 'E2F-COLAGENO-1', label: '1 Unidad', price: 85000 },
       { id: 'E2F-COLAGENO-2', label: '2 Unidades', price: 150000 }
     ],
-    name: 'Péptidos de Colágeno Bioactivo — 1 Unidad',
-    nameShort: 'Péptidos de Colágeno Bioactivo',
+    name: 'Péptidos de Colágeno — 1 Unidad',
+    nameShort: 'Péptidos de Colágeno',
     category: 'suplementos',
     price: 85000,
     originalPrice: null,
@@ -181,8 +181,8 @@ const DEFAULT_PRODUCTS = [
       { id: 'E2F-COLAGENO-1', label: '1 Unidad', price: 85000 },
       { id: 'E2F-COLAGENO-2', label: '2 Unidades', price: 150000 }
     ],
-    name: 'Péptidos de Colágeno Bioactivo — 2 Unidades',
-    nameShort: 'Péptidos de Colágeno Bioactivo',
+    name: 'Péptidos de Colágeno — 2 Unidades',
+    nameShort: 'Péptidos de Colágeno',
     category: 'suplementos',
     price: 150000,
     originalPrice: null,
