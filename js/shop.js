@@ -2,7 +2,7 @@
    ENTRE2FIT — Product Data + Shop Rendering (shop.js)
    ============================================================ */
 
-const PRODUCTS_KEY = 'entre2fit_products_v7';
+const PRODUCTS_KEY = 'entre2fit_products_v8';
 
 /* ── i18n helper — lee la traducción actual de lang.js ─── */
 const t = (key, fallback) => {
@@ -295,23 +295,34 @@ function parseCSV(text) {
   return results;
 }
 
-/* ── Fetch Products from Google Sheets ── */
+/* ── Fetch Products ─────────────────────────────────────────────────────────
+   DEFAULT_PRODUCTS (E2F catalog) ALWAYS loads first.
+   The Google Sheets API adds any extra products not already in the catalog.
+   This ensures images, videos and FAQs from DEFAULT_PRODUCTS always appear.
+────────────────────────────────────────────────────────────────────────── */
 const fetchProducts = async () => {
+  const defaultIds = new Set(DEFAULT_PRODUCTS.map(p => p.id));
+
   try {
     const response = await fetch('/api/products');
-    if (!response.ok) throw new Error('Cannot read products from API');
-    
-    const products = await response.json();
-    
-    if (products.error) throw new Error(products.error);
-    
-    // Save a backup copy in case offline later
-    localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
-    return products;
+    if (!response.ok) throw new Error('API unavailable');
+
+    const apiProducts = await response.json();
+    if (apiProducts.error) throw new Error(apiProducts.error);
+
+    // Merge: DEFAULT_PRODUCTS first (they take priority), then any API product
+    // whose ID is not already in the E2F catalog (e.g. peptide research products)
+    const merged = [
+      ...DEFAULT_PRODUCTS,
+      ...apiProducts.filter(p => !defaultIds.has(p.id))
+    ];
+
+    localStorage.setItem(PRODUCTS_KEY, JSON.stringify(merged));
+    return merged;
   } catch (error) {
-    console.error('Error loading API, falling back to local:', error);
-    const stored = localStorage.getItem(PRODUCTS_KEY);
-    return stored ? JSON.parse(stored) : DEFAULT_PRODUCTS;
+    console.warn('[fetchProducts] API failed, using defaults:', error.message);
+    // Even on failure, always return DEFAULT_PRODUCTS
+    return DEFAULT_PRODUCTS;
   }
 };
 
