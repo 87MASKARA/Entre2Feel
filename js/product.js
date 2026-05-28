@@ -88,6 +88,150 @@ async function initProductPage() {
     longDesc.innerHTML = `<strong>${product.name}</strong> — ${bodyText}`;
   }
 
+  // Real product characteristics
+  const lang = localStorage.getItem('entre2fit_lang') || 'es';
+  const productFeatures = {
+    'E2F-KIT': {
+      es: {
+        presentation: "Kit Completo (Gotas + Guías + Sal)",
+        use: "Protocolo integral de 21 días para desinflamación",
+        quality: "Fórmula Médica Avanzada / 100% natural",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "Complete Kit (Drops + Guides + Salt)",
+        use: "21-day comprehensive anti-inflammatory protocol",
+        quality: "Advanced Medical Formula / 100% natural",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-GOTAS': {
+      es: {
+        presentation: "Frasco Gotero (30 ml)",
+        use: "Control de ansiedad, apetito y desinflamación",
+        quality: "Fórmula homeopática / 100% natural",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "Dropper Bottle (30 ml)",
+        use: "Appetite control, anxiety reduction & anti-inflammation",
+        quality: "Homeopathic Formula / 100% natural",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-SAL-500': {
+      es: {
+        presentation: "Empaque de 1 Libra (500g)",
+        use: "Electrolitos e hidratación celular profunda",
+        quality: "100% Pura y orgánica del Himalaya",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "1 Pound (500g) Pack",
+        use: "Electrolytes & deep cellular hydration",
+        quality: "100% Pure & organic Himalayan Salt",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-SAL-1000': {
+      es: {
+        presentation: "Empaque de 1 Kilo (1000g)",
+        use: "Electrolitos e hidratación celular profunda",
+        quality: "100% Pura y orgánica del Himalaya",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "1 Kilo (1000g) Pack",
+        use: "Electrolytes & deep cellular hydration",
+        quality: "100% Pure & organic Himalayan Salt",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-COLAGENO-1': {
+      es: {
+        presentation: "Pote de 300g (Polvo sin sabor)",
+        use: "Salud de piel, cabello, uñas y articulaciones",
+        quality: "Péptidos bioactivos ultra-absorbibles (4x)",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "300g Jar (Unflavored powder)",
+        use: "Skin, hair, nails & joint health",
+        quality: "Ultra-absorbable bioactive peptides (4x)",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-COLAGENO-2': {
+      es: {
+        presentation: "Pack Duplo (2 Potes de 300g)",
+        use: "Salud de piel, cabello, uñas y articulaciones",
+        quality: "Péptidos bioactivos ultra-absorbibles (4x)",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "Double Pack (2 Jars of 300g)",
+        use: "Skin, hair, nails & joint health",
+        quality: "Ultra-absorbable bioactive peptides (4x)",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-METABOLIS-1': {
+      es: {
+        presentation: "Frasco de 60 cápsulas",
+        use: "Reparación metabólica, sueño y reducción de estrés",
+        quality: "Fórmula 5-en-1 (Magnesio, Potasio, Zinc, Glutamina, Vit C)",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "60 Capsule Bottle",
+        use: "Metabolic repair, sleep & stress reduction",
+        quality: "5-in-1 Formula (Magnesium, Potassium, Zinc, Glutamine, Vit C)",
+        shipping: "Free shipping within Colombia"
+      }
+    },
+    'E2F-METABOLIS-2': {
+      es: {
+        presentation: "Pack de 2 Frascos (120 cápsulas)",
+        use: "Reparación metabólica, sueño y reducción de estrés",
+        quality: "Fórmula 5-en-1 (Magnesio, Potasio, Zinc, Glutamina, Vit C)",
+        shipping: "Envío Gratis a toda Colombia"
+      },
+      en: {
+        presentation: "2-Bottle Pack (120 capsules)",
+        use: "Metabolic repair, sleep & stress reduction",
+        quality: "5-in-1 Formula (Magnesium, Potassium, Zinc, Glutamine, Vit C)",
+        shipping: "Free shipping within Colombia"
+      }
+    }
+  };
+
+  const defaultFeat = {
+    es: {
+      presentation: "Gotero / Kit Completo",
+      use: "Bienestar diario y desinflamación",
+      quality: "100% natural y seguro",
+      shipping: "Envío rápido a toda Colombia"
+    },
+    en: {
+      presentation: "Dropper / Complete Kit",
+      use: "Daily wellness & anti-inflammation",
+      quality: "100% natural & safe",
+      shipping: "Fast shipping within Colombia"
+    }
+  };
+
+  const feat = (productFeatures[product.id] || defaultFeat)[lang] || defaultFeat[lang];
+
+  const featPres = document.getElementById('pdp-feat-presentation');
+  const featUse = document.getElementById('pdp-feat-use');
+  const featQual = document.getElementById('pdp-feat-quality');
+  const featShip = document.getElementById('pdp-feat-shipping');
+
+  if (featPres) featPres.textContent = feat.presentation;
+  if (featUse) featUse.textContent = feat.use;
+  if (featQual) featQual.textContent = feat.quality;
+  if (featShip) featShip.textContent = feat.shipping;
+
   // "Includes" list (for Kit and products with includes array)
   const includesEl = document.getElementById('pdp-includes-list');
   if (includesEl) {

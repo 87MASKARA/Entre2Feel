@@ -214,11 +214,16 @@
 }
 .pdp-image-col img {
   width: 100%;
+  max-width: 480px;
   height: auto;
-  max-height: 800px;
+  max-height: 480px;
   object-fit: contain;
-  transform: scale(1.6); /* Enlarge significantly to fill whitespace */
-  transform-origin: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+.pdp-image-col img:hover {
+  transform: scale(1.03);
 }
 
 /* Bottom Section */
