@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Entre2Feel — Google Sheets Setup Utility
+Entre2Fit — Google Sheets Setup Utility
 Este script configura automáticamente las pestañas y columnas correctas
-en tu nueva Google Sheet para la tienda Entre2Feel.
+en tu nueva Google Sheet para la tienda Entre2Fit.
 """
 
 import os
@@ -148,7 +148,7 @@ def main():
     inventory_ws.update(range_name='A1', values=[inventory_headers])
     print("   [OK] Encabezados de Inventario configurados correctamente.")
     
-    # Insertar productos iniciales de Entre2Feel
+    # Insertar productos iniciales de Entre2Fit
     initial_products = [
         [
             "E2F-KIT", 
@@ -200,7 +200,7 @@ def main():
         ]
     ]
     inventory_ws.update(range_name='A2', values=initial_products)
-    print("   [OK] Productos iniciales de Entre2Feel agregados al Inventario.")
+    print("   [OK] Productos iniciales de Entre2Fit agregados al Inventario.")
     
     # Obtener el gid (ID de la pestaña de inventario)
     inventario_gid = inventory_ws.id

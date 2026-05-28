@@ -1,5 +1,5 @@
 /**
- * checkout.js — Entre2Feel Checkout con Mercado Pago Checkout Bricks
+ * checkout.js — Entre2Fit Checkout con Mercado Pago Checkout Bricks
  * Optimizado para la venta de un ÚNICO producto principal: Kit Protocolo Integral BALANCE FEEL.
  */
 
@@ -80,11 +80,11 @@
   // ── Inicializar el Payment Brick de Mercado Pago ────────────────────────────
   async function initBrick(publicKey) {
     const product = SINGLE_PRODUCT;
-    const shippingCost = 0; // Envío gratis en Entre2Feel
+    const shippingCost = 0; // Envío gratis en Entre2Fit
     const total = product.price + shippingCost;
 
-    console.log("[Entre2Feel Checkout] Producto único:", product);
-    console.log("[Entre2Feel Checkout] Total del pedido:", total);
+    console.log("[Entre2Fit Checkout] Producto único:", product);
+    console.log("[Entre2Fit Checkout] Total del pedido:", total);
 
     // Poblar el resumen "Tu pedido"
     renderOrderSummary(product, shippingCost);
@@ -105,7 +105,7 @@
       customization: {
         visual: {
           style: {
-            theme: "default",     // Tema claro/default limpio para Entre2Feel
+            theme: "default",     // Tema claro/default limpio para Entre2Fit
           },
         },
         paymentMethods: {
@@ -183,7 +183,7 @@
       if (!mp_public_key) {
         document.getElementById("paymentBrick_container").innerHTML =
           "<p style='color:#D94F4F;text-align:center;padding:2rem;font-weight:600;'>" +
-          "⚠️ El administrador aún no ha configurado Mercado Pago para Entre2Feel. Contáctanos directamente." +
+          "⚠️ El administrador aún no ha configurado Mercado Pago para Entre2Fit. Contáctanos directamente." +
           "</p>";
         return;
       }

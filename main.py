@@ -1,5 +1,5 @@
 """
-Entre2Feel — Backend API (FastAPI)
+Entre2Fit — Backend API (FastAPI)
 Migración completa: Checkout, Mercado Pago, Google Sheets, Telegram, Email.
 """
 
@@ -73,7 +73,7 @@ SHEET_CSV_URL   = os.getenv(
 )
 
 # Meta Webhooks
-META_VERIFY_TOKEN = os.getenv("META_VERIFY_TOKEN", "entre2feel2026")
+META_VERIFY_TOKEN = os.getenv("META_VERIFY_TOKEN", "entre2fit2026")
 FB_PAGE_TOKEN = os.getenv("FB_PAGE_TOKEN", "")
 IG_PAGE_TOKEN = os.getenv("IG_PAGE_TOKEN", "")
 
@@ -86,21 +86,21 @@ _gemini_client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY and _GEN
 SITE_URL = os.getenv("SITE_URL", "http://localhost:8000")
 
 # Admin API Key (protección de endpoints administrativos)
-ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "entre2feel")
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "entre2fit")
 
 # Thread pool para operaciones síncronas (SMTP, Sheets)
 executor = ThreadPoolExecutor(max_workers=4)
 
 # ── App ───────────────────────────────────────────────────────────────────────
-app = FastAPI(title="Entre2Feel API", version="2.0.0")
+app = FastAPI(title="Entre2Fit API", version="2.0.0")
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://www.entre2feel.com",
-        "https://entre2feel.com",
-        "https://www.entre2feel.co",
-        "https://entre2feel.co",
+        "https://www.entre2fit.com",
+        "https://entre2fit.com",
+        "https://www.entre2fit.co",
+        "https://entre2fit.co",
         "http://localhost:8000",
         "http://127.0.0.1:8000",
         "http://localhost:8001",
@@ -319,7 +319,7 @@ async def get_products():
                     file_id   = image_url.split("/file/d/")[1].split("/")[0]
                     image_url = f"https://lh3.googleusercontent.com/d/{file_id}"
                 elif not image_url:
-                    image_url = "https://placehold.co/400x300/E8F7FA/1A8FA0?text=Entre2Feel"
+                    image_url = "https://placehold.co/400x300/E8F7FA/1A8FA0?text=Entre2Fit"
 
                 cert_url = row.get("Certificate", "")
                 if "drive.google.com/file/d/" in cert_url:
@@ -414,7 +414,7 @@ async def create_checkout(data: CheckoutData):
                 },
                 "auto_return":          "approved",
                 "external_reference":   order_id,
-                "statement_descriptor": "ENTRE2FEEL",
+                "statement_descriptor": "ENTRE2FIT",
                 "notification_url":     f"{SITE_URL}/api/mp-webhook"
             }
 
@@ -464,7 +464,7 @@ async def create_checkout(data: CheckoutData):
     items_list_html = "".join(_item_html(i) for i in data.items)
     email_body = f"""
     <div style="font-family:sans-serif;max-width:600px;margin:auto">
-      <h2 style="color:#7B5BFF">🛒 Nuevo Pedido Entre2Feel — {order_id}</h2>
+      <h2 style="color:#7B5BFF">🛒 Nuevo Pedido Entre2Fit — {order_id}</h2>
       <table style="width:100%;border-collapse:collapse">
         <tr><td style="padding:6px"><b>Cliente:</b></td><td>{data.fname} {data.lname}</td></tr>
         <tr><td style="padding:6px"><b>Email:</b></td><td>{data.email}</td></tr>
@@ -481,7 +481,7 @@ async def create_checkout(data: CheckoutData):
         f"  • {i.get('name','?')} × {i.get('qty',1)}" for i in data.items
     )
     telegram_msg = (
-        f"📦 *Nuevo Pedido Entre2Feel — {order_id}*\n\n"
+        f"📦 *Nuevo Pedido Entre2Fit — {order_id}*\n\n"
         f"*Cliente:* {data.fname} {data.lname}\n"
         f"*Email:* {data.email}\n"
         f"*Teléfono:* {data.phone}\n"
@@ -496,7 +496,7 @@ async def create_checkout(data: CheckoutData):
     asyncio.create_task(send_telegram(telegram_msg))
     if ADMIN_EMAIL:
         asyncio.create_task(
-            send_email(ADMIN_EMAIL, f"[Entre2Feel] Nuevo Pedido {order_id} — {data.fname} {data.lname}", email_body)
+            send_email(ADMIN_EMAIL, f"[Entre2Fit] Nuevo Pedido {order_id} — {data.fname} {data.lname}", email_body)
         )
 
     return {"payment_url": payment_url, "order_id": order_id}
@@ -592,7 +592,7 @@ async def contact_form(data: ContactData):
     )
     email_body = f"""
     <div style="font-family:sans-serif;max-width:600px;margin:auto">
-      <h2 style="color:#7B5BFF">📩 Nuevo Mensaje — Entre2Feel</h2>
+      <h2 style="color:#7B5BFF">📩 Nuevo Mensaje — Entre2Fit</h2>
       <table style="width:100%;border-collapse:collapse">
         <tr><td style="padding:6px"><b>Nombre:</b></td><td>{data.name}</td></tr>
         <tr><td style="padding:6px"><b>Email:</b></td><td><a href="mailto:{data.email}">{data.email}</a></td></tr>
@@ -607,7 +607,7 @@ async def contact_form(data: ContactData):
     asyncio.create_task(send_telegram(telegram_msg))
     if ADMIN_EMAIL:
         asyncio.create_task(
-            send_email(ADMIN_EMAIL, f"[Entre2Feel] Contacto: {data.subject} — {data.name}", email_body)
+            send_email(ADMIN_EMAIL, f"[Entre2Fit] Contacto: {data.subject} — {data.name}", email_body)
         )
     return {"status": "received"}
 
@@ -974,7 +974,7 @@ async def process_payment(data: ProcessPaymentData):
 
         payment_payload = {
             "transaction_amount": tx_amount,
-            "description":        f"Pedido Entre2Feel {order_id}",
+            "description":        f"Pedido Entre2Fit {order_id}",
             "payment_method_id":  data.payment_method_id,
             "payer":              payer_data,
             "external_reference": order_id,
@@ -1069,7 +1069,7 @@ async def process_payment(data: ProcessPaymentData):
         f"  • {i.get('name','?')} × {i.get('qty',1)}" for i in data.items
     )
     telegram_msg = (
-        f"💳 *Pago Bricks Entre2Feel — {order_id}*\n"
+        f"💳 *Pago Bricks Entre2Fit — {order_id}*\n"
         f"*Estado:* {status} ({status_detail})\n"
         f"*ID:* {payment_id}\n"
         f"*Cliente:* {data.fname} {data.lname}\n"
@@ -1085,7 +1085,7 @@ async def process_payment(data: ProcessPaymentData):
     if ADMIN_EMAIL:
         asyncio.create_task(send_email(
             ADMIN_EMAIL,
-            f"[Entre2Feel] Pago Bricks {order_id} — {status}",
+            f"[Entre2Fit] Pago Bricks {order_id} — {status}",
             email_body
         ))
 
@@ -1111,7 +1111,7 @@ async def test_telegram(_auth: bool = Depends(verify_admin_key)):
     """Envía un mensaje de prueba al chat de Telegram configurado."""
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         raise HTTPException(status_code=400, detail="Telegram no configurado")
-    await send_telegram("✅ *Prueba exitosa* — Entre2Feel Admin conectado correctamente.")
+    await send_telegram("✅ *Prueba exitosa* — Entre2Fit Admin conectado correctamente.")
     return {"status": "sent"}
 
 # ── POST /api/admin/test-email ────────────────────────────────────────────────
@@ -1121,11 +1121,11 @@ async def test_email(_auth: bool = Depends(verify_admin_key)):
     if not SMTP_USER or not SMTP_PASS or not ADMIN_EMAIL:
         raise HTTPException(status_code=400, detail="Email no configurado completamente")
     
-    body = "<div style='font-family:sans-serif;'><h2>¡Prueba Exitosa!</h2><p>El servidor Entre2Feel está conectado a tu Gmail correctamente y listo para enviarte notificaciones.</p></div>"
+    body = "<div style='font-family:sans-serif;'><h2>¡Prueba Exitosa!</h2><p>El servidor Entre2Fit está conectado a tu Gmail correctamente y listo para enviarte notificaciones.</p></div>"
     
     try:
         loop = asyncio.get_event_loop()
-        await loop.run_in_executor(executor, _send_email_sync, ADMIN_EMAIL, "✅ Entre2Feel Admin — Prueba Exitosa", body)
+        await loop.run_in_executor(executor, _send_email_sync, ADMIN_EMAIL, "✅ Entre2Fit Admin — Prueba Exitosa", body)
         return {"status": "sent"}
     except Exception as e:
         print(f"[Email Test] Error: {e}")
@@ -1141,7 +1141,7 @@ async def chat_with_ai(req: ChatRequest):
         return {"reply": "Lo siento, el asistente virtual no está disponible en este momento."}
         
     try:
-        prompt = f"""Eres un asesor experto de ventas y soporte al cliente de Entre2Feel, una marca especializada en bienestar y salud metabólica en Colombia.
+        prompt = f"""Eres un asesor experto de ventas y soporte al cliente de Entre2Fit, una marca especializada en bienestar y salud metabólica en Colombia.
 Tu único objetivo es promover y resolver dudas sobre nuestro producto estrella: el **Protocolo Integral BALANCE FEEL**.
 
 === DETALLES DEL PRODUCTO ===
@@ -1163,7 +1163,7 @@ Beneficios principales:
 Envíos: Despachos a toda Colombia. Llega en 2 a 4 días hábiles.
 Pagos: Aceptamos Mercado Pago (tarjeta de crédito, débito, PSE, efecty).
 
-SITIO WEB: https://entre2feel.com
+SITIO WEB: https://entre2fit.com
 
 Objetivo: Responde de forma amable, profesional y persuasiva. Resalta los beneficios del kit (especialmente el control de ansiedad y desinflamación) y anima al cliente a realizar su pedido. Mantén las respuestas cortas y enfocadas (máximo 1-2 párrafos).
 

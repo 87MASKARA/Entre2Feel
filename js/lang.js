@@ -1,8 +1,8 @@
 /* ============================================================
-   ENTRE2FEEL — Bilingual System (EN / ES)
+   ENTRE2FIT — Bilingual System (EN / ES)
    ============================================================ */
 
-const LANG_KEY = 'entre2feel_lang';
+const LANG_KEY = 'entre2fit_lang';
 
 const translations = {
 
@@ -17,7 +17,7 @@ const translations = {
     /* ── Hero (index) ── */
     hero_label:   'Clinical-Grade Peptide Science',
     hero_title:   'Elevate Your Biology.<br><span>Unlock Peak Performance.</span>',
-    hero_sub:     'Entre2Feel delivers rigorously tested, ultra-pure peptide compounds — formulated for athletes, biohackers, and longevity seekers who demand more.',
+    hero_sub:     'Entre2Fit delivers rigorously tested, ultra-pure peptide compounds — formulated for athletes, biohackers, and longevity seekers who demand more.',
     hero_cta1:    'Shop Now',
     hero_cta2:    'How to Buy',
     hero_stat1_val:'500+',
@@ -32,11 +32,11 @@ const translations = {
     /* ── Featured (index) ── */
     feat_label: 'Top Sellers',
     feat_title: 'Featured Products',
-    feat_sub:   'Our most trusted compounds, loved by the Entre2Feel community.',
+    feat_sub:   'Our most trusted compounds, loved by the Entre2Fit community.',
     feat_cta:   'View Full Catalog',
 
     /* ── Trust (index) ── */
-    trust_label:  'Why Entre2Feel',
+    trust_label:  'Why Entre2Fit',
     trust_title:  'Built on Trust & Science',
     trust_sub:    'Every product, every shipment — held to the highest standard.',
     trust1_title: 'Secure Shipping',
@@ -49,12 +49,12 @@ const translations = {
     /* ── Testimonials Preview (index) ── */
     testi_label: 'Customer Stories',
     testi_title: 'What Our Community Says',
-    testi_sub:   'Real results from real people who trust Entre2Feel.',
+    testi_sub:   'Real results from real people who trust Entre2Fit.',
     testi_cta:   'Read All Reviews',
 
     /* ── CTA Banner (index) ── */
     cta_title: 'Ready to Elevate Your Performance?',
-    cta_sub:   'Join thousands of athletes and health-optimizers who trust Entre2Feel.',
+    cta_sub:   'Join thousands of athletes and health-optimizers who trust Entre2Fit.',
     cta_btn:   'Start Shopping',
 
     /* ── Shop Page ── */
@@ -85,7 +85,7 @@ const translations = {
 
     /* ── How to Buy ── */
     htb_hero_title: 'How to Buy',
-    htb_hero_sub:   'Simple, secure, and discreet — your complete guide to ordering from Entre2Feel.',
+    htb_hero_sub:   'Simple, secure, and discreet — your complete guide to ordering from Entre2Fit.',
     steps_label:    'The Process',
     steps_title:    'Order in 4 Easy Steps',
     steps_sub:      'From browsing to delivery — we\'ve made it effortless.',
@@ -109,12 +109,12 @@ const translations = {
     faq_label:  'FAQs',
     faq_title:  'Frequently Asked Questions',
     faq_sub:    'Everything you need to know before ordering.',
-    faq1_q:'Are Entre2Feel products safe?',
+    faq1_q:'Are Entre2Fit products safe?',
     faq1_a:'All our products are independently tested by third-party laboratories for purity (≥99.8%) and safety. They are research-grade compounds intended for qualified individuals.',
     faq2_q:'How long does shipping take?',
     faq2_a:'Orders are processed and shipped within 48 hours. Delivery typically takes 3–7 business days domestically, depending on your location.',
     faq3_q:'Is my order packaged discreetly?',
-    faq3_a:'Absolutely. All orders ship in plain, unmarked boxes or envelopes. There is no Entre2Feel branding on the outside, and the sender name is generic.',
+    faq3_a:'Absolutely. All orders ship in plain, unmarked boxes or envelopes. There is no Entre2Fit branding on the outside, and the sender name is generic.',
     faq4_q:'What is your return policy?',
     faq4_a:'Due to the nature of our products, we do not accept returns on opened items. If your order arrives damaged or incorrect, contact us within 24 hours and we\'ll resolve it immediately.',
 
@@ -131,7 +131,7 @@ const translations = {
 
     /* ── Testimonials Page ── */
     t_hero_title: "Success Stories",
-    t_hero_desc: "Hear from athletes, biohackers, and longevity enthusiasts who trust Entre2Feel for their optimization.",
+    t_hero_desc: "Hear from athletes, biohackers, and longevity enthusiasts who trust Entre2Fit for their optimization.",
     t1_text: "\"I had been feeling super bloated for months no matter how healthy I ate. With the Lipo Drean drops and the anti-inflammatory guide, my digestion changed completely in just one week. I lost 4 kg and feel incredibly light.\"",
     t1_title: "Carolina Mendoza — Verified Customer",
     t2_text: "\"The best part is definitely the drops for anxiety! In the afternoons, I was always dying for cookies or chocolates and it ruined my diet. Since using the kit, that anxiety is completely gone. I am so happy with the workout guides.\"",
@@ -190,7 +190,7 @@ const translations = {
     footer_faqs:  'FAQs',
     footer_privacy:'Privacy Policy',
     footer_terms: 'Terms of Service',
-    footer_copy:  '© 2024 Entre2Feel. All rights reserved.',
+    footer_copy:  '© 2024 Entre2Fit. All rights reserved.',
     no_products:  'No products found in this category.',
 
     /* ── Product Detail Page (PDP) ── */
@@ -241,7 +241,7 @@ const translations = {
     /* ── Hero (index) ── */
     hero_label:   'Ciencia de Péptidos de Grado Clínico',
     hero_title:   'Eleva Tu Biología.<br><span>Desbloquea el Máximo Rendimiento.</span>',
-    hero_sub:     'Entre2Feel ofrece compuestos de péptidos ultrapuros y rigurosamente probados — formulados para atletas, biohackers y buscadores de longevidad que exigen más.',
+    hero_sub:     'Entre2Fit ofrece compuestos de péptidos ultrapuros y rigurosamente probados — formulados para atletas, biohackers y buscadores de longevidad que exigen más.',
     hero_cta1:    'Comprar Ahora',
     hero_cta2:    'Cómo Comprar',
     hero_stat1_val:'500+',
@@ -256,11 +256,11 @@ const translations = {
     /* ── Featured (index) ── */
     feat_label: 'Más Vendidos',
     feat_title: 'Productos Destacados',
-    feat_sub:   'Nuestros compuestos más confiables, favoritos de la comunidad Entre2Feel.',
+    feat_sub:   'Nuestros compuestos más confiables, favoritos de la comunidad Entre2Fit.',
     feat_cta:   'Ver Catálogo Completo',
 
     /* ── Trust (index) ── */
-    trust_label:  'Por Qué Entre2Feel',
+    trust_label:  'Por Qué Entre2Fit',
     trust_title:  'Construido sobre Confianza y Ciencia',
     trust_sub:    'Cada producto, cada envío — mantenido al más alto estándar.',
     trust1_title: 'Envío Seguro',
@@ -273,12 +273,12 @@ const translations = {
     /* ── Testimonials Preview (index) ── */
     testi_label: 'Historias de Clientes',
     testi_title: 'Lo Que Dice Nuestra Comunidad',
-    testi_sub:   'Resultados reales de personas reales que confían en Entre2Feel.',
+    testi_sub:   'Resultados reales de personas reales que confían en Entre2Fit.',
     testi_cta:   'Leer Todas las Reseñas',
 
     /* ── CTA Banner (index) ── */
     cta_title: '¿Listo para Elevar tu Rendimiento?',
-    cta_sub:   'Únete a miles de atletas y optimizadores de salud que confían en Entre2Feel.',
+    cta_sub:   'Únete a miles de atletas y optimizadores de salud que confían en Entre2Fit.',
     cta_btn:   'Comenzar a Comprar',
 
     /* ── Shop Page ── */
@@ -309,7 +309,7 @@ const translations = {
 
     /* ── How to Buy ── */
     htb_hero_title: 'Cómo Comprar',
-    htb_hero_sub:   'Simple, seguro y discreto — tu guía completa para ordenar en Entre2Feel.',
+    htb_hero_sub:   'Simple, seguro y discreto — tu guía completa para ordenar en Entre2Fit.',
     steps_label:    'El Proceso',
     steps_title:    'Ordena en 4 Sencillos Pasos',
     steps_sub:      'Desde la navegación hasta la entrega — lo hemos hecho sin esfuerzo.',
@@ -333,12 +333,12 @@ const translations = {
     faq_label:  'Preguntas Frecuentes',
     faq_title:  'Preguntas Frecuentes',
     faq_sub:    'Todo lo que necesitas saber antes de ordenar.',
-    faq1_q:'¿Son seguros los productos de Entre2Feel?',
+    faq1_q:'¿Son seguros los productos de Entre2Fit?',
     faq1_a:'Todos nuestros productos son probados de forma independiente por laboratorios de terceros para pureza (≥99.8%) y seguridad. Son compuestos de grado investigación destinados a personas calificadas.',
     faq2_q:'¿Cuánto tiempo tarda el envío?',
     faq2_a:'Los pedidos se procesan y envían dentro de las 48 horas. La entrega tarda 3–7 días hábiles a nivel nacional, dependiendo de tu ubicación.',
     faq3_q:'¿Mi pedido se empaca discretamente?',
-    faq3_a:'Absolutamente. Todos los pedidos se envían en cajas o sobres lisos y sin marcas. No hay marca de Entre2Feel en el exterior y el nombre del remitente es genérico.',
+    faq3_a:'Absolutamente. Todos los pedidos se envían en cajas o sobres lisos y sin marcas. No hay marca de Entre2Fit en el exterior y el nombre del remitente es genérico.',
     faq4_q:'¿Cuál es su política de devoluciones?',
     faq4_a:'Debido a la naturaleza de nuestros productos, no aceptamos devoluciones de artículos abiertos. Si tu pedido llega dañado o incorrecto, contáctanos dentro de las 24 horas y lo resolveremos de inmediato.',
 
@@ -355,7 +355,7 @@ const translations = {
 
     /* ── Testimonials Page ── */
     t_hero_title: "Historias de Éxito",
-    t_hero_desc: "Escucha a atletas, biohackers y entusiastas de la longevidad que confían en Entre2Feel para su optimización.",
+    t_hero_desc: "Escucha a atletas, biohackers y entusiastas de la longevidad que confían en Entre2Fit para su optimización.",
     t1_text: "\"Llevaba meses sintiéndome súper hinchada por más que intentaba comer sano. Con las gotas Lipo Drean y la guía antiinflamatoria, mi digestión cambió del cielo a la tierra en solo una semana. He bajado 4 kilos y me siento súper ligera.\"",
     t1_title: "Carolina Mendoza — Cliente Verificada",
     t2_text: "\"¡Lo mejor son las gotas para la ansiedad! Por las tardes siempre me moría por galletas o chocolates y me arruinaba la dieta. Desde que uso el kit, esa ansiedad desapareció por completo. Estoy feliz con las guías de ejercicios.\"",
@@ -414,7 +414,7 @@ const translations = {
     footer_faqs:  'Preguntas Frecuentes',
     footer_privacy:'Política de Privacidad',
     footer_terms: 'Términos de Servicio',
-    footer_copy:  '© 2024 Entre2Feel. Todos los derechos reservados.',
+    footer_copy:  '© 2024 Entre2Fit. Todos los derechos reservados.',
 
 
     /* ── Product Page (PDP) ── */
@@ -490,7 +490,7 @@ const applyLang = (lang) => {
   // Store preference
   localStorage.setItem(LANG_KEY, lang);
   // Notificar a otros scripts (shop.js, etc.) que el idioma cambió
-  document.dispatchEvent(new CustomEvent('entre2feel:langchange', { detail: { lang } }));
+  document.dispatchEvent(new CustomEvent('entre2fit:langchange', { detail: { lang } }));
 };
 
 /* ── Toggle ───────────────────────────────────────────── */

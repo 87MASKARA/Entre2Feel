@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div style="display: flex; align-items: center; gap: 8px;">
                     <span style="font-size: 1.2rem;">🤖</span>
                     <div>
-                        <div style="font-size: 0.9rem;">Entre2Feel IA Asesor</div>
+                        <div style="font-size: 0.9rem;">Entre2Fit IA Asesor</div>
                         <div style="font-size: 0.7rem; color: #7EE8E0;">En línea</div>
                     </div>
                 </div>

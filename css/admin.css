@@ -1,4 +1,4 @@
-/* ── ADMIN DASHBOARD — Entre2Feel v2 ── */
+/* ── ADMIN DASHBOARD — Entre2Fit v2 ── */
 :root {
   --admin-bg:           #0F172A;
   --admin-sidebar:      #0A0F1E;
@@ -824,5 +824,10 @@ body.admin-body {
   .charts-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* Unify dark logo contrast globally */
+img[src*="logo.png"] {
+  filter: brightness(0) invert(1) !important;
 }
 

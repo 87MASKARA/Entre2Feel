@@ -1,11 +1,11 @@
 /* ============================================================
-   ENTRE2FEEL — Admin Panel Logic v2 (admin.js)
+   ENTRE2FIT — Admin Panel Logic v2 (admin.js)
    ============================================================ */
 
 // ── Auth ──────────────────────────────────────────────────────
 if (!localStorage.getItem('admin_logged_in')) {
   const pass = prompt('Contraseña de administrador:');
-  if (pass !== 'entre2feel') {
+  if (pass !== 'entre2fit') {
     document.body.innerHTML = "<div style='display:flex;align-items:center;justify-content:center;height:100vh;background:#0F172A;color:#EF4444;font-family:sans-serif;font-size:1.5rem;'>⛔ Acceso denegado</div>";
     throw new Error('Unauthorized');
   }
@@ -14,7 +14,7 @@ if (!localStorage.getItem('admin_logged_in')) {
 function logout() { localStorage.removeItem('admin_logged_in'); window.location.reload(); }
 
 // ── Admin API Key (misma clave) ────────────────────────────────────
-const ADMIN_API_KEY = 'entre2feel';
+const ADMIN_API_KEY = 'entre2fit';
 function adminHeaders(extra = {}) {
   return { 'X-Admin-Key': ADMIN_API_KEY, 'Content-Type': 'application/json', ...extra };
 }
@@ -202,9 +202,9 @@ async function loadInventoryFromAPI() {
     const r = await fetch('/api/products');
     if (!r.ok) throw new Error();
     products = await r.json();
-    localStorage.setItem('entre2feel_products_v7', JSON.stringify(products));
+    localStorage.setItem('entre2fit_products_v7', JSON.stringify(products));
   } catch {
-    const stored = localStorage.getItem('entre2feel_products_v7');
+    const stored = localStorage.getItem('entre2fit_products_v7');
     products = stored ? JSON.parse(stored) : [];
     showAdminToast('Sin conexión a Sheets — mostrando datos locales', 'warn');
   }
@@ -308,7 +308,7 @@ function exportCSV() {
   const csv = rows.map(r => r.join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = `ordenes_entre2feel_${new Date().toISOString().slice(0,10)}.csv`;
+  a.download = `ordenes_entre2fit_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
 }
 
@@ -398,8 +398,8 @@ async function downloadOrderPDF() {
   const o = activeOrder;
   const fmt = n => new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(n);
   const label = document.getElementById('order-label-print');
-  const logoSrc = document.querySelector('img[alt="Entre2Feel"]')?.src || '';
-  const logoHtml = logoSrc ? `<img src="${logoSrc}" alt="Entre2Feel" style="height: 45px; margin-bottom: 0.5rem;" />` : `<div style="font-size:1.3rem;font-weight:800;color:#7B5BFF;margin-bottom:0.25rem;">Entre2Feel</div>`;
+  const logoSrc = document.querySelector('img[alt="Entre2Fit"]')?.src || '';
+  const logoHtml = logoSrc ? `<img src="${logoSrc}" alt="Entre2Fit" style="height: 45px; margin-bottom: 0.5rem;" />` : `<div style="font-size:1.3rem;font-weight:800;color:#7B5BFF;margin-bottom:0.25rem;">Entre2Fit</div>`;
 
   label.innerHTML = `
     <div style="border:2px solid #7B5BFF;border-radius:12px;padding:2rem;max-width:380px;font-family:sans-serif;">

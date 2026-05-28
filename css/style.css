@@ -561,3 +561,8 @@ p  { color: var(--text-sub); }
 .author-name  { font-weight: 700; font-size: 0.95rem; color: var(--white); }
 .author-title { font-size: 0.78rem; color: var(--text-sub); }
 
+/* Unify dark logo contrast globally */
+img[src*="logo.png"] {
+  filter: brightness(0) invert(1) !important;
+}
+
