@@ -1,3 +1,4 @@
+# Entre2Fit Dependencies
 fastapi
 uvicorn[standard]
 python-dotenv
