@@ -21,15 +21,16 @@
     .step-card {
       text-align: center;
       padding: 2rem 1.5rem;
-      background: var(--white);
+      background: rgba(20, 10, 35, 0.6);
+      backdrop-filter: blur(12px);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--gray-100);
-      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-glass);
       position: relative;
     }
     .step-num {
       width: 52px; height: 52px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
       color: var(--white);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -37,12 +38,13 @@
       font-weight: 800;
       margin: 0 auto 1.25rem;
     }
-    .step-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
-    .step-card p  { font-size: 0.9rem; }
+    .step-card h3 { color: var(--white); margin-bottom: 0.5rem; }
+    .step-card p  { font-size: 0.9rem; color: var(--text-sub); }
 
     .faq-item {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
+      background: rgba(20, 10, 35, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
       margin-bottom: 0.75rem;
       overflow: hidden;
@@ -53,12 +55,12 @@
       justify-content: space-between;
       padding: 1.1rem 1.5rem;
       font-weight: 600;
-      color: var(--primary);
+      color: var(--white);
       cursor: pointer;
       user-select: none;
       transition: var(--transition);
     }
-    .faq-question:hover { background: var(--teal-light); }
+    .faq-question:hover { background: rgba(255, 255, 255, 0.05); }
     .faq-arrow {
       transition: transform 0.25s ease;
       color: var(--secondary);
@@ -89,15 +91,16 @@
     .payment-card {
       text-align: center;
       padding: 1.75rem 1.25rem;
-      background: var(--white);
+      background: rgba(20, 10, 35, 0.6);
+      backdrop-filter: blur(12px);
       border-radius: var(--radius-lg);
-      border: 2px solid var(--gray-100);
-      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-glass);
       transition: var(--transition);
     }
     .payment-card:hover { border-color: var(--secondary); transform: translateY(-3px); box-shadow: var(--shadow-md); }
     .payment-card .icon { font-size: 2.25rem; margin-bottom: 0.75rem; }
-    .payment-card h4 { color: var(--primary); margin-bottom: 0.35rem; font-size: 0.95rem; }
+    .payment-card h4 { color: var(--white); margin-bottom: 0.35rem; font-size: 0.95rem; }
     .payment-card p  { font-size: 0.82rem; color: var(--text-sub); line-height: 1.5; }
     .mp-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
@@ -119,22 +122,24 @@
     }
     @media(max-width:768px){ .contact-grid{ grid-template-columns:1fr; } }
     .contact-form-wrap {
-      background: var(--white);
+      background: rgba(20, 10, 35, 0.6);
+      backdrop-filter: blur(12px);
       border-radius: var(--radius-lg);
       padding: 2.25rem;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-100);
+      box-shadow: var(--shadow-glass);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .contact-info-col { display: flex; flex-direction: column; gap: 1.25rem; }
     .contact-info-card {
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      background: var(--white);
+      background: rgba(20, 10, 35, 0.6);
+      backdrop-filter: blur(12px);
       border-radius: var(--radius-lg);
       padding: 1.25rem 1.5rem;
-      border: 1px solid var(--gray-100);
-      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-glass);
       transition: var(--transition);
     }
     .contact-info-card:hover { border-color: var(--secondary); transform: translateX(4px); }
@@ -145,20 +150,21 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1.25rem;
     }
-    .contact-info-card .ci-text h5 { color: var(--primary); font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .contact-info-card .ci-text h5 { color: var(--white); font-size: 0.9rem; margin-bottom: 0.2rem; }
     .contact-info-card .ci-text p  { font-size: 0.85rem; color: var(--text-sub); margin: 0; }
     .contact-info-card .ci-text a  { color: var(--secondary); font-weight: 600; text-decoration: none; }
     .contact-info-card .ci-text a:hover { text-decoration: underline; }
     .contact-note {
-      background: linear-gradient(135deg, rgba(26,143,160,0.08), rgba(26,143,160,0.03));
-      border: 1px solid rgba(26,143,160,0.2);
+      background: rgba(20, 10, 35, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
       padding: 1rem 1.25rem;
       font-size: 0.85rem;
       color: var(--text-sub);
       line-height: 1.6;
     }
-    .contact-note strong { color: var(--primary); }
+    .contact-note strong { color: var(--white); }
       .contact-cards-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -297,41 +303,41 @@
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
-    <div class="section-label" data-i18n="faq_label">FAQs</div>
-    <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
-    <p class="section-sub" data-i18n="faq_sub">Everything you need to know before ordering.</p>
+    <div class="section-label" data-i18n="faq_label">Preguntas Frecuentes</div>
+    <h2 class="section-title" data-i18n="faq_title">Preguntas Frecuentes</h2>
+    <p class="section-sub" data-i18n="faq_sub">Todo lo que necesitas saber antes de ordenar.</p>
     <div style="max-width:720px;margin:0 auto;">
 
       <div class="faq-item">
         <div class="faq-question">
-          <span data-i18n="faq1_q">Are Entre2Fit products safe?</span>
+          <span>¿En cuánto tiempo veo resultados?</span>
           <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-answer" data-i18n="faq1_a">All our products are independently tested by third-party laboratories for purity (≥99.8%) and safety. They are research-grade compounds intended for qualified individuals.</div>
+        <div class="faq-answer">Muchas de nuestras clientas sienten un cambio notable en sus niveles de energía y una digestión más ligera desde la primera semana de uso. Los cambios reales en medidas corporales y báscula empiezan a ser visibles entre los primeros 15 a 20 días aplicando con juicio el protocolo.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question">
-          <span data-i18n="faq2_q">How long does shipping take?</span>
+          <span>¿Realmente ayuda con la ansiedad por el dulce?</span>
           <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-answer" data-i18n="faq2_a">Orders are processed and shipped within 48 hours. Delivery typically takes 3–7 business days domestically, depending on your location.</div>
+        <div class="faq-answer">¡Sí, totalmente! La fórmula concentrada de las gotas Lipo Drean está diseñada para ayudar a regular los picos de insulina y cortisol en tu organismo, lo cual apaga esa necesidad de estar buscando dulces, harinas y golosinas constantemente durante las tardes.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question">
-          <span data-i18n="faq3_q">Is my order packaged discreetly?</span>
+          <span>¿Qué es exactamente lo que recibiré?</span>
           <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-answer" data-i18n="faq3_a">Absolutely. All orders ship in plain, unmarked boxes or envelopes. There is no Entre2Fit branding on the outside, and the sender name is generic.</div>
+        <div class="faq-answer">Tu compra incluye el kit completo físico y digital: un frasco de gotas concentradas Lipo Drean Complex, el extracto de sales naturales detox y sal rosada para tu hidratación diaria, la Guía de Alimentación Antiinflamatoria digital descargable en PDF (con recetas del día a día) y el Plan de Ejercicios digital en PDF.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question">
-          <span data-i18n="faq4_q">What is your return policy?</span>
+          <span>¿Es seguro para mí?</span>
           <svg class="faq-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-answer" data-i18n="faq4_a">Due to the nature of our products, we do not accept returns on opened items. If your order arrives damaged or incorrect, contact us within 24 hours and we'll resolve it immediately.</div>
+        <div class="faq-answer">Sí. El protocolo está elaborado con componentes 100% naturales enfocados en nutrir tus células y desinflamar tu organismo. Ha ayudado a decenas de mujeres a desinflamarse sin generar efectos secundarios ni rebotes. Ante cualquier condición médica preexistente, te aconsejamos consultar a tu médico.</div>
       </div>
 
     </div>
