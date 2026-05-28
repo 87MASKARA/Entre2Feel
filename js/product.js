@@ -38,14 +38,29 @@ async function initProductPage() {
   document.getElementById('pdp-title').textContent = product.name;
   
   // Dynamic title: "PRODUCT NAME in Colombia" / "PRODUCT NAME en Colombia"
-  const titleSuffix = pdpT('pdp_desc_title_suffix', 'in Colombia');
+  const titleSuffix = pdpT('pdp_desc_title_suffix', 'en Colombia');
   const titleCol = document.getElementById('pdp-desc-title-col');
   if (titleCol) titleCol.textContent = `${product.name} ${titleSuffix}`;
   
+  // Long description
   const longDesc = document.getElementById('pdp-desc-text');
-  const fallbackDesc = pdpT('pdp_desc_section', 'is a research-stage compound.');
-  if (longDesc) longDesc.innerHTML = `<strong>${product.name}</strong> ${product.description || fallbackDesc}`;
+  if (longDesc) {
+    const bodyText = product.longDescription || product.description || '';
+    longDesc.innerHTML = `<strong>${product.name}</strong> — ${bodyText}`;
+  }
+
+  // "Includes" list (for Kit and products with includes array)
+  const includesEl = document.getElementById('pdp-includes-list');
+  if (includesEl) {
+    if (product.includes && product.includes.length > 0) {
+      includesEl.innerHTML = product.includes.map(item => `<li>✅ ${item}</li>`).join('');
+      document.getElementById('pdp-includes-wrap').style.display = 'block';
+    } else {
+      document.getElementById('pdp-includes-wrap').style.display = 'none';
+    }
+  }
   
+  // Image
   const imgEl = document.getElementById('pdp-image');
   imgEl.src = product.image || 'https://placehold.co/600x600/E8F7FA/1A8FA0?text=Entre2Fit';
   imgEl.alt = product.name;
@@ -80,12 +95,40 @@ async function initProductPage() {
     document.getElementById('pdp-price-original').style.display = 'none';
   }
 
+  // ── VIDEO BUTTON ──────────────────────────────────────────────────────────
+  const videoBtnWrap = document.getElementById('pdp-video-btn-wrap');
+  const videoPlayer  = document.getElementById('pdp-video-player');
+  const videoModal   = document.getElementById('pdp-video-modal');
+  const videoClose   = document.getElementById('pdp-video-close');
+  const videoBackdrop = document.getElementById('pdp-video-backdrop');
+
+  if (product.video && videoBtnWrap) {
+    videoBtnWrap.style.display = 'block';
+    const openModal = () => {
+      videoPlayer.src = product.video;
+      videoModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      videoPlayer.play().catch(() => {});
+    };
+    const closeModal = () => {
+      videoModal.style.display = 'none';
+      videoPlayer.pause();
+      videoPlayer.src = '';
+      document.body.style.overflow = '';
+    };
+    document.getElementById('pdp-video-btn').onclick = openModal;
+    if (videoClose) videoClose.onclick = closeModal;
+    if (videoBackdrop) videoBackdrop.onclick = closeModal;
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  } else if (videoBtnWrap) {
+    videoBtnWrap.style.display = 'none';
+  }
+
   // Handle Certificate Image Display
   if (product.certificate) {
     const certArea = document.getElementById('pdp-cert-area');
     if (certArea) {
       document.getElementById('pdp-cert-title-h3').style.display = 'block';
-      
       const certImg = document.createElement('img');
       certImg.src = product.certificate;
       certImg.alt = "Certificate";
@@ -93,13 +136,11 @@ async function initProductPage() {
       certImg.style.width = "100%";
       certImg.style.borderRadius = "8px";
       certImg.style.boxShadow = "0 4px 12px rgba(0,0,0,0.05)";
-      
       const certLink = document.createElement('a');
       certLink.href = product.certificate;
       certLink.target = "_blank";
       certLink.referrerPolicy = "no-referrer";
       certLink.appendChild(certImg);
-      
       certArea.appendChild(certLink);
     }
   }
@@ -139,7 +180,6 @@ async function initProductPage() {
   // 4. Quantity Controls
   const qtyInput = document.getElementById('pdp-qty-input');
   if (qtyInput) {
-    // If they want to type, remove readonly
     qtyInput.removeAttribute('readonly');
   }
 
@@ -157,7 +197,23 @@ async function initProductPage() {
     };
   }
 
-  // 6. Accordions
+  // ── 6. DYNAMIC FAQs ──────────────────────────────────────────────────────
+  const accordion = document.getElementById('pdp-accordion');
+  if (accordion && product.faqs && product.faqs.length > 0) {
+    accordion.innerHTML = product.faqs.map((faq, i) => `
+      <div class="pdp-acc-item${i === 0 ? ' active' : ''}">
+        <button class="pdp-acc-btn">
+          <span>${faq.q}</span>
+          <span class="plus-icon">+</span>
+        </button>
+        <div class="pdp-acc-content"${i === 0 ? ' style="max-height:500px;"' : ''}>
+          <div class="pdp-acc-content-inner">${faq.a}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // 7. Accordions interaction
   const accBtns = document.querySelectorAll('.pdp-acc-btn');
   accBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -165,7 +221,6 @@ async function initProductPage() {
       const content = item.querySelector('.pdp-acc-content');
       const isActive = item.classList.contains('active');
       
-      // Close all others (optional accordion logic)
       document.querySelectorAll('.pdp-acc-item').forEach(i => {
         i.classList.remove('active');
         i.querySelector('.pdp-acc-content').style.maxHeight = null;
@@ -184,7 +239,7 @@ async function initProductPage() {
     firstAccContent.style.maxHeight = firstAccContent.scrollHeight + "px";
   }
 
-  // 7. Render Related Products
+  // 8. Render Related Products
   renderRelatedProducts(product, products);
 }
 

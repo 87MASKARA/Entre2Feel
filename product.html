@@ -83,9 +83,18 @@
             <button class="btn pdp-btn-add-pill" id="pdp-add-btn">Añadir al carrito</button>
           </div>
 
+          <!-- Video Button (shown only when product has video) -->
+          <div id="pdp-video-btn-wrap" style="display:none; margin-bottom:1.5rem;">
+            <button class="pdp-video-trigger" id="pdp-video-btn" aria-label="Ver video del producto">
+              <span class="pdp-video-play-icon">▶</span>
+              <span id="pdp-video-btn-label">Ver video del producto</span>
+            </button>
+          </div>
+
           <h3 class="pdp-faq-title" data-i18n="pdp_faq_title">Preguntas Frecuentes</h3>
-          <!-- Accordions -->
-          <div class="pdp-accordion">
+          <!-- Accordions — injected dynamically by product.js -->
+          <div class="pdp-accordion" id="pdp-accordion">
+            <!-- Fallback static items -->
             <div class="pdp-acc-item active">
               <button class="pdp-acc-btn">
                 <span data-i18n="pdp_faq1_q">¿Cómo se realiza el envío?</span>
@@ -133,6 +142,17 @@
       </div>
     </div> <!-- /pepti-card-main -->
 
+    <!-- Video Modal Overlay -->
+    <div class="pdp-video-modal" id="pdp-video-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Video del producto">
+      <div class="pdp-video-modal__backdrop" id="pdp-video-backdrop"></div>
+      <div class="pdp-video-modal__content">
+        <button class="pdp-video-modal__close" id="pdp-video-close" aria-label="Cerrar video">✕</button>
+        <video id="pdp-video-player" controls playsinline preload="metadata" style="width:100%;border-radius:1rem;display:block;">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+    </div>
+
     <!-- Bottom Section: Descripción del producto -->
     <div class="pdp-bottom-section">
       <h2 class="pdp-bottom-title" data-i18n="pdp_desc_section">Descripción del producto</h2>
@@ -141,6 +161,12 @@
         <div class="pdp-desc-long">
           <h4 id="pdp-desc-title-col">Cargando...</h4>
           <p id="pdp-desc-text">Este es un compuesto en fase de investigación...</p>
+          
+          <!-- Includes list (shown for Kit and bundle products) -->
+          <div id="pdp-includes-wrap" style="display:none; margin: 1.5rem 0;">
+            <h3>¿Qué incluye?</h3>
+            <ul class="pdp-includes-list" id="pdp-includes-list"></ul>
+          </div>
           
           <h3 data-i18n="pdp_features_title">Características del producto</h3>
           <ul class="pdp-features">

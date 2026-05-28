@@ -122,6 +122,7 @@ async def verify_admin_key(x_admin_key: str = Header(None)):
 app.mount("/css",    StaticFiles(directory=os.path.join(BASE_DIR, "css")),    name="css")
 app.mount("/js",     StaticFiles(directory=os.path.join(BASE_DIR, "js")),     name="js")
 app.mount("/images", StaticFiles(directory=os.path.join(BASE_DIR, "images")), name="images")
+app.mount("/videos", StaticFiles(directory=os.path.join(BASE_DIR, "videos")), name="videos")
 
 # ── Pydantic Models ───────────────────────────────────────────────────────────
 class CartItem(BaseModel):

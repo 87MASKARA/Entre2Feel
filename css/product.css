@@ -279,3 +279,110 @@
     padding: 1.5rem;
   }
 }
+
+/* ── VIDEO TRIGGER BUTTON ── */
+.pdp-video-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #7B5BFF 0%, #E8DFFF 100%);
+  color: #1a1035;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 20px rgba(123, 91, 255, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  justify-content: center;
+}
+.pdp-video-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(123, 91, 255, 0.5);
+}
+.pdp-video-play-icon {
+  font-size: 1rem;
+  background: rgba(0,0,0,0.15);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── VIDEO MODAL ── */
+.pdp-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.pdp-video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 5, 30, 0.88);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+.pdp-video-modal__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 860px;
+  background: #0d0d1a;
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.pdp-video-modal__close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background: #7B5BFF;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(123,91,255,0.5);
+  transition: background 0.2s ease;
+  z-index: 2;
+}
+.pdp-video-modal__close:hover { background: #5a3dd8; }
+
+/* ── INCLUDES LIST ── */
+.pdp-includes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.pdp-includes-list li {
+  color: var(--text-sub);
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
