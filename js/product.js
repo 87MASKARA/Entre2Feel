@@ -307,11 +307,75 @@ async function initProductPage() {
     videoBtnWrap.style.display = 'none';
   }
 
-  // Handle Certificate Image Display
-  if (product.certificate) {
-    const certArea = document.getElementById('pdp-cert-area');
-    if (certArea) {
-      document.getElementById('pdp-cert-title-h3').style.display = 'block';
+  // Handle Certificate Image Display & Testimonial Carousels
+  const certArea = document.getElementById('pdp-cert-area');
+  if (certArea) {
+    certArea.innerHTML = ''; // Limpiar contenido previo
+    const certTitle = document.getElementById('pdp-cert-title-h3');
+    if (certTitle) certTitle.style.display = 'none';
+
+    if (product.id === 'E2F-KIT' || product.id === 'E2F-GOTAS') {
+      const imagesList = product.id === 'E2F-KIT' 
+        ? [
+            "WhatsApp Image 2026-05-27 at 22.21.39 (1).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.39 (2).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.39.jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (1).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (2).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (3).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (4).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (5).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (6).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40 (7).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.40.jpeg",
+            "WhatsApp Image 2026-05-27 at 22.21.41.jpeg"
+          ].map(img => `images/testimonios/kit y gotas/${img}`)
+        : [
+            "WhatsApp Image 2026-05-27 at 22.25.37 (1).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37 (2).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37 (3).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37 (4).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37 (5).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37 (6).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37 (7).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.37.jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.38 (1).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.38 (2).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.38 (3).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.38 (4).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.38 (5).jpeg",
+            "WhatsApp Image 2026-05-27 at 22.25.38.jpeg"
+          ].map(img => `images/testimonios/lipo drean/${img}`);
+
+      certArea.innerHTML = `
+        <div class="pdp-testimonial-carousel-container">
+          <h3 class="pdp-cert-title" style="margin-bottom: 1.5rem; text-align: center; color: var(--pepti-indigo); font-size: 1.5rem; font-weight: 700;">Testimonios Reales</h3>
+          
+          <div class="pdp-slider-wrapper">
+            <button class="pdp-slider-arrow prev" onclick="movePdpSlider(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            
+            <div class="pdp-slider-track-container">
+              <div class="pdp-slider-track" id="pdp-testimonial-slider" data-index="0">
+                ${imagesList.map(src => `
+                  <div class="pdp-slider-slide">
+                    <img src="${src}" alt="Testimonio de Cliente">
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <button class="pdp-slider-arrow next" onclick="movePdpSlider(1)"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      `;
+
+      if (window.pdpSliderInterval) clearInterval(window.pdpSliderInterval);
+      window.pdpSliderInterval = setInterval(() => {
+        window.movePdpSlider(1);
+      }, 4000);
+
+    } else if (product.certificate) {
+      if (certTitle) certTitle.style.display = 'block';
       const certImg = document.createElement('img');
       certImg.src = product.certificate;
       certImg.alt = "Certificate";
@@ -325,6 +389,16 @@ async function initProductPage() {
       certLink.referrerPolicy = "no-referrer";
       certLink.appendChild(certImg);
       certArea.appendChild(certLink);
+      
+      if (window.pdpSliderInterval) {
+        clearInterval(window.pdpSliderInterval);
+        window.pdpSliderInterval = null;
+      }
+    } else {
+      if (window.pdpSliderInterval) {
+        clearInterval(window.pdpSliderInterval);
+        window.pdpSliderInterval = null;
+      }
     }
   }
 
@@ -453,3 +527,20 @@ function renderRelatedProducts(currentProduct, allProducts) {
     grid.innerHTML = related.map(p => renderCard(p)).join('');
   }
 }
+
+window.movePdpSlider = function(direction) {
+  const slider = document.getElementById('pdp-testimonial-slider');
+  if (!slider) return;
+  const slideCount = slider.children.length;
+  if (slideCount === 0) return;
+  const slideWidth = slider.children[0].offsetWidth;
+  
+  let currentIndex = parseInt(slider.getAttribute('data-index') || '0');
+  currentIndex += direction;
+  
+  if (currentIndex < 0) currentIndex = slideCount - 1;
+  if (currentIndex >= slideCount) currentIndex = 0;
+  
+  slider.setAttribute('data-index', currentIndex);
+  slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+};
