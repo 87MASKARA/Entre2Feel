@@ -70,7 +70,7 @@ const DEFAULT_PRODUCTS = [
     longDescription: 'Las Gotas Lipo Drean Complex son el corazón del Método Lipodrean. Esta fórmula única actúa directamente sobre los procesos inflamatorios del cuerpo, ayudando a reactivar el drenaje linfático natural, reducir la retención de líquidos y controlar el apetito ansioso. No atacamos el peso, atacamos la inflamación.',
     includes: [],
     faqs: [
-      { q: '¿Cómo se toman las gotas?', a: 'Se toman según el protocolo indicado en el kit. Generalmente se administran en ayunas para maximizar su absorción y efectividad.' },
+      { q: '¿Cómo se toman las gotas?', a: 'Se toman según el protocolo indicado en el kit. Se deben tomar 7 gotas 3 veces al día, osea en total 21 gotas diarias.' },
       { q: '¿Cuánto dura un frasco?', a: 'Un frasco está diseñado para completar el ciclo de 21 días del protocolo BALANCE FEEL.' },
       { q: '¿Tienen algún efecto secundario?', a: 'La fórmula es 100% natural. Sin embargo, si tienes alguna condición médica o estás embarazada, consulta con tu médico antes de iniciar.' },
       { q: '¿En cuánto tiempo veo resultados?', a: 'Muchas personas reportan sentirse más livianas y con menos retención de líquidos desde la primera semana. Los resultados visibles en báscula suelen aparecer entre los días 15 y 20.' },

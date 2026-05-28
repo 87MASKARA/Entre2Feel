@@ -149,13 +149,13 @@ async function initProductPage() {
     },
     'E2F-COLAGENO-1': {
       es: {
-        presentation: "Pote de 300g (Polvo sin sabor)",
+        presentation: "250gr (polvo sin sabor)",
         use: "Salud de piel, cabello, uñas y articulaciones",
         quality: "Péptidos bioactivos ultra-absorbibles (4x)",
         shipping: "Envío Gratis a toda Colombia"
       },
       en: {
-        presentation: "300g Jar (Unflavored powder)",
+        presentation: "250g (unflavored powder)",
         use: "Skin, hair, nails & joint health",
         quality: "Ultra-absorbable bioactive peptides (4x)",
         shipping: "Free shipping within Colombia"
@@ -163,13 +163,13 @@ async function initProductPage() {
     },
     'E2F-COLAGENO-2': {
       es: {
-        presentation: "Pack Duplo (2 Potes de 300g)",
+        presentation: "Pack Duplo (2 x 250gr)",
         use: "Salud de piel, cabello, uñas y articulaciones",
         quality: "Péptidos bioactivos ultra-absorbibles (4x)",
         shipping: "Envío Gratis a toda Colombia"
       },
       en: {
-        presentation: "Double Pack (2 Jars of 300g)",
+        presentation: "Double Pack (2 x 250g)",
         use: "Skin, hair, nails & joint health",
         quality: "Ultra-absorbable bioactive peptides (4x)",
         shipping: "Free shipping within Colombia"
